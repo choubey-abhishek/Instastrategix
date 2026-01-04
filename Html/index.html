@@ -1,188 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Instastrategix</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Instastrategix - Helping small businesses, coaches, and startups grow with stunning visuals & marketing.">
+  <meta name="keywords" content="Digital Marketing, Social Media Marketing, Graphic Design, Website Design, PPC Ads">
+  <title>Instastrategix | Home</title>
+  
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/global.css">
+  <style>
+    /* ===== VARIABLES ===== */
+    :root {
+      --primary: #ff4b2b;
+      --secondary: #1f2933;
+      --accent: #f97316;
+      --bg-light: #f9fafb;
+      --bg-dark: #0f172a;
+      --text-dark: #111827;
+      --text-light: #6b7280;
+      --glass: rgba(255, 255, 255, 0.08);
+    }
+
+    /* ===== RESET ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', 'Poppins', sans-serif; color: var(--text-dark); background: var(--bg-light); line-height: 1.6; }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 5%; background: rgba(255,255,255,0.95);
+      position: sticky; top: 0; z-index: 1000;
+      transition: all 0.3s ease; backdrop-filter: blur(10px);
+    }
+    .navbar.scrolled { box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+    .navbar .logo img { height: 50px; cursor: pointer; }
+    .nav-links { list-style: none; display: flex; gap: 2rem; }
+    .nav-links li a { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: color 0.3s; }
+    .nav-links li a:hover { color: var(--primary); }
+
+    /* HAMBURGER */
+    .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+    .hamburger span { width: 25px; height: 3px; background: var(--text-dark); border-radius: 3px; }
+
+    /* ===== HERO ===== */
+    .hero { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 5% 10%; gap: 2rem; }
+    .hero-content { flex: 1 1 500px; animation: fadeIn 1s ease forwards; }
+    .hero-content h1 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--secondary); }
+    .hero-content p { margin-bottom: 1.5rem; font-size: 1.15rem; color: var(--text-light); }
+    .cta-btn { display: inline-block; padding: 0.9rem 2.5rem; background: var(--primary); color: #fff; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.3s; }
+    .cta-btn:hover { background: #ff6b4b; transform: translateY(-3px); }
+    .hero-image img { max-width: 100%; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.08); }
+
+    /* ===== SERVICES PREVIEW ===== */
+    .services-preview { padding: 5% 10%; text-align: center; background: #fff; }
+    .services-preview h2 { font-size: 2rem; margin-bottom: 2rem; color: var(--secondary); }
+    .services-cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; }
+    .service-card {
+      position: relative; background: #fff; border-radius: 18px; padding: 2.5rem; width: 300px;
+      transition: all 0.4s ease; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+    .service-card::before {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(120deg, transparent, rgba(255,75,43,0.15)); opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .service-card:hover { transform: translateY(-12px); }
+    .service-card:hover::before { opacity: 1; }
+    .service-card img { height: 60px; margin-bottom: 1rem; }
+    .service-card h3 { margin-bottom: 1rem; }
+    .service-card p { font-size: 0.95rem; color: var(--text-light); }
+    .cta-link { display: inline-block; margin-top: 1.5rem; color: var(--primary); font-weight: 600; text-decoration: none; transition: color 0.3s; }
+    .cta-link:hover { color: #ff6b4b; }
+
+    /* ===== FOOTER ===== */
+    footer { background: var(--secondary); color: #fff; text-align: center; padding: 2rem 5%; }
+    footer a { color: var(--primary); text-decoration: none; }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeIn { from {opacity:0; transform: translateY(20px);} to {opacity:1; transform: translateY(0);} }
+    .reveal { opacity:0; transform: translateY(40px); transition: all 0.8s ease; }
+    .reveal.active { opacity:1; transform: translateY(0); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) { .hero-content h1 { font-size: 2.2rem; } }
+    @media (max-width: 768px) {
+      .hero { flex-direction: column; text-align: center; }
+      .nav-links { position: absolute; top: 70px; right: 0; background: #fff; flex-direction: column; width: 200px; transform: translateX(100%); transition: transform 0.3s; padding: 2rem; box-shadow: -2px 0 10px rgba(0,0,0,0.1); }
+      .nav-links.active { transform: translateX(0); }
+      .hamburger { display: flex; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ================= NAVBAR ================= -->
-  <header class="navbar">
-    <div class="nav-container">
-
-      <!-- Navigation Links -->
-      <nav class="nav-links" id="navMenu">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="founder.html">Founder</a>
-        <a href="contact.html" class="nav-cta">Contact</a>
-      </nav>
-
-      <!-- Logo (Top-Right) -->
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar">
       <a href="index.html" class="logo">
-        Instastrategix
+        <img src="images/logo.png" alt="Instastrategix Logo">
       </a>
-
-      <!-- Hamburger -->
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#founder">Founder</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="hamburger">
+        <span></span><span></span><span></span>
       </div>
-
-    </div>
+    </nav>
   </header>
-  <!-- =============== END NAVBAR =============== -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Instastrategix – Digital Growth Agency</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/home.css">
-</head>
-<body>
-
-  <!-- ================= HERO ================= -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Strategic Digital Marketing<br>That Drives Real Growth</h1>
-      <p>
-        We help brands scale with performance-driven marketing, data-backed strategy,
-        and premium execution.
-      </p>
-
-      <div class="hero-actions">
-        <a href="contact.html" class="btn-primary">Get Started</a>
-        <a href="services.html" class="btn-secondary">Our Services</a>
-      </div>
+  <!-- HERO SECTION -->
+  <section class="hero" id="hero">
+    <div class="hero-content reveal">
+      <h1>Helping small businesses, coaches, and startups grow with stunning visuals & marketing.</h1>
+      <p>We craft modern, high-converting digital campaigns and creative designs that make your brand shine.</p>
+      <a href="#contact" class="cta-btn">Get Started</a>
+    </div>
+    <div class="hero-image reveal">
+      <img src="images/hero-bg.jpg" alt="Digital Marketing">
     </div>
   </section>
 
-  <!-- ================= SERVICES PREVIEW ================= -->
-  <section class="services">
-    <div class="section-header">
-      <h2>Our Core Services</h2>
-      <p>Everything you need to grow, scale, and dominate digitally.</p>
-    </div>
-
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="icon">📈</div>
-        <h3>Performance Marketing</h3>
-        <p>ROI-focused paid campaigns across Google, Meta, and more.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="icon">🔍</div>
-        <h3>SEO & Growth</h3>
-        <p>Rank higher, attract organic traffic, and build authority.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="icon">🎯</div>
-        <h3>Brand Strategy</h3>
-        <p>Position your brand with clarity, trust, and impact.</p>
-      </div>
-    </div>
+  <!-- ABOUT PREVIEW -->
+  <section id="about" class="services-preview reveal">
+    <h2>About Us</h2>
+    <p>Instastrategix is a next-gen digital marketing agency dedicated to helping brands grow with creative design, advertising, and strategy. We focus on results-driven marketing for startups, coaches, and small businesses.</p>
   </section>
 
-  <!-- ================= WHY CHOOSE US ================= -->
-  <section class="why-us">
-    <div class="why-grid">
-      <div class="why-text">
-        <h2>Why Brands Choose Instastrategix</h2>
-        <p>
-          We are not just marketers — we are growth partners.
-          Our strategies are tailored, transparent, and performance-driven.
-        </p>
+  <!-- SERVICES -->
+  <section id="services" class="services-preview reveal">
+    <h2>Our Services</h2>
+    <div class="services-cards">
+      <div class="service-card reveal">
+        <img src="images/service-icons/logo-design.png" alt="Logo & Graphic Design">
+        <h3>Logo & Graphic Design</h3>
+        <p>Create unique, memorable designs that represent your brand perfectly.</p>
       </div>
-
-      <div class="why-points">
-        <div class="point">✔ Data-Driven Decisions</div>
-        <div class="point">✔ Transparent Reporting</div>
-        <div class="point">✔ Conversion-Focused Design</div>
-        <div class="point">✔ Long-Term Growth Mindset</div>
+      <div class="service-card reveal">
+        <img src="images/service-icons/web-design.png" alt="Website Design">
+        <h3>Website Design</h3>
+        <p>Responsive, fast, and modern websites that convert visitors into clients.</p>
+      </div>
+      <div class="service-card reveal">
+        <img src="images/service-icons/ppt.png" alt="PPT & Company Profile">
+        <h3>PPT & Company Profile</h3>
+        <p>Professional presentations & profiles to impress clients and investors.</p>
       </div>
     </div>
+    <a href="#services" class="cta-link">See All Services →</a>
   </section>
 
-  <!-- ================= ABOUT PREVIEW ================= -->
-  <section class="about-preview">
-    <div class="about-content">
-      <h2>About Instastrategix</h2>
-      <p>
-        Instastrategix is a modern digital marketing agency helping brands
-        achieve measurable growth through strategy, creativity, and technology.
-      </p>
-      <a href="about.html" class="btn-secondary">Learn More</a>
-    </div>
+  <!-- FOUNDER -->
+  <section id="founder" class="services-preview reveal">
+    <h2>Founder</h2>
+    <p>Abhishek Choubey, founder of Instastrategix, is passionate about helping brands grow digitally. With expertise in marketing, design, and strategy, he leads the team to deliver premium results.</p>
   </section>
 
-  <!-- ================= CTA ================= -->
-  <section class="cta">
-    <h2>Ready to Scale Your Brand?</h2>
-    <p>Let’s build a growth strategy that actually works.</p>
-    <a href="contact.html" class="btn-primary">Contact Us</a>
+  <!-- CONTACT -->
+  <section id="contact" class="services-preview reveal">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <input type="text" placeholder="Subject" required>
+      <textarea placeholder="Message" required></textarea>
+      <button type="submit" class="cta-btn">Send Message</button>
+      <p id="formMessage" style="margin-top:1rem;"></p>
+    </form>
   </section>
 
-  <!-- JS -->
-  <script src="js/home.js"></script>
-</body>
-</html>
-
-
-  <!-- ================= FOOTER ================= -->
-  <footer class="footer">
-    <div class="footer-container">
-
-      <!-- Brand -->
-      <div class="footer-brand">
-        <h3>Instastrategix</h3>
-        <p>Strategic Digital Growth for Modern Brands</p>
-      </div>
-
-      <!-- Quick Links -->
-      <div class="footer-links">
-        <h4>Quick Links</h4>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="founder.html">Founder</a>
-        <a href="privacy-policy.html">Privacy Policy</a>
-      </div>
-
-      <!-- Social -->
-      <div class="footer-social">
-        <h4>Connect</h4>
-        <a href="https://instagram.com/" target="_blank" rel="noopener">
-          Instagram
-        </a>
-      </div>
-
-    </div>
-
-    <!-- Bottom -->
-    <div class="footer-bottom">
-      <p>© 2026 Instastrategix. All rights reserved.</p>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <p>© 2026 Instastrategix | Founder: Abhishek Choubey</p>
+      <p>Contact: <a href="mailto:instastrategixdigitalcreator@gmail.com">instastrategixdigitalcreator@gmail.com</a></p>
+      <p>Follow us: <a href="https://www.instagram.com/instastrategix/" target="_blank">@instastrategix</a></p>
     </div>
   </footer>
-  <!-- =============== END FOOTER =============== -->
 
-  <!-- JS -->
-  <script src="js/main.js"></script>
+  <script>
+    // ===== HAMBURGER MENU =====
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
+
+    // ===== SCROLL AWARE NAVBAR =====
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    });
+
+    // ===== SMOOTH SCROLL FOR ANCHORS =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e){
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // ===== SCROLL REVEAL =====
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('active'); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.15 });
+    reveals.forEach(el => observer.observe(el));
+
+    // ===== CONTACT FORM (FRONTEND VALIDATION) =====
+    const contactForm = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+    contactForm.addEventListener('submit', e => {
+      e.preventDefault();
+      formMessage.style.color = 'green';
+      formMessage.textContent = 'Message submitted successfully! (EmailJS integration later)';
+      contactForm.reset();
+    });
+  </script>
 </body>
 </html>
 
