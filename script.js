@@ -61,3 +61,18 @@ document.addEventListener('DOMContentLoaded', () => {
 5. Replace 'YOUR_PUBLIC_KEY', 'YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID' above.
 6. Test the form – emails will go to your Gmail.
 */
+// Parallax Scrolling Effect
+const parallaxElements = document.querySelectorAll('.parallax-element');
+
+window.addEventListener('scroll', () => {
+    const offset = window.pageYOffset;
+    
+    parallaxElements.forEach(el => {
+        const speed = parseFloat(el.dataset.speed);
+        const yPos = offset * speed;
+        el.style.transform = `translateY(${yPos}px)`;
+    });
+});
+
+// Optional: Trigger on load for initial position
+window.dispatchEvent(new Event('scroll'));
