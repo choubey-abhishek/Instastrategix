@@ -18,13 +18,15 @@
 
         :root {
             --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --secondary: #10b981;
             --dark: #1f2937;
             --light: #f9fafb;
             --white: #ffffff;
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             padding-top: 70px;
             background: var(--white);
         }
@@ -42,7 +44,7 @@
             width: 100%;
             height: 70px;
             background: var(--white);
-            border-bottom: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.08);
             z-index: 1000;
         }
 
@@ -53,9 +55,10 @@
             height: 70px;
         }
 
+        /* LOGO */
         .logo {
-            font-size: 1.6rem;
-            font-weight: bold;
+            font-size: 1.8rem;
+            font-weight: 800;
             color: var(--primary);
             text-decoration: none;
             text-align: right;
@@ -65,34 +68,55 @@
             display: block;
             font-size: 0.7rem;
             color: #6b7280;
+            font-weight: 500;
         }
 
+        /* NAV LINKS */
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 25px;
+            gap: 30px;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--dark);
-            font-weight: 500;
+            font-weight: 600;
+            position: relative;
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
         }
 
         .nav-links a.active {
             color: var(--primary);
         }
 
-        .mobile-btn {
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+
+        /* MOBILE MENU BUTTON */
+        .mobile-menu-btn {
             display: none;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             background: none;
             border: none;
             cursor: pointer;
         }
 
+        /* ================= MOBILE ================= */
         @media (max-width: 768px) {
-            .mobile-btn {
+            .mobile-menu-btn {
                 display: block;
             }
 
@@ -103,7 +127,7 @@
                 width: 100%;
                 background: white;
                 flex-direction: column;
-                padding: 25px;
+                padding: 30px 20px;
                 gap: 20px;
                 transform: translateX(-100%);
                 transition: 0.3s ease;
@@ -112,47 +136,48 @@
             .nav-links.active {
                 transform: translateX(0);
             }
+
+            .logo {
+                flex-grow: 1;
+                text-align: center;
+            }
         }
 
         /* ================= HERO ================= */
         .hero {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+            padding: 110px 0;
             text-align: center;
+            background: linear-gradient(135deg, #eef2ff, #e0e7ff);
         }
 
         .hero h1 {
             font-size: 3rem;
-            color: var(--primary);
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 15px;
         }
 
         .hero p {
             font-size: 1.1rem;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .btn {
-            display: inline-block;
-            padding: 12px 28px;
-            background: var(--primary);
+            padding: 14px 32px;
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
             color: white;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 6px;
             font-weight: 600;
-        }
-
-        /* ================= CONTENT ================= */
-        .content {
-            padding: 60px 0;
         }
 
         footer {
             background: var(--dark);
             color: white;
             text-align: center;
-            padding: 30px 0;
-            margin-top: 50px;
+            padding: 35px 0;
+            margin-top: 60px;
         }
     </style>
 </head>
@@ -162,16 +187,17 @@
 <!-- NAVIGATION -->
 <nav class="navbar">
     <div class="container nav-container">
-        <button class="mobile-btn" id="menuBtn">
+
+        <button class="mobile-menu-btn" id="menuBtn">
             <i class="fas fa-bars"></i>
         </button>
 
-        <ul class="nav-links" id="navMenu">
+        <ul class="nav-links" id="navLinks">
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="founder.html">Founder</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
             <li><a href="privacy.html">Privacy Policy</a></li>
         </ul>
 
@@ -179,6 +205,7 @@
             Instastrategix
             <span>Digital Marketing Agency</span>
         </a>
+
     </div>
 </nav>
 
@@ -188,17 +215,6 @@
         <h1>Instastrategix</h1>
         <p>Helping small businesses, coaches, and startups grow with stunning visuals & marketing.</p>
         <a href="contact.html" class="btn">Get Free Consultation</a>
-    </div>
-</section>
-
-<!-- CONTENT -->
-<section class="content">
-    <div class="container">
-        <h2>Welcome to Instastrategix</h2>
-        <p>
-            We specialize in branding, website design, and social media marketing
-            for small businesses and startups.
-        </p>
     </div>
 </section>
 
@@ -213,10 +229,10 @@
 <!-- JAVASCRIPT -->
 <script>
     const menuBtn = document.getElementById('menuBtn');
-    const navMenu = document.getElementById('navMenu');
+    const navLinks = document.getElementById('navLinks');
 
     menuBtn.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
+        navLinks.classList.toggle('active');
     });
 </script>
 
