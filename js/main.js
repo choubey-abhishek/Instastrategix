@@ -63,17 +63,27 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', handleScroll);
 
     /* ==========================================================================
-       ACTIVE NAV LINK
+       ACTIVE NAV LINK HIGHLIGHTING
        ========================================================================== */
 
-    const currentPage = location.pathname.split('/').pop() || 'index.html';
+    function setActiveNavLink() {
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
-    navLinks.forEach(link => {
-        link.classList.toggle(
-            'active',
-            link.getAttribute('href') === currentPage
-        );
-    });
+        navLinks.forEach(link => {
+            const linkHref = link.getAttribute('href');
+            link.classList.remove('active');
+
+            if (
+                linkHref === currentPage || 
+                (currentPage === '' && linkHref === 'index.html') ||
+                (currentPage === 'index.html' && linkHref === 'index.html')
+            ) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    setActiveNavLink();
 
     /* ==========================================================================
        FOOTER YEAR
