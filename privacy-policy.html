@@ -200,9 +200,81 @@
 </main>
 
 <!-- ================= Footer ================= -->
-<footer class="footer">
-    <!-- Same footer as About Us page -->
+<footer class="footer" style="background: linear-gradient(135deg, #4f46e5, #6366f1); color: #f3f4f6; padding: 60px 0; position: relative; overflow: hidden;">
+    <!-- Decorative Wave Shape at Top -->
+    <svg viewBox="0 0 1200 100" preserveAspectRatio="none" style="display:block; width:100%; height:50px; position:absolute; top:0; left:0; z-index:1;">
+        <path d="M0,0 C600,100 600,0 1200,100 L1200,0 L0,0 Z" style="fill: #fff; opacity: 0.05;"></path>
+    </svg>
+
+    <div class="footer-grid container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; position: relative; z-index:2;">
+        <!-- Founder Info -->
+        <div class="footer-col">
+            <h4 style="color: #fff; font-size: 1.25rem; margin-bottom: 15px;">Founder</h4>
+            <p style="margin-bottom: 10px;">Abhishek Choubey</p>
+            <ul style="list-style:none; padding:0; margin:0;">
+                <li style="margin-bottom:8px;">
+                    <i class="fas fa-envelope" style="margin-right:8px;"></i>
+                    <a href="mailto:instastrategixdigitalcreator@gmail.com" style="color:#f3f4f6; text-decoration: underline;">instastrategixdigitalcreator@gmail.com</a>
+                </li>
+                <li style="margin-bottom:8px;">
+                    <i class="fab fa-instagram" style="margin-right:8px;"></i>
+                    <a href="https://www.instagram.com/instastrategix/" target="_blank" style="color:#f3f4f6; text-decoration: underline;">@instastrategix</a>
+                </li>
+                <li>
+                    <i class="fas fa-blog" style="margin-right:8px;"></i>
+                    <a href="https://instastrategix0.blogspot.com/" target="_blank" style="color:#f3f4f6; text-decoration: underline;">Digital Marketing Education</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+            <h4 style="color: #fff; font-size: 1.25rem; margin-bottom: 15px;">Quick Links</h4>
+            <ul style="list-style:none; padding:0; margin:0;">
+                <li style="margin-bottom:8px;"><a href="index.html" style="color:#f3f4f6; text-decoration:none; transition: color 0.3s;">Home</a></li>
+                <li style="margin-bottom:8px;"><a href="about-us.html" style="color:#f3f4f6; text-decoration:none; transition: color 0.3s;">About Us</a></li>
+                <li style="margin-bottom:8px;"><a href="services.html" style="color:#f3f4f6; text-decoration:none; transition: color 0.3s;">Services</a></li>
+                <li><a href="contact-us.html" style="color:#f3f4f6; text-decoration:none; transition: color 0.3s;">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Social Media -->
+        <div class="footer-col">
+            <h4 style="color:#fff; font-size:1.25rem; margin-bottom:15px;">Connect With Us</h4>
+            <p style="margin-bottom:10px;">Follow us for tips, guides & updates!</p>
+            <div style="display:flex; gap:15px; font-size:1.5rem;">
+                <a href="https://www.instagram.com/instastrategix/" target="_blank" style="color:#f3f4f6; transition: transform 0.3s, color 0.3s;">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://instastrategix0.blogspot.com/" target="_blank" style="color:#f3f4f6; transition: transform 0.3s, color 0.3s;">
+                    <i class="fas fa-blog"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Newsletter Signup -->
+        <div class="footer-col">
+            <h4 style="color:#fff; font-size:1.25rem; margin-bottom:15px;">Subscribe</h4>
+            <p style="margin-bottom:10px;">Get our latest marketing tips directly to your inbox:</p>
+            <form style="display:flex; gap:10px;">
+                <input type="email" placeholder="Your email" style="padding:10px; border-radius:5px; border:none; flex:1;">
+                <button type="submit" class="btn-primary" style="padding:10px 15px; border-radius:5px; background: linear-gradient(135deg, #6366f1, #4f46e5); color:#fff; border:none; cursor:pointer; transition: transform 0.3s;">Subscribe</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom" style="text-align:center; margin-top:50px; font-size:0.875rem; color:#e0e7ff;">
+        &copy; <span id="current-year"></span> InstaStrategix. All rights reserved.
+    </div>
 </footer>
+
+<!-- Footer Hover Effects -->
+<style>
+.footer a:hover { color: #facc15 !important; transform: translateY(-2px); }
+.footer .btn-primary:hover { transform: scale(1.05); box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.4); }
+</style>
 
 </body>
 </html>
