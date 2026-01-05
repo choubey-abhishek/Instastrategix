@@ -3,135 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Instastrategix - Helping small businesses, coaches, and startups grow with stunning visuals & marketing">
     <title>Instastrategix - Digital Marketing Agency</title>
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        /* ========== NAVIGATION FIXED CODE ========== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         :root {
             --primary: #4f46e5;
-            --primary-dark: #4338ca;
-            --secondary: #10b981;
             --dark: #1f2937;
             --light: #f9fafb;
             --white: #ffffff;
-            --shadow: 0 4px 6px rgba(0,0,0,0.1);
-            --transition: all 0.3s ease;
         }
-        
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
+            padding-top: 70px;
             background: var(--white);
-            padding-top: 70px; /* Space for fixed header */
         }
-        
+
         .container {
-            width: 100%;
             max-width: 1200px;
-            margin: 0 auto;
+            margin: auto;
             padding: 0 20px;
         }
-        
-        /* ========== FIXED NAVIGATION ========== */
+
+        /* ================= NAVBAR ================= */
         .navbar {
-            background: var(--white);
-            box-shadow: var(--shadow);
             position: fixed;
-            width: 100%;
             top: 0;
-            z-index: 1000;
+            width: 100%;
             height: 70px;
+            background: var(--white);
+            border-bottom: 1px solid #e5e7eb;
+            z-index: 1000;
         }
-        
+
         .nav-container {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 0 20px;
+            justify-content: space-between;
             height: 70px;
         }
-        
-        /* Logo on the RIGHT side */
+
         .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
+            font-size: 1.6rem;
+            font-weight: bold;
             color: var(--primary);
             text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
+            text-align: right;
         }
-        
-        .logo-tagline {
+
+        .logo span {
+            display: block;
             font-size: 0.7rem;
-            color: #666;
-            font-weight: 500;
+            color: #6b7280;
         }
-        
-        /* Navigation Links - Left side */
+
         .nav-links {
-            display: flex;
             list-style: none;
-            gap: 30px;
+            display: flex;
+            gap: 25px;
         }
-        
+
         .nav-links a {
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
-            transition: var(--transition);
-            padding: 5px 0;
-            position: relative;
         }
-        
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-        
+
         .nav-links a.active {
             color: var(--primary);
         }
-        
-        .nav-links a.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--primary);
-        }
-        
-        /* Mobile Menu Button - ALWAYS VISIBLE ON MOBILE */
-        .mobile-menu-btn {
+
+        .mobile-btn {
             display: none;
+            font-size: 1.5rem;
             background: none;
             border: none;
-            font-size: 1.5rem;
-            color: var(--dark);
             cursor: pointer;
-            z-index: 1001;
-            padding: 10px;
         }
-        
-        /* ========== MOBILE RESPONSIVE ========== */
+
         @media (max-width: 768px) {
-            body {
-                padding-top: 70px;
-            }
-            
-            /* Show mobile menu button */
-            .mobile-menu-btn {
+            .mobile-btn {
                 display: block;
-                order: 1;
             }
-            
-            /* Navigation links - hidden by default on mobile */
+
             .nav-links {
                 position: fixed;
                 top: 70px;
@@ -139,259 +103,122 @@
                 width: 100%;
                 background: white;
                 flex-direction: column;
-                padding: 30px 20px;
+                padding: 25px;
                 gap: 20px;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
                 transform: translateX(-100%);
-                transition: transform 0.3s ease-in-out;
-                z-index: 999;
+                transition: 0.3s ease;
             }
-            
-            /* When menu is active - slide in from left */
+
             .nav-links.active {
                 transform: translateX(0);
             }
-            
-            /* Logo in center on mobile */
-            .logo {
-                order: 2;
-                flex-grow: 1;
-                text-align: center;
-                align-items: center;
-            }
-            
-            .nav-container {
-                padding: 0 15px;
-            }
         }
-        
-        /* ========== SIMPLE CONTENT FOR TESTING ========== */
+
+        /* ================= HERO ================= */
         .hero {
             padding: 100px 0;
+            background: linear-gradient(135deg, #eef2ff, #e0e7ff);
             text-align: center;
-            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
         }
-        
+
         .hero h1 {
             font-size: 3rem;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--primary);
+            margin-bottom: 15px;
         }
-        
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+
         .btn {
             display: inline-block;
-            padding: 14px 32px;
-            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            padding: 12px 28px;
+            background: var(--primary);
             color: white;
             text-decoration: none;
             border-radius: 5px;
             font-weight: 600;
-            margin: 10px;
-            transition: var(--transition);
         }
-        
-        .btn:hover {
-            transform: translateY(-3px);
+
+        /* ================= CONTENT ================= */
+        .content {
+            padding: 60px 0;
         }
-        
-        .page-content {
-            padding: 50px 0;
-            min-height: 400px;
-        }
-        
-        .page-content h2 {
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
+
         footer {
             background: var(--dark);
             color: white;
-            padding: 40px 0;
             text-align: center;
+            padding: 30px 0;
             margin-top: 50px;
         }
     </style>
 </head>
+
 <body>
-    <!-- ========== FIXED HEADER NAVIGATION ========== -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <!-- Mobile Menu Button (Three Lines) -->
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-            
-            <!-- Navigation Links -->
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="founder.html">Founder</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="privacy.html">Privacy Policy</a></li>
-            </ul>
-            
-            <!-- Logo on the Right -->
-            <a href="index.html" class="logo">
-                Instastrategix
-                <span class="logo-tagline">Digital Marketing Agency</span>
-            </a>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Instastrategix</h1>
-            <p>Helping small businesses, coaches, and startups grow with stunning visuals & marketing.</p>
-            <div>
-                <a href="contact.html" class="btn">Get Free Consultation</a>
-                <a href="services.html" class="btn" style="background: transparent; border: 2px solid var(--primary); color: var(--primary);">View Services</a>
-            </div>
-        </div>
-    </section>
+<!-- NAVIGATION -->
+<nav class="navbar">
+    <div class="container nav-container">
+        <button class="mobile-btn" id="menuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
 
-    <!-- Content for Testing -->
-    <section class="page-content">
-        <div class="container">
-            <h2>Test Navigation</h2>
-            <p>Click the three lines (☰) in the top-left corner on mobile to open the menu.</p>
-            <p>On desktop, you'll see all navigation links on the left.</p>
-            <p>Test the links:</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;">
-                <a href="index.html" class="btn" style="padding: 10px 20px; background: #4f46e5;">Home</a>
-                <a href="about.html" class="btn" style="padding: 10px 20px; background: #10b981;">About Us</a>
-                <a href="services.html" class="btn" style="padding: 10px 20px; background: #f59e0b; color: #000;">Services</a>
-                <a href="founder.html" class="btn" style="padding: 10px 20px; background: #8b5cf6;">Founder</a>
-                <a href="contact.html" class="btn" style="padding: 10px 20px; background: #ef4444;">Contact</a>
-                <a href="privacy.html" class="btn" style="padding: 10px 20px; background: #6b7280;">Privacy</a>
-            </div>
-            
-            <div style="margin-top: 40px; padding: 20px; background: #f3f4f6; border-radius: 10px;">
-                <h3>Create These HTML Files:</h3>
-                <p>Save these as separate files in the same folder:</p>
-                <ul style="margin: 10px 0 10px 20px;">
-                    <li><code>index.html</code> - This file (Home page)</li>
-                    <li><code>about.html</code> - About Us page</li>
-                    <li><code>services.html</code> - Services page</li>
-                    <li><code>founder.html</code> - Founder page</li>
-                    <li><code>contact.html</code> - Contact page</li>
-                    <li><code>privacy.html</code> - Privacy Policy page</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+        <ul class="nav-links" id="navMenu">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="founder.html">Founder</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
 
-    <footer>
-        <div class="container">
-            <p>Instastrategix Digital Marketing Agency</p>
-            <p>Contact: instastrategixdigitalcreator@gmail.com</p>
-            <p style="margin-top: 20px;">&copy; 2024 Instastrategix. All rights reserved.</p>
-        </div>
-    </footer>
+        <a href="index.html" class="logo">
+            Instastrategix
+            <span>Digital Marketing Agency</span>
+        </a>
+    </div>
+</nav>
 
-    <!-- ========== FIXED JAVASCRIPT FOR NAVIGATION ========== -->
-    <script>
-        // DOM Ready
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get elements
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const navLinks = document.getElementById('navLinks');
-            
-            // ========== MOBILE MENU TOGGLE ==========
-            mobileMenuBtn.addEventListener('click', function(e) {
-                e.stopPropagation(); // Prevent event bubbling
-                
-                // Toggle active class on menu
-                navLinks.classList.toggle('active');
-                
-                // Change icon
-                const icon = this.querySelector('i');
-                if (icon.classList.contains('fa-bars')) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                } else {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-            });
-            
-            // ========== CLOSE MENU WHEN CLICKING OUTSIDE ==========
-            document.addEventListener('click', function(event) {
-                // If click is NOT inside navLinks AND NOT on mobileMenuBtn
-                if (!navLinks.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
-                    navLinks.classList.remove('active');
-                    
-                    // Reset icon
-                    const icon = mobileMenuBtn.querySelector('i');
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-            });
-            
-            // ========== CLOSE MENU WHEN CLICKING A LINK ==========
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', function() {
-                    // Close mobile menu
-                    navLinks.classList.remove('active');
-                    
-                    // Reset icon
-                    const icon = mobileMenuBtn.querySelector('i');
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                    
-                    // Update active class
-                    document.querySelectorAll('.nav-links a').forEach(a => {
-                        a.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                });
-            });
-            
-            // ========== SET ACTIVE PAGE BASED ON CURRENT URL ==========
-            function setActivePage() {
-                const currentPage = window.location.pathname.split('/').pop();
-                const links = document.querySelectorAll('.nav-links a');
-                
-                links.forEach(link => {
-                    link.classList.remove('active');
-                    const linkHref = link.getAttribute('href');
-                    
-                    if (currentPage === linkHref || 
-                        (currentPage === '' && linkHref === 'index.html') ||
-                        (currentPage === 'index.html' && linkHref === 'index.html')) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-            
-            setActivePage();
-            
-            // ========== PREVENT DEFAULT ON NON-EXISTENT LINKS (FOR TESTING) ==========
-            document.querySelectorAll('a[href="#"]').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    if (this.getAttribute('href') === '#') {
-                        e.preventDefault();
-                        alert('This page would open here. For now, this is just a demonstration.');
-                    }
-                });
-            });
-            
-            // ========== CREATE SIMPLE OTHER PAGES ON THE FLY FOR TESTING ==========
-            // This is just for testing - in real site you'd have separate HTML files
-            if (window.location.pathname.includes('about.html') || 
-                window.location.search.includes('page=about')) {
-                document.querySelector('.page-content').innerHTML = `
-                    <h2>About Us Page</h2>
-                    <p>This is the About Us page content.</p>
-                    <p>Instastrategix helps small businesses grow with digital marketing.</p>
-                    <a href="index.html" class="btn">Back to Home</a>
-                `;
-            }
-        });
-    </script>
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <h1>Instastrategix</h1>
+        <p>Helping small businesses, coaches, and startups grow with stunning visuals & marketing.</p>
+        <a href="contact.html" class="btn">Get Free Consultation</a>
+    </div>
+</section>
+
+<!-- CONTENT -->
+<section class="content">
+    <div class="container">
+        <h2>Welcome to Instastrategix</h2>
+        <p>
+            We specialize in branding, website design, and social media marketing
+            for small businesses and startups.
+        </p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <p>&copy; 2024 Instastrategix. All rights reserved.</p>
+        <p>Email: instastrategixdigitalcreator@gmail.com</p>
+    </div>
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navMenu = document.getElementById('navMenu');
+
+    menuBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+</script>
+
 </body>
 </html>
