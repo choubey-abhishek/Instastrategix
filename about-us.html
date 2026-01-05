@@ -3,102 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="About InstaStrategix - Creativity meets strategy. Learn about our mission, services, and founder Abhishek Choubey.">
-    <title>About Us - InstaStrategix Digital Marketing Agency</title>
+    <meta name="description" content="Learn about InstaStrategix, a results-driven digital marketing agency founded by Abhishek Choubey. We specialize in social media, SEO, content marketing, and Google Ads.">
+    <meta name="keywords" content="about Instastrategix, digital marketing agency, SEO, Google Ads, social media, content marketing">
+    <title>About Us | InstaStrategix</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 </head>
 <body>
 
-    <!-- Header -->
-    <header class="site-header">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
+<!-- ================= Header / Navigation ================= -->
+<header class="site-header">
+    <div class="nav-container container">
+        <!-- Logo -->
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/instastrategix-logo.png" alt="InstaStrategix Logo" style="height:70px;">
                 <span class="logo-text">InstaStrategix</span>
                 <span class="logo-tagline">Digital Marketing Agency</span>
             </a>
-            <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="about-us.html" class="nav-link active">About Us</a>
-                <a href="services.html" class="nav-link">Services</a>
-                <a href="founder.html" class="nav-link">Founder</a>
-                <a href="contact-us.html" class="nav-link">Contact Us</a>
-                <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
-                <a href="contact-us.html" class="nav-cta btn btn-primary">Get Started</a>
-            </nav>
         </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="about-hero hero">
-        <div class="hero-container">
-            <div>
-                <h1 class="hero-title">About InstaStrategix</h1>
-                <p class="hero-subtitle">
-                    Welcome to InstaStrategix – where creativity meets strategy and your brand gets the spotlight it deserves. We are not just a digital marketing agency; we are your growth partners, your storytellers, and your strategy experts—all rolled into one.
-                </p>
-                <p>
-                    In today’s fast-paced digital world, having a presence isn’t enough. You need impact, engagement, and results. That’s where we come in. From social media strategy, SEO, and Google Ads to content marketing and campaign optimization, we craft tailor-made solutions that make your brand shine and connect with the right audience.
-                </p>
-                <p>
-                    Founded by Abhishek Choubey, a digital marketing enthusiast with a passion for results-driven growth, InstaStrategix was created to help businesses turn ideas into influence. Our mission is simple: empower brands to grow, engage, and thrive online.
-                </p>
-                <p>
-                    We believe in the perfect blend of:
-                </p>
-                <ul>
-                    <li><strong>Strategy + Creativity:</strong> Innovative campaigns that work.</li>
-                    <li><strong>Data + Insights:</strong> Decisions backed by numbers, not guesswork.</li>
-                    <li><strong>Passion + Precision:</strong> Every campaign designed with care and purpose.</li>
-                </ul>
-                <p>
-                    At InstaStrategix, we don’t just follow trends—we create them. Whether you’re a startup aiming to make a mark or a brand ready to scale, we help you stand out, get noticed, and achieve real results.
-                </p>
-                <p>
-                    Your story deserves more than just likes—it deserves growth. And growth is exactly what we deliver.
-                </p>
-            </div>
-            <div>
-                <img src="images/about-hero.png" alt="About InstaStrategix" loading="lazy">
-            </div>
-        </div>
-    </section>
+        <!-- Mobile Menu Toggle -->
+        <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+        </button>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-grid">
-            <div>
-                <h3>Founder</h3>
-                <p>Abhishek Choubey</p>
-                <p>Email: <a href="mailto:instastrategixdigitalcreator@gmail.com">instastrategixdigitalcreator@gmail.com</a></p>
-                <p>Instagram: <a href="https://www.instagram.com/instastrategix/" target="_blank">@instastrategix</a></p>
-                <p>Blog: <a href="https://instastrategix0.blogspot.com/" target="_blank">Digital Marketing Education</a></p>
-            </div>
-            <div>
-                <h3>Navigation</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about-us.html">About Us</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="founder.html">Founder</a></li>
-                    <li><a href="contact-us.html">Contact Us</a></li>
-                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; <span id="current-year"></span> InstaStrategix. All Rights Reserved.
-        </div>
-    </footer>
+        <!-- Navigation Links -->
+        <nav class="nav-menu">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about-us.html" class="nav-link active">About Us</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="founder.html" class="nav-link">Founder</a>
+            <a href="contact-us.html" class="nav-link">Contact Us</a>
+            <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+        </nav>
 
-    <!-- Scripts -->
-    <script src="js/main.js"></script>
-    <script src="js/animations.js"></script>
+        <!-- Optional CTA Button -->
+        <a href="contact-us.html" class="nav-cta btn-primary">Get in Touch</a>
+    </div>
+</header>
+
+<!-- ================= Main Content ================= -->
+<main>
+
+<!-- Hero Section -->
+<section class="about-hero">
+    <div class="container hero-container">
+        <div class="hero-content">
+            <h1 class="hero-title">About InstaStrategix</h1>
+            <p class="hero-subtitle">Empowering brands with creativity, strategy, and measurable results</p>
+            <a href="contact-us.html" class="btn btn-primary">Partner With Us</a>
+        </div>
+        <div class="hero-image">
+            <img src="images/about-hero.png" alt="About Us Illustration" style="width:100%; max-width:500px;">
+        </div>
+    </div>
+</section>
+
+<!-- ================= About Content ================= -->
+<section class="section-padding about-content">
+    <div class="container">
+
+        <!-- Section Header -->
+        <div class="section-header text-center">
+            <h2 class="section-title">Who We Are</h2>
+            <p class="section-subtitle">Your story, our strategy</p>
+        </div>
+
+        <!-- Intro Text -->
+        <p class="intro-text text-center">
+            At <strong>InstaStrategix</strong>, we believe that every brand has a story worth telling—and the right strategy can turn that story into measurable success. We are a results-driven digital marketing agency dedicated to helping businesses grow, connect, and thrive in the digital world.
+        </p>
+
+        <p class="text-center">
+            Our expertise spans social media management, SEO, Google Ads, content marketing, and campaign optimization, enabling us to create holistic strategies that deliver real impact. We combine creativity, data-driven insights, and the latest digital trends to ensure your brand stands out in a crowded online space.
+        </p>
+
+        <p class="text-center">
+            Founded by Abhishek Choubey, InstaStrategix was born from a vision to empower businesses with cutting-edge marketing solutions that are both effective and sustainable. Our approach is simple: understand your goals, craft tailored strategies, and execute campaigns that drive engagement, growth, and ROI.
+        </p>
+
+        <!-- Why Choose Us (Cards) -->
+        <h3 class="text-center section-subtitle">Why Choose InstaStrategix?</h3>
+        <div class="cards-grid">
+            <div class="info-card">
+                <i class="fas fa-chart-pie card-icon"></i>
+                <h4>Strategic Approach</h4>
+                <p>Every campaign is backed by research, analytics, and actionable insights.</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-lightbulb card-icon"></i>
+                <h4>Creative Excellence</h4>
+                <p>We blend creativity with strategy to craft content that resonates with your audience.</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-trophy card-icon"></i>
+                <h4>Proven Results</h4>
+                <p>Our solutions focus on measurable outcomes to help your business grow.</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-handshake card-icon"></i>
+                <h4>Personalized Service</h4>
+                <p>We treat your brand as our own, tailoring strategies to fit your unique needs.</p>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="cta-wrapper text-center">
+            <h3>Let’s Grow Together</h3>
+            <p>Whether you’re a startup looking to build a strong digital presence or an established brand seeking growth, InstaStrategix is your partner in achieving marketing success.</p>
+            <a href="contact-us.html" class="btn btn-primary">Get Started</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- Team Section -->
+<section class="section-padding team-section">
+    <div class="container">
+
+        <div class="section-header text-center">
+            <h2 class="section-title">Meet the Founder</h2>
+            <p class="section-subtitle">The visionary behind InstaStrategix</p>
+        </div>
+
+        <div class="cards-grid">
+            <div class="info-card">
+                <img src="images/abhishek-choubey.jpg" alt="Abhishek Choubey" style="border-radius:10px; width:100%; max-width:300px; margin-bottom:15px;">
+                <h4>Abhishek Choubey</h4>
+                <p>Founder & CEO</p>
+                <p>Passionate about empowering businesses with cutting-edge marketing solutions that drive real growth.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<!-- ================= Footer ================= -->
+<footer class="footer" style="background: linear-gradient(135deg, #4f46e5, #6366f1); color: #f3f4f6; padding: 60px 0; position: relative; overflow: hidden;">
+    <!-- Decorative Wave Shape at Top -->
+    <svg viewBox="0 0 1200 100" preserveAspectRatio="none" style="display:block; width:100%; height:50px; position:absolute; top:0; left:0; z-index:1;">
+        <path d="M0,0 C600,100 600,0 1200,100 L1200,0 L0,0 Z" style="fill: #fff; opacity: 0.05;"></path>
+    </svg>
+
+    <div class="footer-grid container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; position: relative; z-index:2;">
+        <!-- Founder Info -->
+        <div class="footer-col">
+            <h4 style="color: #fff; font-size: 1.25rem; margin-bottom: 15px;">Founder</h4>
+            <p style="margin-bottom: 10px;">Abhishek Choubey</p>
+            <ul style="list-style:none; padding:0; margin:0;">
+                <li style="margin-bottom:8px;">
+                    <i class="fas fa-envelope" style="margin-right:8px;"></i>
+                    <a href="mailto:instastrategixdigitalcreator@gmail.com" style="color:#f3f4f6; text-decoration: underline;">instastrategixdigitalcreator@gmail.com</a>
+                </li>
+                <li style="margin-bottom:8px;">
+                    <i class="fab fa-instagram" style="margin-right:8px;"></i>
+                    <a href="https://www.instagram.com/instastrategix/" target="_blank" style="color:#f3f4f6; text-decoration: underline;">@instastrategix</a>
+                </li>
+                <li>
+                    <i class="fas fa-blog" style="margin-right:8px;"></i>
+                    <a href="https://instastrategix0.blogspot.com/" target="_blank" style="color:#f3f4f6; text-decoration: underline;">Digital Marketing Education</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+            <h4 style="color: #fff; font-size: 1.25rem; margin-bottom: 15px;">Quick Links</h4>
+            <ul style="list-style:none; padding:0; margin:0;">
+                <li style="margin-bottom:8px;"><a href="index.html" style="color:#f3f4f6; text-decoration:none; transition: color 0.3s;">Home</a></li>
+                <li style="margin-bottom:8px;"><a href="about-us.html" style="color:#f3f4f6; text-decoration:none; transition: color 0.3s;">About Us</a></li>
+                <li style="margin-bottom:8px;"><a href="services.html" style="color:#f3f4f6; text-decoration:none; transition: color 0.3s;">Services</a></li>
+                <li><a href="contact-us.html" style="color:#f3f4f6; text-decoration:none; transition: color 0.3s;">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Social Media -->
+        <div class="footer-col">
+            <h4 style="color:#fff; font-size:1.25rem; margin-bottom:15px;">Connect With Us</h4>
+            <p style="margin-bottom:10px;">Follow us for tips, guides & updates!</p>
+            <div style="display:flex; gap:15px; font-size:1.5rem;">
+                <a href="https://www.instagram.com/instastrategix/" target="_blank" style="color:#f3f4f6; transition: transform 0.3s, color 0.3s;">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://instastrategix0.blogspot.com/" target="_blank" style="color:#f3f4f6; transition: transform 0.3s, color 0.3s;">
+                    <i class="fas fa-blog"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Newsletter Signup -->
+        <div class="footer-col">
+            <h4 style="color:#fff; font-size:1.25rem; margin-bottom:15px;">Subscribe</h4>
+            <p style="margin-bottom:10px;">Get our latest marketing tips directly to your inbox:</p>
+            <form style="display:flex; gap:10px;">
+                <input type="email" placeholder="Your email" style="padding:10px; border-radius:5px; border:none; flex:1;">
+                <button type="submit" class="btn-primary" style="padding:10px 15px; border-radius:5px; background: linear-gradient(135deg, #6366f1, #4f46e5); color:#fff; border:none; cursor:pointer; transition: transform 0.3s;">Subscribe</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom" style="text-align:center; margin-top:50px; font-size:0.875rem; color:#e0e7ff;">
+        &copy; <span id="current-year"></span> InstaStrategix. All rights reserved.
+    </div>
+</footer>
+
+<!-- Footer Hover Effects -->
+<style>
+.footer a:hover { color: #facc15 !important; transform: translateY(-2px); }
+.footer .btn-primary:hover { transform: scale(1.05); box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.4); }
+</style>
 
 </body>
 </html>
