@@ -1,5 +1,5 @@
 // ============================================================================
-// Main JavaScript – Instastrategix
+// Main JavaScript – Instastrategix (FIXED & STABLE)
 // ============================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
-    const navbar = document.querySelector('.navbar');
     const navLinks = document.querySelectorAll('.nav-link');
 
     if (menuToggle && navMenu) {
@@ -32,58 +31,50 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ==========================================================================
-       STICKY NAVBAR (THROTTLED)
+       STICKY HEADER (SAFE)
        ========================================================================== */
 
+    const navbar = document.querySelector('.site-header');
     let lastScroll = 0;
 
-    const handleScroll = throttle(() => {
-        const currentScroll = window.pageYOffset;
+    if (navbar) {
+        const handleScroll = throttle(() => {
+            const currentScroll = window.pageYOffset;
 
-        if (currentScroll > 80) {
-            navbar.classList.add('navbar-scrolled');
+            if (currentScroll > 80) {
+                navbar.classList.add('navbar-scrolled');
 
-            if (
-                currentScroll > lastScroll &&
-                currentScroll > 200 &&
-                !document.body.classList.contains('nav-open')
-            ) {
-                navbar.classList.add('navbar-hidden');
+                if (
+                    currentScroll > lastScroll &&
+                    currentScroll > 200 &&
+                    !document.body.classList.contains('nav-open')
+                ) {
+                    navbar.classList.add('navbar-hidden');
+                } else {
+                    navbar.classList.remove('navbar-hidden');
+                }
             } else {
-                navbar.classList.remove('navbar-hidden');
+                navbar.classList.remove('navbar-scrolled', 'navbar-hidden');
             }
-        } else {
-            navbar.classList.remove('navbar-scrolled', 'navbar-hidden');
-        }
 
-        lastScroll = currentScroll;
-        toggleScrollTopButton(currentScroll);
-    }, 100);
+            lastScroll = currentScroll;
+            toggleScrollTopButton(currentScroll);
+        }, 100);
 
-    window.addEventListener('scroll', handleScroll);
-
-    /* ==========================================================================
-       ACTIVE NAV LINK HIGHLIGHTING
-       ========================================================================== */
-
-    function setActiveNavLink() {
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-
-        navLinks.forEach(link => {
-            const linkHref = link.getAttribute('href');
-            link.classList.remove('active');
-
-            if (
-                linkHref === currentPage || 
-                (currentPage === '' && linkHref === 'index.html') ||
-                (currentPage === 'index.html' && linkHref === 'index.html')
-            ) {
-                link.classList.add('active');
-            }
-        });
+        window.addEventListener('scroll', handleScroll);
     }
 
-    setActiveNavLink();
+    /* ==========================================================================
+       ACTIVE NAV LINK
+       ========================================================================== */
+
+    const currentPage =
+        window.location.pathname.split('/').pop() || 'index.html';
+
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        link.classList.toggle('active', href === currentPage);
+    });
 
     /* ==========================================================================
        FOOTER YEAR
@@ -93,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
     /* ==========================================================================
-       SMOOTH ANCHOR SCROLL
+       SMOOTH SCROLL
        ========================================================================== */
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -110,38 +101,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ==========================================================================
-       LAZY LOADING IMAGES
-       ========================================================================== */
-
-    const lazyImages = document.querySelectorAll('img[data-src]');
-
-    if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.onload = () => img.classList.add('loaded');
-                observer.unobserve(img);
-            });
-        }, { rootMargin: '100px' });
-
-        lazyImages.forEach(img => observer.observe(img));
-    } else {
-        lazyImages.forEach(img => {
-            img.src = img.dataset.src;
-            img.classList.add('loaded');
-        });
-    }
-
-    /* ==========================================================================
-       SCROLL TO TOP BUTTON
+       SCROLL TO TOP
        ========================================================================== */
 
     const scrollBtn = document.createElement('button');
     scrollBtn.className = 'scroll-to-top';
-    scrollBtn.setAttribute('aria-label', 'Scroll to top');
     scrollBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
     document.body.appendChild(scrollBtn);
 
@@ -153,31 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollBtn.classList.toggle('visible', scrollY > 300);
     }
 
-    /* ==========================================================================
-       FORM INPUT FOCUS
-       ========================================================================== */
-
-    document.querySelectorAll('.form-control').forEach(input => {
-        const parent = input.parentElement;
-        if (input.value) parent.classList.add('focused');
-
-        input.addEventListener('focus', () => parent.classList.add('focused'));
-        input.addEventListener('blur', () => {
-            if (!input.value) parent.classList.remove('focused');
-        });
-    });
-
-    /* ==========================================================================
-       INIT ANIMATIONS
-       ========================================================================== */
-
-    if (typeof initAnimations === 'function') {
-        initAnimations();
-    }
 });
 
 /* ==========================================================================
-   UTILITIES
+   UTIL
    ========================================================================== */
 
 function throttle(fn, limit = 100) {
