@@ -71,9 +71,70 @@ html {
 body {
     font-family: var(--font-primary);
     color: var(--dark-color);
-    background-color: var(--white);
+    background: transparent; /* REQUIRED for animated background */
     line-height: 1.7;
     overflow-x: hidden;
+}
+
+/* ==========================================================================
+   GLOBAL BACKGROUND ANIMATION (NEW)
+   ========================================================================== */
+
+.bg-animation {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    background: linear-gradient(
+        120deg,
+        var(--primary-color),
+        var(--primary-light),
+        var(--secondary-color)
+    );
+    background-size: 400% 400%;
+    animation: gradientMove 16s ease infinite;
+}
+
+.bg-animation span {
+    position: absolute;
+    display: block;
+    width: 140px;
+    height: 140px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    filter: blur(2px);
+    animation: floatUp 25s linear infinite;
+}
+
+.bg-animation span:nth-child(1) { left: 10%; top: 90%; }
+.bg-animation span:nth-child(2) { left: 30%; top: 60%; width: 180px; height: 180px; animation-duration: 32s; }
+.bg-animation span:nth-child(3) { left: 55%; top: 85%; animation-duration: 28s; }
+.bg-animation span:nth-child(4) { left: 75%; top: 40%; width: 100px; height: 100px; animation-duration: 20s; }
+.bg-animation span:nth-child(5) { left: 90%; top: 95%; width: 220px; height: 220px; animation-duration: 40s; }
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-1400px) translateX(200px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Keep content readable */
+section,
+.site-header,
+.footer {
+    position: relative;
+    background: rgba(255, 255, 255, 0.96);
 }
 
 /* ==========================================================================
