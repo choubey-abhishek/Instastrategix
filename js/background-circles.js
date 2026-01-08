@@ -1,4 +1,3 @@
-<script>
 // Floating Circles Background Animation
 document.addEventListener('DOMContentLoaded', function() {
     const circlesContainer = document.getElementById('floatingCircles');
@@ -82,4 +81,3 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 250);
     });
 });
-</script>
