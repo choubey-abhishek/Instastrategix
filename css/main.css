@@ -304,51 +304,37 @@ p {
     border: 0;
 }
 
-/* ============================================================
-   Animated Floating Background Circles
-   ============================================================ */
+/* ================= Animated Background Circles ================= */
 
 .animated-bg {
     position: fixed;
     inset: 0;
-    overflow: hidden;
     z-index: -1;
+    overflow: hidden;
     pointer-events: none;
 }
 
-/* Base circle style */
 .bg-circle {
     position: absolute;
+    bottom: -150px;
     border-radius: 50%;
-    border: 1px solid rgba(173, 216, 230, 0.35); /* light blue default */
-    background: transparent;
+    background: rgba(147, 197, 253, 0.25); /* light blue */
     animation: floatUp linear infinite;
 }
 
-/* Pink variant */
 .bg-circle.pink {
-    border-color: rgba(255, 182, 193, 0.35);
+    background: rgba(251, 182, 206, 0.25); /* light pink */
 }
 
-/* Floating animation */
 @keyframes floatUp {
     from {
-        transform: translateY(110vh) translateX(0);
-        opacity: 0;
-    }
-    10% {
-        opacity: 0.6;
-    }
-    90% {
-        opacity: 0.6;
+        transform: translateY(0);
     }
     to {
-        transform: translateY(-120vh) translateX(40px);
-        opacity: 0;
+        transform: translateY(-120vh);
     }
 }
 
-/* Performance optimization */
 @media (prefers-reduced-motion: reduce) {
     .bg-circle {
         animation: none;
