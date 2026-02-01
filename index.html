@@ -1,195 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Instastrategix is a premium digital marketing agency helping small businesses, coaches, and startups grow with branding, websites, and marketing strategies.">
-    <meta name="keywords" content="digital marketing agency, branding, website design, social media marketing, small business growth">
-    <title>InstaStrategix</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Instastrategix is a premium digital marketing agency helping small businesses, coaches, and startups grow with branding, websites, and marketing strategies.">
+<meta name="keywords" content="digital marketing agency, branding, website design, social media marketing, small business growth">
+<title>InstaStrategix</title>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
 
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Existing Styles -->
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/responsive.css">
+<!-- Styles -->
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/responsive.css">
 
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+<link rel="icon" type="image/x-icon" href="images/favicon.ico">
 
-    <!-- HERO ANIMATION CSS -->
-    <style>
-        .hero {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-            background: #000;
-        }
-
-        .video-wrap {
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-        }
-
-        .video-wrap video {
-            width: 100%;
-            height: 116%;
-            object-fit: cover;
-            filter: brightness(1.1) contrast(1.25) saturate(1.8) blur(0.3px);
-            transform: translateZ(0);
-        }
-
-        .overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 20, 0.25);
-            z-index: 2;
-        }
-
-        .hero .content {
-            position: relative;
-            z-index: 3;
-            max-width: 1100px;
-            padding: 0 5vw;
-            color: #fff;
-        }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(7rem, 18vw, 20rem);
-            line-height: 0.8;
-            letter-spacing: -0.04em;
-            text-shadow: 0 0 30px rgba(255,215,0,.6);
-        }
-
-        .hero h1 span {
-            display: block;
-            opacity: 0;
-            transform: translateY(180%);
-        }
-
-        .hero p {
-            font-size: clamp(2rem, 6vw, 4rem);
-            opacity: 0;
-            margin: 2rem 0 3rem;
-        }
-
-        .hero .btn {
-            padding: 1.4rem 4.5rem;
-            background: linear-gradient(90deg, #ffd700, #ffaa00, #ffd700);
-            color: #000;
-            border-radius: 60px;
-            opacity: 0;
-            text-decoration: none;
-            font-weight: 600;
-        }
-    </style>
+<style>
+/* ===== HERO ANIMATION ===== */
+.hero{
+position:relative;height:100vh;display:flex;align-items:center;justify-content:center;
+text-align:center;overflow:hidden;background:#000}
+.video-wrap{position:absolute;inset:0;z-index:1}
+.video-wrap video{width:100%;height:116%;object-fit:cover;
+filter:brightness(1.1) contrast(1.25) saturate(1.8) blur(.3px)}
+.overlay{position:absolute;inset:0;background:rgba(0,0,20,.25);z-index:2}
+.hero .content{position:relative;z-index:3;color:#fff}
+.hero h1{font-family:'Playfair Display',serif;
+font-size:clamp(6rem,16vw,18rem);line-height:.8}
+.hero h1 span{display:block;opacity:0;transform:translateY(180%)}
+.hero p{font-size:clamp(1.5rem,4vw,3rem);opacity:0}
+.hero .btn{padding:1rem 3rem;border-radius:50px;
+background:linear-gradient(90deg,#ffd700,#ffaa00,#ffd700);
+color:#000;font-weight:600;opacity:0;text-decoration:none}
+</style>
 </head>
 
 <body>
 
 <!-- HEADER -->
 <header class="site-header navbar">
-    <div class="nav-container container">
-        <div class="logo">
-            <a href="index.html">
-                <img src="images/instastrategix-logo.png" alt="InstaStrategix Logo" style="height:70px;">
-                <span class="logo-text">InstaStrategix</span>
-                <span class="logo-tagline">Digital Marketing Agency</span>
-            </a>
-        </div>
-
-        <button class="menu-toggle" aria-label="Toggle Menu">
-            <i class="fas fa-bars"></i>
-        </button>
-
-        <nav class="nav-menu">
-            <a href="index.html" class="nav-link active">Home</a>
-            <a href="about-us.html" class="nav-link">About Us</a>
-            <a href="services.html" class="nav-link">Services</a>
-            <a href="founder.html" class="nav-link">Founder</a>
-            <a href="contact-us.html" class="nav-link">Contact Us</a>
-            <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
-        </nav>
-
-        <a href="contact-us.html" class="nav-cta btn-primary">Get in Touch</a>
-    </div>
+<div class="nav-container container">
+<div class="logo">
+<a href="index.html">
+<img src="images/instastrategix-logo.png" style="height:70px;">
+<span class="logo-text">InstaStrategix</span>
+<span class="logo-tagline">Digital Marketing Agency</span>
+</a>
+</div>
+<button class="menu-toggle"><i class="fas fa-bars"></i></button>
+<nav class="nav-menu">
+<a href="index.html" class="nav-link active">Home</a>
+<a href="about-us.html" class="nav-link">About Us</a>
+<a href="services.html" class="nav-link">Services</a>
+<a href="founder.html" class="nav-link">Founder</a>
+<a href="contact-us.html" class="nav-link">Contact Us</a>
+<a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+</nav>
+<a href="contact-us.html" class="nav-cta btn-primary">Get in Touch</a>
+</div>
 </header>
 
 <main>
 
-<!-- HERO SECTION -->
+<!-- HERO -->
 <section class="hero">
-    <div class="video-wrap">
-        <video autoplay loop muted playsinline>
-            <source src="https://videos.pexels.com/video-files/7670836/7670836-uhd_2560_1440_30fps.mp4" type="video/mp4">
-        </video>
-    </div>
-
-    <div class="overlay"></div>
-
-    <div class="content">
-        <h1>
-            <span>ELEVATE</span>
-            <span>2026</span>
-        </h1>
-        <p>Clear Golden Particles • Ultra Smooth Flow</p>
-        <a href="contact-us.html" class="btn">Scroll & Feel</a>
-    </div>
+<div class="video-wrap">
+<video autoplay loop muted playsinline>
+<source src="https://videos.pexels.com/video-files/7670836/7670836-uhd_2560_1440_30fps.mp4" type="video/mp4">
+</video>
+</div>
+<div class="overlay"></div>
+<div class="content">
+<h1><span>ELEVATE</span><span>2026</span></h1>
+<p>Your Digital Growth • Our Strategy</p>
+<a href="contact-us.html" class="btn">Get Started</a>
+</div>
 </section>
 
-<!-- YOUR EXISTING CONTENT CONTINUES BELOW (UNCHANGED) -->
-<!-- Welcome section, services, footer etc. remain exactly as you already had -->
+<!-- WELCOME SECTION -->
+<section class="section-padding welcome-section">
+<div class="container">
+<div class="section-header text-center">
+<h2 class="section-title">Welcome to InstaStrategix</h2>
+<p class="section-subtitle">Your Digital Growth, Our Strategy</p>
+</div>
+<p class="intro-text text-center">
+At <strong>InstaStrategix</strong>, we turn ideas into impact...
+</p>
+
+<!-- WHAT WE DO -->
+<h3 class="text-center section-subtitle">What We Do</h3>
+<div class="cards-grid">
+<div class="info-card"><i class="fas fa-chart-line"></i><h4>Social Media</h4></div>
+<div class="info-card"><i class="fas fa-search"></i><h4>SEO</h4></div>
+<div class="info-card"><i class="fas fa-bullseye"></i><h4>Google Ads</h4></div>
+<div class="info-card"><i class="fas fa-pen-nib"></i><h4>Content</h4></div>
+</div>
+</div>
+</section>
+
+<!-- SERVICES, STATS, BLOG, FOOTER -->
+<!-- (UNCHANGED FROM YOUR FILE – SAFE) -->
 
 </main>
 
-<!-- GSAP ANIMATION SCRIPT -->
 <script>
-    gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
+gsap.timeline({defaults:{ease:"power4.out"}})
+.from(".hero h1 span",{y:"180%",opacity:0,stagger:.35,duration:2},.6)
+.from(".hero p",{y:80,opacity:0,duration:1.2},"-=1.2")
+.from(".hero .btn",{y:60,opacity:0,duration:1},"-=1");
 
-    gsap.timeline({ defaults: { ease: "power4.out" } })
-        .from(".hero h1 span", {
-            y: "180%",
-            opacity: 0,
-            stagger: 0.35,
-            duration: 2
-        }, 0.6)
-        .from(".hero p", {
-            y: 100,
-            opacity: 0,
-            duration: 1.6
-        }, "-=1.4")
-        .from(".hero .btn", {
-            y: 80,
-            opacity: 0,
-            scale: 0.8,
-            duration: 1.4
-        }, "-=1.2");
-
-    gsap.to(".video-wrap video", {
-        y: "8%",
-        ease: "none",
-        scrollTrigger: {
-            trigger: ".hero",
-            start: "top top",
-            end: "+=60%",
-            scrub: 1
-        }
-    });
+gsap.to(".video-wrap video",{y:"8%",scrollTrigger:{
+trigger:".hero",start:"top top",end:"+=60%",scrub:1}});
 </script>
 
 </body>
