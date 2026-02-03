@@ -1,8 +1,97 @@
 // ============================================================================
-// Main JavaScript â€“ Instastrategix (FIXED & STABLE)
+// Main JavaScript – Instastrategix (Premium Upgraded Version)
 // ============================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    /* ==========================================================================
+       PARTICLE BACKGROUND (Lightweight Canvas – Metallic Dust Effect)
+       ========================================================================== */
+
+    const canvas = document.getElementById('particles-canvas');
+    let ctx, particlesArray = [];
+
+    if (canvas) {
+        ctx = canvas.getContext('2d');
+
+        const resizeCanvas = () => {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+        };
+
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const createParticles = () => {
+            const count = 130; // Optimized for performance
+            particlesArray = [];
+            for (let i = 0; i < count; i++) {
+                const size = Math.random() * 2 + 0.5;
+                particlesArray.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: size,
+                    vx: (Math.random() - 0.5) * 0.6,
+                    vy: -(Math.random() * 0.8 + 0.3), // Rising motion
+                    color: ['#c0c0c0', '#e5e5e5', '#a0a0a0'][Math.floor(Math.random() * 3)],
+                    opacity: Math.random() * 0.4 + 0.4
+                });
+            }
+        };
+
+        const animateParticles = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particlesArray.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.globalAlpha = p.opacity;
+                ctx.shadowBlur = 12;
+                ctx.shadowColor = p.color;
+                ctx.fill();
+
+                p.x += p.vx;
+                p.y += p.vy;
+
+                // Reset when particle reaches top
+                if (p.y + p.size < 0) {
+                    p.y = canvas.height + p.size;
+                    p.x = Math.random() * canvas.width;
+                }
+
+                // Gentle side bounds bounce
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+            });
+
+            ctx.shadowBlur = 0;
+            ctx.globalAlpha = 1;
+
+            requestAnimationFrame(animateParticles);
+        };
+
+        createParticles();
+        animateParticles();
+    }
+
+    /* ==========================================================================
+       SCROLL ENTRANCE ANIMATIONS (Intersection Observer)
+       ========================================================================== */
+
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+            }
+        });
+    }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    animateElements.forEach(el => observer.observe(el));
 
     /* ==========================================================================
        MOBILE NAVIGATION
@@ -31,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ==========================================================================
-       STICKY HEADER (SAFE)
+       STICKY HEADER WITH HIDE-ON-SCROLL-DOWN
        ========================================================================== */
 
     const navbar = document.querySelector('.site-header');
@@ -44,11 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (currentScroll > 80) {
                 navbar.classList.add('navbar-scrolled');
 
-                if (
-                    currentScroll > lastScroll &&
-                    currentScroll > 200 &&
-                    !document.body.classList.contains('nav-open')
-                ) {
+                if (currentScroll > lastScroll && currentScroll > 200 && !document.body.classList.contains('nav-open')) {
                     navbar.classList.add('navbar-hidden');
                 } else {
                     navbar.classList.remove('navbar-hidden');
@@ -68,8 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
        ACTIVE NAV LINK
        ========================================================================== */
 
-    const currentPage =
-        window.location.pathname.split('/').pop() || 'index.html';
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
@@ -101,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ==========================================================================
-       SCROLL TO TOP
+       SCROLL TO TOP BUTTON
        ========================================================================== */
 
     const scrollBtn = document.createElement('button');
@@ -120,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
-   UTIL
+   UTILITY: Throttle
    ========================================================================== */
 
 function throttle(fn, limit = 100) {
