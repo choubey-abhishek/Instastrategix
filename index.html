@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Instastrategix is a premium digital marketing agency helping small businesses, coaches, and startups grow with branding, websites, and marketing strategies.">
     <meta name="keywords" content="digital marketing agency, branding, website design, social media marketing, small business growth">
-    <title>InstaStrategix.ix</title>
+    <title>InstaStrategix</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -25,7 +25,6 @@
 </head>
 <body>
 
-<!-- ================= Header / Navigation ================= -->
 <!-- ================= Header / Navigation ================= -->
 <header class="site-header navbar">
     <div class="nav-container container">
@@ -53,270 +52,254 @@
             <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
         </nav>
 
-        <!-- Optional CTA Button -->
+        <!-- CTA Button -->
         <a href="contact-us.html" class="nav-cta btn-primary">Get in Touch</a>
     </div>
 </header>
 
-
-
 <!-- ================= Main Content ================= -->
 <main>
 
-<!-- Hero Section -->
+<!-- Hero Section with Particle Animation -->
 <section class="hero">
-
+    <canvas id="particles-canvas"></canvas>
+    <div class="hero-content container text-center">
+        <h1 class="hero-title animate-on-scroll">InstaStrategix</h1>
+        <p class="hero-subtitle animate-on-scroll">Premium Digital Marketing Agency</p>
+        <p class="hero-description animate-on-scroll">
+            We turn ideas into impact with sophisticated, data-driven strategies. Specializing in branding, modern websites, social media mastery, and high-ROI paid campaigns.
+        </p>
+        <div class="hero-buttons animate-on-scroll">
+            <a href="contact-us.html" class="btn btn-primary">Get in Touch</a>
+            <a href="services.html" class="btn btn-secondary">Explore Services</a>
+        </div>
+    </div>
 </section>
-<!-- Hero Section ends -->
 
-<!-- ================= Welcome Content ================= -->
+<!-- Welcome / Features Section -->
 <section class="section-padding welcome-section">
     <div class="container">
 
-        <!-- Section Header -->
-        <div class="section-header text-center">
+        <div class="section-header text-center animate-on-scroll">
             <h2 class="section-title">Welcome to InstaStrategix</h2>
             <p class="section-subtitle">Your Digital Growth, Our Strategy</p>
         </div>
 
-        <!-- Intro Text -->
-        <p class="intro-text text-center">
-            At <strong>InstaStrategix</strong>, we turn ideas into impact. We help businesses grow, engage, and thrive online through smart digital marketing solutions that work. From social media mastery and SEO to Google Ads and content strategy, we craft campaigns that deliver measurable results.
+        <p class="intro-text text-center animate-on-scroll">
+            From social media mastery and SEO to Google Ads and content strategy, we craft campaigns that deliver measurable results.
         </p>
 
-        <!-- What We Do (Cards) -->
-        <h3 class="text-center section-subtitle">What We Do</h3>
+        <h3 class="text-center section-subtitle animate-on-scroll">What We Do</h3>
         <div class="cards-grid">
-            <div class="info-card">
+            <div class="info-card animate-on-scroll">
                 <i class="fas fa-chart-line card-icon"></i>
                 <h4>Social Media Management</h4>
                 <p>Build a loyal audience, boost engagement, and grow your brand presence.</p>
             </div>
-            <div class="info-card">
+            <div class="info-card animate-on-scroll">
                 <i class="fas fa-search card-icon"></i>
                 <h4>SEO & Website Optimization</h4>
                 <p>Rank higher, get discovered, and drive organic traffic.</p>
             </div>
-            <div class="info-card">
+            <div class="info-card animate-on-scroll">
                 <i class="fas fa-bullseye card-icon"></i>
                 <h4>Google Ads & Paid Campaigns</h4>
                 <p>Reach the right audience, maximize ROI, and accelerate growth.</p>
             </div>
-            <div class="info-card">
+            <div class="info-card animate-on-scroll">
                 <i class="fas fa-pen-nib card-icon"></i>
                 <h4>Content Marketing</h4>
                 <p>Compelling content that tells your brand story and converts visitors into customers.</p>
             </div>
         </div>
 
-        <!-- Why Choose Us -->
-        <h3 class="text-center section-subtitle">Why Choose InstaStrategix?</h3>
+        <h3 class="text-center section-subtitle animate-on-scroll">Why Choose InstaStrategix?</h3>
         <div class="cards-grid">
-            <div class="info-card">
+            <div class="info-card animate-on-scroll">
                 <i class="fas fa-chart-pie card-icon"></i>
                 <h4>Data-Driven Strategies</h4>
                 <p>Every decision backed by insights and analytics.</p>
             </div>
-            <div class="info-card">
+            <div class="info-card animate-on-scroll">
                 <i class="fas fa-lightbulb card-icon"></i>
                 <h4>Creative Excellence</h4>
                 <p>Innovative campaigns that captivate your audience.</p>
             </div>
-            <div class="info-card">
+            <div class="info-card animate-on-scroll">
                 <i class="fas fa-trophy card-icon"></i>
                 <h4>Proven Results</h4>
                 <p>Growth-focused strategies tailored to your brand.</p>
             </div>
-            <div class="info-card">
+            <div class="info-card animate-on-scroll">
                 <i class="fas fa-handshake card-icon"></i>
                 <h4>Personalized Approach</h4>
                 <p>Your goals become our mission.</p>
             </div>
         </div>
 
-        <!-- Call to Action -->
-        <div class="cta-wrapper text-center">
-            <h3>Letâ€™s Grow Together</h3>
+        <div class="cta-wrapper text-center animate-on-scroll">
+            <h3>Let’s Grow Together</h3>
             <p>Ready to take your brand to the next level? Partner with InstaStrategix and watch your digital presence transform into measurable growth.</p>
-            <a href="#contact" class="btn btn-primary">Get Started</a>
+            <a href="contact-us.html" class="btn btn-primary">Get Started</a>
         </div>
 
     </div>
 </section>
 
+<!-- Services Preview -->
+<section class="services-preview section-padding">
+    <div class="container">
 
-    <!-- Services Preview -->
-    <section class="services-preview section-padding">
-        <div class="container">
-
-            <div class="section-header text-center">
-                <h2 class="section-title">Our Core Services</h2>
-                <p class="section-subtitle">Everything you need to build, grow, and scale your brand</p>
-            </div>
-
-            <div class="services-grid">
-
-                <article class="service-card animate-hover">
-                    <div class="service-icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <h3>Branding & Design</h3>
-                    <p>Logos, creatives, and visual systems that build trust and recognition.</p>
-                    <a href="services.html#graphic-design" class="btn-text">Learn More</a>
-                </article>
-
-                <article class="service-card animate-hover">
-                    <div class="service-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h3>Website Design</h3>
-                    <p>Modern, responsive websites optimized for conversion and performance.</p>
-                    <a href="services.html#web-design" class="btn-text">Learn More</a>
-                </article>
-
-                <article class="service-card animate-hover">
-                    <div class="service-icon">
-                        <i class="fas fa-bullhorn"></i>
-                    </div>
-                    <h3>Social Media Marketing</h3>
-                    <p>Data-driven strategies that grow engagement and generate leads.</p>
-                    <a href="services.html#social-media" class="btn-text">Learn More</a>
-                </article>
-
-            </div>
-
-            <div class="section-cta text-center">
-                <a href="services.html" class="btn btn-secondary">View All Services</a>
-            </div>
-
+        <div class="section-header text-center animate-on-scroll">
+            <h2 class="section-title">Our Core Services</h2>
+            <p class="section-subtitle">Everything you need to build, grow, and scale your brand</p>
         </div>
-    </section>
 
-    <!-- Social Proof -->
-    <section class="social-proof">
-        <div class="container">
-
-            <div class="proof-grid">
-                <div class="stat-item">
-                    <span class="stat-number">100+</span>
-                    <span class="stat-label">Projects Delivered</span>
+        <div class="services-grid">
+            <article class="service-card animate-hover animate-on-scroll">
+                <div class="service-icon">
+                    <i class="fas fa-palette"></i>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">95%</span>
-                    <span class="stat-label">Client Satisfaction</span>
+                <h3>Branding & Design</h3>
+                <p>Logos, creatives, and visual systems that build trust and recognition.</p>
+                <a href="services.html#graphic-design" class="btn-text">Learn More</a>
+            </article>
+
+            <article class="service-card animate-hover animate-on-scroll">
+                <div class="service-icon">
+                    <i class="fas fa-laptop-code"></i>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">50+</span>
-                    <span class="stat-label">Brands Scaled</span>
+                <h3>Website Design</h3>
+                <p>Modern, responsive websites optimized for conversion and performance.</p>
+                <a href="services.html#web-design" class="btn-text">Learn More</a>
+            </article>
+
+            <article class="service-card animate-hover animate-on-scroll">
+                <div class="service-icon">
+                    <i class="fas fa-bullhorn"></i>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">24/7</span>
-                    <span class="stat-label">Client Support</span>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section class="blog-integration section-padding">
-        <div class="container blog-content">
-
-            <h2 class="section-title">Learn Digital Marketing</h2>
-            <p class="section-subtitle">
-                Actionable insights, strategies, and growth tips from industry experience
-            </p>
-
-            <p>
-                Visit our educational blog where we share proven strategies tailored for
-                small businesses, coaches, and startups.
-            </p>
-
-            <a href="https://instastrategix0.blogspot.com/" target="_blank" class="btn btn-primary">
-                <i class="fas fa-book-open"></i> Visit Blog
-            </a>
-
-        </div>
-    </section>
-
-</main>
-
-<!-- Modern & Attractive Footer -->
-<footer class="footer" style="background: linear-gradient(135deg, #4f46e5, #6366f1); color: #f3f4f6; padding: 60px 0; position: relative; overflow: hidden;">
-    
-    <!-- Decorative Wave Shape at Top -->
-    <svg viewBox="0 0 1200 100" preserveAspectRatio="none" style="display:block; width:100%; height:50px; position:absolute; top:0; left:0; z-index:1;">
-        <path d="M0,0 C600,100 600,0 1200,100 L1200,0 L0,0 Z" style="fill: #fff; opacity: 0.05;"></path>
-    </svg>
-
-    <div class="footer-grid container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; position: relative; z-index:2;">
-        
-        <!-- Founder Info -->
-        <div class="footer-col">
-            <h4 style="color: #fff; font-size: 1.25rem; margin-bottom: 15px;">Founder</h4>
-            <p style="margin-bottom: 10px;">Abhishek Choubey</p>
-            <ul style="list-style:none; padding:0; margin:0;">
-                <li style="margin-bottom:8px;">
-                    <i class="fas fa-envelope" style="margin-right:8px;"></i>
-                    <a href="mailto:instastrategixdigitalcreator@gmail.com" style="color:#f3f4f6; text-decoration: underline;">instastrategixdigitalcreator@gmail.com</a>
-                </li>
-                <li style="margin-bottom:8px;">
-                    <i class="fab fa-instagram" style="margin-right:8px;"></i>
-                    <a href="https://www.instagram.com/instastrategix/" target="_blank" style="color:#f3f4f6; text-decoration: underline;">@instastrategix</a>
-                </li>
-                <li>
-                    <i class="fas fa-blog" style="margin-right:8px;"></i>
-                    <a href="https://instastrategix0.blogspot.com/" target="_blank" style="color:#f3f4f6; text-decoration: underline;">Digital Marketing Education</a>
-                </li>
-            </ul>
+                <h3>Social Media Marketing</h3>
+                <p>Data-driven strategies that grow engagement and generate leads.</p>
+                <a href="services.html#social-media" class="btn-text">Learn More</a>
+            </article>
         </div>
 
-        <!-- Quick Links -->
-        <div class="footer-col">
-            <h4 style="color: #fff; font-size: 1.25rem; margin-bottom: 15px;">Quick Links</h4>
-            <ul style="list-style:none; padding:0; margin:0;">
-                <li style="margin-bottom:8px;"><a href="index.html" style="color:#f3f4f6; text-decoration:none; transition: color 0.3s;">Home</a></li>
-                <li style="margin-bottom:8px;"><a href="about-us.html" style="color:#f3f4f6; text-decoration:none; transition: color 0.3s;">About Us</a></li>
-                <li style="margin-bottom:8px;"><a href="services.html" style="color:#f3f4f6; text-decoration:none; transition: color 0.3s;">Services</a></li>
-                 <li style="margin-bottom:8px;"><a href="privacy-policy.html" style="color:#f3f4f6; text-decoration:none; transition: color 0.3s;">Privacy Policy</a></li>
-                <li><a href="contact-us.html" style="color:#f3f4f6; text-decoration:none; transition: color 0.3s;">Contact</a></li>
-            </ul>
-        </div>
-
-        <!-- Social Media -->
-        <div class="footer-col">
-            <h4 style="color:#fff; font-size:1.25rem; margin-bottom:15px;">Connect With Us</h4>
-            <p style="margin-bottom:10px;">Follow us for tips, guides & updates!</p>
-            <div style="display:flex; gap:15px; font-size:1.5rem;">
-                <a href="https://www.instagram.com/instastrategix/" target="_blank" style="color:#f3f4f6; transition: transform 0.3s, color 0.3s;">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://instastrategix0.blogspot.com/" target="_blank" style="color:#f3f4f6; transition: transform 0.3s, color 0.3s;">
-                    <i class="fas fa-blog"></i>
-                </a>
-            </div>
-        </div>
-
-        <!-- Newsletter Signup -->
-        <div class="footer-col">
-            <h4 style="color:#fff; font-size:1.25rem; margin-bottom:15px;">Subscribe</h4>
-            <p style="margin-bottom:10px;">Get our latest marketing tips directly to your inbox:</p>
-            <form style="display:flex; gap:10px;">
-                <input type="email" placeholder="Your email" style="padding:10px; border-radius:5px; border:none; flex:1;">
-                <button type="submit" class="btn-primary" style="padding:10px 15px; border-radius:5px; background: linear-gradient(135deg, #6366f1, #4f46e5); color:#fff; border:none; cursor:pointer; transition: transform 0.3s;">Subscribe</button>
-            </form>
+        <div class="section-cta text-center animate-on-scroll">
+            <a href="services.html" class="btn btn-secondary">View All Services</a>
         </div>
 
     </div>
+</section>
 
-    <!-- Footer Bottom -->
-    <div class="footer-bottom" style="text-align:center; margin-top:50px; font-size:0.875rem; color:#e0e7ff;">
+<!-- Social Proof -->
+<section class="social-proof">
+    <div class="container">
+
+        <div class="proof-grid">
+            <div class="stat-item animate-on-scroll">
+                <span class="stat-number">100+</span>
+                <span class="stat-label">Projects Delivered</span>
+            </div>
+            <div class="stat-item animate-on-scroll">
+                <span class="stat-number">95%</span>
+                <span class="stat-label">Client Satisfaction</span>
+            </div>
+            <div class="stat-item animate-on-scroll">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">Brands Scaled</span>
+            </div>
+            <div class="stat-item animate-on-scroll">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Client Support</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Blog Section -->
+<section class="blog-integration section-padding">
+    <div class="container blog-content">
+
+        <h2 class="section-title animate-on-scroll">Learn Digital Marketing</h2>
+        <p class="section-subtitle animate-on-scroll">
+            Actionable insights, strategies, and growth tips from industry experience
+        </p>
+
+        <p class="animate-on-scroll">
+            Visit our educational blog where we share proven strategies tailored for
+            small businesses, coaches, and startups.
+        </p>
+
+        <a href="https://instastrategix0.blogspot.com/" target="_blank" class="btn btn-primary animate-on-scroll">
+            <i class="fas fa-book-open"></i> Visit Blog
+        </a>
+
+    </div>
+</section>
+
+</main>
+
+<!-- Premium Dark Footer -->
+<footer class="footer">
+    <svg viewBox="0 0 1200 100" preserveAspectRatio="none" style="display:block; width:100%; height:50px; position:absolute; top:0; left:0; z-index:1;">
+        <path d="M0,0 C600,100 600,0 1200,100 L1200,0 L0,0 Z" style="fill: #111; opacity: 0.1;"></path>
+    </svg>
+
+    <div class="footer-grid container">
+        <div class="footer-col">
+            <h4>Founder</h4>
+            <p>Abhishek Choubey</p>
+            <ul>
+                <li>
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:instastrategixdigitalcreator@gmail.com">instastrategixdigitalcreator@gmail.com</a>
+                </li>
+                <li>
+                    <i class="fab fa-instagram"></i>
+                    <a href="https://www.instagram.com/instastrategix/" target="_blank">@instastrategix</a>
+                </li>
+                <li>
+                    <i class="fas fa-blog"></i>
+                    <a href="https://instastrategix0.blogspot.com/" target="_blank">Digital Marketing Education</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="contact-us.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Connect With Us</h4>
+            <p>Follow us for tips, guides & updates!</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/instastrategix/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://instastrategix0.blogspot.com/" target="_blank"><i class="fas fa-blog"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h4>Subscribe</h4>
+            <p>Get our latest marketing tips directly to your inbox:</p>
+            <form>
+                <input type="email" placeholder="Your email" required>
+                <button type="submit" class="btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
         &copy; <span id="current-year"></span> InstaStrategix. All rights reserved.
     </div>
 </footer>
 
-<!-- Footer Hover Effects -->
-<style>
-.footer a:hover { color: #facc15 !important; transform: translateY(-2px); }
-.footer .btn-primary:hover { transform: scale(1.05); box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.4); }
-</style>
+</body>
+</html>
