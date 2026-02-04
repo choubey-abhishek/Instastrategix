@@ -18,21 +18,15 @@
     color: var(--text-secondary);
     font-weight: 500;
 }
-.nav-link:hover, .nav-link.active {
-    color: var(--accent-light);
-}
-.nav-link::after {
-    background-color: var(--gold);
-}
+.nav-link:hover, .nav-link.active { color: var(--accent-light); }
+.nav-link::after { background-color: var(--gold); }
 .nav-cta {
     background: linear-gradient(135deg, var(--gold), #5a503f);
     color: #fff;
     padding: 0.6rem 1.25rem;
     border-radius: var(--radius-md);
 }
-.nav-cta:hover {
-    box-shadow: 0 0 20px var(--gold-glow);
-}
+.nav-cta:hover { box-shadow: 0 0 20px var(--gold-glow); }
 
 /* Buttons */
 .btn-primary {
@@ -79,25 +73,14 @@
 }
 
 /* Social Proof */
-.stat-number {
-    color: var(--silver-light);
-    font-size: 3rem;
-    font-weight: 800;
-}
-.stat-label {
-    color: var(--text-muted);
-}
+.stat-number { color: var(--silver-light); font-size: 3rem; font-weight: 800; }
+.stat-label { color: var(--text-muted); }
 
-/* Footer (already dark – minor polish) */
-.footer {
-    background: #0a0a0a;
-    color: var(--text-secondary);
-}
-.footer a:hover {
-    color: var(--gold);
-}
+/* Footer */
+.footer { background: #0a0a0a; color: var(--text-secondary); }
+.footer a:hover { color: var(--gold); }
 
-/* Remove light backgrounds from sections */
-.welcome-section, .services-preview, .blog-integration {
-    background: transparent;
-}
+/* Remove light backgrounds */
+.welcome-section, .services-preview, .blog-integration { background: transparent; }
+
+/* [Keep your original mobile nav, responsive rules, etc. if any were in this file] */
