@@ -1,6 +1,5 @@
-// js/gsap-animations.js – unchanged from previous
+// js/gsap-animations.js – Upgraded card stagger + tilt
 gsap.registerPlugin(ScrollTrigger);
-
 gsap.timeline({
     scrollTrigger: {
         trigger: ".hero",
@@ -13,6 +12,7 @@ gsap.timeline({
 .from(".hero-description", { y: 60, opacity: 0, duration: 1 }, "-=0.8")
 .from(".hero-buttons .btn", { y: 60, opacity: 0, stagger: 0.2, duration: 1 }, "-=0.6");
 
+// Section titles
 document.querySelectorAll(".section-title").forEach(title => {
     gsap.from(title.querySelectorAll(".char"), {
         y: 80,
@@ -28,12 +28,27 @@ document.querySelectorAll(".section-title").forEach(title => {
     });
 });
 
+// Cards stagger reveal
+gsap.utils.toArray(".info-card, .service-card").forEach((card, i) => {
+    gsap.from(card, {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: card,
+            start: "top 90%",
+            toggleActions: "play none none reverse"
+        }
+    });
+});
+
 VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
-    max: 18,
+    max: 15, /* Slightly more tilt */
     speed: 500,
     glare: true,
-    "max-glare": 0.4,
-    scale: 1.08,
+    "max-glare": 0.3, /* Subtle glow */
+    scale: 1.06,
     perspective: 1000
 });
 
@@ -41,8 +56,8 @@ gsap.utils.toArray(".stat-number").forEach(stat => {
     const hasPlus = stat.textContent.includes('+');
     const hasPercent = stat.textContent.includes('%');
     const target = parseInt(stat.textContent.replace(/[^\d]/g, ''));
-    
-    gsap.fromTo(stat, 
+   
+    gsap.fromTo(stat,
         { innerText: 0 },
         {
             innerText: target,
