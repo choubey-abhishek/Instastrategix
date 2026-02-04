@@ -1,4 +1,4 @@
-// Main JavaScript – Original features preserved
+// js/main.js – Added header scroll effect & scroll-to-top
 document.addEventListener('DOMContentLoaded', () => {
     // Mobile Menu Toggle
     const menuToggle = document.querySelector('.menu-toggle');
@@ -17,12 +17,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentYear = document.getElementById('current-year');
     if (currentYear) currentYear.textContent = new Date().getFullYear();
 
-    // Scroll to Top (if you have the button)
+    // Header scroll effect
+    const header = document.querySelector('.site-header');
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Scroll to Top
     const scrollTopBtn = document.querySelector('.scroll-to-top');
     if (scrollTopBtn) {
         window.addEventListener('scroll', () => {
             scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
         });
-        scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        scrollTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     }
 });
