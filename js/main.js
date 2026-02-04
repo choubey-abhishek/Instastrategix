@@ -1,6 +1,6 @@
-// js/main.js – Added header scroll effect & scroll-to-top
+// js/main.js
 document.addEventListener('DOMContentLoaded', () => {
-    // Mobile Menu Toggle
+    // Mobile Menu
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
     if (menuToggle && navMenu) {
