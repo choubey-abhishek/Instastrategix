@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+   
     <!-- Primary Meta Tags -->
     <title>InstaStrategix | Premium Digital Marketing Agency in Bhilai, Chhattisgarh</title>
     <meta name="description" content="InstaStrategix is a premium digital marketing agency in Bhilai, Chhattisgarh, helping small businesses, coaches, and startups grow with expert branding, website design, SEO, social media marketing, and paid ads.">
@@ -11,7 +11,6 @@
     <meta name="robots" content="index, follow">
     <meta name="author" content="Abhishek Choubey">
     <link rel="canonical" href="https://www.instastrategix.com/">
-
     <!-- Open Graph / Social Meta -->
     <meta property="og:title" content="InstaStrategix | Premium Digital Marketing Agency in Bhilai">
     <meta property="og:description" content="Expert digital marketing services: branding, website design, SEO, social media, and paid ads for small businesses and startups in India.">
@@ -20,35 +19,31 @@
     <meta property="og:image" content="https://www.instastrategix.com/images/og-image.jpg">
     <meta property="og:site_name" content="InstaStrategix">
     <meta property="og:locale" content="en_IN">
-
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="InstaStrategix | Premium Digital Marketing Agency in Bhilai">
     <meta name="twitter:description" content="Grow your business with expert digital marketing: SEO, social media, Google Ads, and branding.">
     <meta name="twitter:image" content="https://www.instastrategix.com/images/og-image.jpg">
-
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+   
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+   
     <!-- Styles -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/responsive.css">
-    
+   
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-
-    <!-- GSAP + Three.js CDNs -->
+    
+    <!-- GSAP CDNs (removed SplitText to avoid club-only dependency issues; text reveal now handled via simple GSAP) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/SplitText.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
 <!-- ================= Header / Navigation ================= -->
@@ -56,7 +51,7 @@
     <div class="nav-container container">
         <div class="logo">
             <a href="index.html">
-                <img src="images/instastrategix-logo.png" alt="InstaStrategix Logo" style="height:70px;">
+                <img src="images/instastrategix-logo.png" alt="InstaStrategix Logo">
                 <span class="logo-text">InstaStrategix</span>
                 <span class="logo-tagline">Digital Marketing Agency</span>
             </a>
@@ -77,12 +72,11 @@
 </header>
 
 <main>
-<!-- Hero Section with 3D Particles -->
+<!-- Hero Section with Advanced Interactive Particle Background -->
 <section class="hero">
-    <!-- Parallax Layers -->
-    <div class="parallax-layer parallax-bg"></div>
-    <div class="parallax-layer parallax-mid"></div>
-    
+    <div class="particles-container">
+        <canvas id="particles-canvas"></canvas>
+    </div>
     <div class="hero-overlay"></div>
     <div class="hero-content container text-center">
         <h1 class="hero-title">InstaStrategix - Premium Digital Marketing Agency in Bhilai</h1>
@@ -97,7 +91,7 @@
     </div>
 </section>
 
-<!-- All original sections kept exactly -->
+<!-- All original sections preserved with upgraded animations & effects -->
 <section class="section-padding welcome-section">
     <div class="container">
         <div class="section-header text-center">
@@ -161,7 +155,6 @@
     </div>
 </section>
 
-<!-- Services Preview (original) -->
 <section class="services-preview section-padding">
     <div class="container">
         <div class="section-header text-center">
@@ -200,7 +193,6 @@
     </div>
 </section>
 
-<!-- Social Proof (original) -->
 <section class="social-proof">
     <div class="container">
         <div class="proof-grid">
@@ -224,7 +216,6 @@
     </div>
 </section>
 
-<!-- Blog Section (original) -->
 <section class="blog-integration section-padding">
     <div class="container blog-content">
         <h2 class="section-title">Learn Digital Marketing</h2>
@@ -242,10 +233,15 @@
 </section>
 </main>
 
-<!-- Footer (original preserved) -->
+<!-- Scroll to Top Button (new feature) -->
+<a href="#" class="scroll-to-top" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+</a>
+
+<!-- Footer (upgraded styling) -->
 <footer class="footer">
     <svg viewBox="0 0 1200 100" preserveAspectRatio="none" style="display:block; width:100%; height:50px; position:absolute; top:0; left:0; z-index:1;">
-        <path d="M0,0 C600,100 600,0 1200,100 L1200,0 L0,0 Z" style="fill: #111; opacity: 0.1;"></path>
+        <path d="M0,0 C600,100 600,0 1200,100 L1200,0 L0,0 Z" style="fill: #f8f8f8; opacity: 0.05;"></path>
     </svg>
     <div class="footer-grid container">
         <div class="footer-col">
@@ -289,7 +285,7 @@
     </div>
 </footer>
 
-<!-- JSON-LD (original) -->
+<!-- JSON-LD -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -318,9 +314,101 @@
 
 <!-- Scripts -->
 <script src="js/main.js" defer></script>
-<script src="js/three-particles.js" defer></script>
 <script src="js/gsap-animations.js" defer></script>
 <script src="js/form-validation.js" defer></script>
 <script src="js/animations.js" defer></script>
+
+<!-- Advanced Interactive Particle Background (replaces broken Three.js system – lightweight, performant, mouse-interactive) -->
+<script>
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let particlesArray = [];
+    const mouse = { x: null, y: null, radius: 150 };
+
+    window.addEventListener('mousemove', (e) => {
+        mouse.x = e.x;
+        mouse.y = e.y;
+    });
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 3 + 1;
+            this.speedX = Math.random() * 1.5 - 0.75;
+            this.speedY = Math.random() * 1.5 - 0.75;
+        }
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+
+            // Boundary bounce
+            if (this.x + this.size > canvas.width || this.x - this.size < 0) this.speedX = -this.speedX;
+            if (this.y + this.size > canvas.height || this.y - this.size < 0) this.speedY = -this.speedY;
+
+            // Mouse interaction (grow)
+            let dx = mouse.x - this.x;
+            let dy = mouse.y - this.y;
+            let distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance < mouse.radius) {
+                this.size = Math.min(6, this.size + 0.5);
+            } else if (this.size > 2) {
+                this.size -= 0.1;
+            }
+        }
+        draw() {
+            ctx.fillStyle = 'rgba(155, 138, 107, 0.9)'; // Gold tone
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+
+    function init() {
+        particlesArray = [];
+        const numberOfParticles = (canvas.width * canvas.height) / 9000;
+        for (let i = 0; i < numberOfParticles; i++) {
+            particlesArray.push(new Particle());
+        }
+    }
+
+    function connect() {
+        for (let a = 0; a < particlesArray.length; a++) {
+            for (let b = a; b < particlesArray.length; b++) {
+                let dx = particlesArray[a].x - particlesArray[b].x;
+                let dy = particlesArray[a].y - particlesArray[b].y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+                if (distance < 120) {
+                    ctx.strokeStyle = `rgba(155, 138, 107, ${1 - distance / 120})`;
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                    ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particlesArray.forEach(p => {
+            p.update();
+            p.draw();
+        });
+        connect();
+        requestAnimationFrame(animate);
+    }
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = document.querySelector('.hero').offsetHeight;
+        init();
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    animate();
+</script>
 </body>
 </html>
