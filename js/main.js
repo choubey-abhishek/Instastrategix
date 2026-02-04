@@ -1,3 +1,7 @@
+// ============================================================================
+// Main JavaScript – Instastrategix (Final Upgraded Version)
+// ============================================================================
+document.addEventListener('DOMContentLoaded', () => {
     /* ==========================================================================
        UPGRADED SAND-LIKE FLOATING PARTICLES (Silver + Gold #786e57)
        ========================================================================== */
@@ -7,14 +11,14 @@
         const dpr = window.devicePixelRatio || 1;
         let logicalWidth, logicalHeight, cx, cy;
         const focalLength = 500;
-        const particleCount = 600;   // denser
-        const speed = 0.5;          // slower, more floating
+        const particleCount = 600;
+        const speed = 0.5;
         let particles = [];
 
         class Particle {
             constructor() {
-                this.vx = (Math.random() - 0.5) * 1;   // horizontal drift
-                this.vy = (Math.random() - 0.5) * 1;   // vertical drift
+                this.vx = (Math.random() - 0.5) * 1;
+                this.vy = (Math.random() - 0.5) * 1;
                 this.sizeVariation = Math.random() * 0.6 + 0.8;
                 this.reset();
             }
@@ -23,14 +27,11 @@
                 this.y = (Math.random() - 0.5) * 2000;
                 this.z = Math.random() * 1000 + 300;
 
-                // Mix of silver and gold sand tones
                 if (Math.random() > 0.4) {
-                    // Silver
                     const shade = 180 + Math.random() * 75;
                     this.color = `rgb(${shade}, ${shade}, ${shade})`;
                     this.glow = '#ffffff';
                 } else {
-                    // Gold/sand
                     const base = 100 + Math.random() * 100;
                     this.color = `rgb(${base + 80}, ${base + 60}, ${base})`;
                     this.glow = '#786e57';
@@ -77,7 +78,7 @@
         };
 
         const animate = () => {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';  // subtle trails
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
             ctx.fillRect(0, 0, logicalWidth, logicalHeight);
             particles.forEach(p => { p.update(); p.draw(); });
             ctx.shadowBlur = 0;
@@ -90,3 +91,33 @@
         initParticles();
         animate();
     }
+
+    /* ==========================================================================
+       SCROLL ENTRANCE ANIMATIONS (Intersection Observer)
+       ========================================================================== */
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+            }
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+    animateElements.forEach(el => observer.observe(el));
+
+    // [Keep any other original code you had: menu toggle, sticky header, etc.]
+});
+
+/* ==========================================================================
+   UTILITY: Throttle
+   ========================================================================== */
+function throttle(fn, limit = 100) {
+    let waiting = false;
+    return function (...args) {
+        if (!waiting) {
+            fn.apply(this, args);
+            waiting = true;
+            setTimeout(() => (waiting = false), limit);
+        }
+    };
+}
