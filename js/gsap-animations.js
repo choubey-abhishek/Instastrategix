@@ -1,7 +1,6 @@
-// js/gsap-animations.js – Character reveal + Tilt init + Stat counter
+// js/gsap-animations.js – unchanged from previous
 gsap.registerPlugin(ScrollTrigger);
 
-// Character reveal animation
 gsap.timeline({
     scrollTrigger: {
         trigger: ".hero",
@@ -14,7 +13,6 @@ gsap.timeline({
 .from(".hero-description", { y: 60, opacity: 0, duration: 1 }, "-=0.8")
 .from(".hero-buttons .btn", { y: 60, opacity: 0, stagger: 0.2, duration: 1 }, "-=0.6");
 
-// Section title character reveal on scroll
 document.querySelectorAll(".section-title").forEach(title => {
     gsap.from(title.querySelectorAll(".char"), {
         y: 80,
@@ -30,7 +28,6 @@ document.querySelectorAll(".section-title").forEach(title => {
     });
 });
 
-// 3D Tilt Cards
 VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
     max: 18,
     speed: 500,
@@ -40,7 +37,6 @@ VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
     perspective: 1000
 });
 
-// Stat counter
 gsap.utils.toArray(".stat-number").forEach(stat => {
     const hasPlus = stat.textContent.includes('+');
     const hasPercent = stat.textContent.includes('%');
