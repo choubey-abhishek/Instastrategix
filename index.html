@@ -78,7 +78,7 @@
     <div class="header-border"></div>
 </header>
 <main>
-<!-- Hero Section -->
+<!-- Hero Section - Fully Responsive (Mobile-Optimized) -->
 <section class="hero">
     <div class="particles-container">
         <canvas id="particles-canvas"></canvas>
@@ -87,11 +87,17 @@
     <div class="hero-content container text-center">
         <h1 class="hero-title">Digital Marketing for Brands That Refuse to Blend In</h1>
         <p class="hero-subtitle">Instastrategix</p>
-        <p class="hero-description">
-            Instastrategix is a results-driven digital marketing agency helping businesses scale visibility, authority, and revenue across the UK, USA, Canada, Dubai, and India.<br><br>
-            We design search-led, performance-focused digital strategies that attract high-intent customers and convert attention into measurable growth.<br><br>
-            No shortcuts. No guesswork. Only results.
-        </p>
+        <div class="hero-description-wrapper">
+            <p class="hero-description">
+                Instastrategix is a results-driven digital marketing agency helping businesses scale visibility, authority, and revenue across the UK, USA, Canada, Dubai, and India.
+            </p>
+            <p class="hero-description">
+                We design search-led, performance-focused digital strategies that attract high-intent customers and convert attention into measurable growth.
+            </p>
+            <p class="hero-description highlight-text">
+                No shortcuts. No guesswork. Only results.
+            </p>
+        </div>
         <div class="hero-buttons">
             <a href="contact-us.html" class="btn btn-primary">Start Your Growth Strategy</a>
             <a href="services.html" class="btn btn-secondary">See How We Drive Results</a>
@@ -113,7 +119,6 @@
 
         <h3 class="text-center section-subtitle">Our Digital Marketing Services</h3>
         <div class="cards-grid">
-            <!-- Reordered to match new priority: SEO → Paid → Social → Content -->
             <div class="info-card" data-tilt>
                 <i class="fas fa-search card-icon"></i>
                 <h4>Search Engine Optimization (SEO)</h4>
@@ -172,7 +177,7 @@
     </div>
 </section>
 
-<!-- Services Preview (updated to complement main services without heavy duplication) -->
+<!-- Services Preview -->
 <section class="services-preview section-padding">
     <div class="container">
         <div class="section-header text-center">
@@ -252,7 +257,7 @@
     </div>
 </section>
 
-<!-- Global Presence Section (new) -->
+<!-- Global Presence Section -->
 <section class="section-padding" style="background: #f8f9fa;">
     <div class="container text-center">
         <h2 class="section-title">Global Vision. Local Execution.</h2>
@@ -261,7 +266,7 @@
     </div>
 </section>
 
-<!-- Who We Work With Section (new) -->
+<!-- Who We Work With Section -->
 <section class="section-padding">
     <div class="container">
         <div class="section-header text-center">
@@ -278,7 +283,7 @@
     </div>
 </section>
 
-<!-- Final CTA Section (new) -->
+<!-- Final CTA Section -->
 <section class="section-padding" style="background: var(--primary-color); color: white;">
     <div class="container text-center">
         <h2 class="section-title" style="color: white;">Ready to Scale Your Digital Presence?</h2>
@@ -296,7 +301,7 @@
     <i class="fas fa-arrow-up"></i>
 </a>
 
-<!-- Footer (updated with new content while keeping structure) -->
+<!-- Footer -->
 <footer class="footer">
     <svg class="footer-wave" viewBox="0 0 1440 120" preserveAspectRatio="none">
         <path d="M0,0 C480,100 960,20 1440,80 L1440,120 L0,120 Z" fill="rgba(128,110,77,0.08)"></path>
@@ -347,7 +352,7 @@
     </div>
 </footer>
 
-<!-- JSON-LD (updated) -->
+<!-- JSON-LD -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -375,11 +380,11 @@
 }
 </script>
 
-<!-- Scripts (unchanged) -->
+<!-- Scripts -->
 <script src="js/main.js" defer></script>
 <script src="js/gsap-animations.js" defer></script>
 <script>
-// Particles – unchanged
+// Particles (unchanged)
 const canvas = document.getElementById('particles-canvas');
 const ctx = canvas.getContext('2d');
 let particlesArray = [];
