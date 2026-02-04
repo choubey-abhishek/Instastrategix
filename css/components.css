@@ -1,3 +1,4 @@
+/* css/components.css – Complete file (unchanged from your last provided version) */
 /* css/components.css – Ultra-premium slim header + luxurious footer (no large coverage) */
 .nav-container {
     display: flex;
@@ -177,7 +178,7 @@
     }
 }
 
-/* Cards unchanged */
+/* Cards */
 .info-card, .service-card {
     background: var(--bg-card);
     padding: var(--space-lg);
@@ -221,7 +222,8 @@
     margin-bottom: var(--space-sm);
     color: var(--text-primary);
 }
-/* Buttons unchanged */
+
+/* Buttons */
 .btn {
     display: inline-block;
     padding: 1rem 2.5rem;
@@ -250,7 +252,8 @@
     background: var(--gold);
     color: #fff;
 }
-/* Ultra-luxurious footer */
+
+/* Footer */
 .footer {
     background: linear-gradient(to bottom, #0a0a0a, #000);
     color: var(--silver-light);
