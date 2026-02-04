@@ -1,4 +1,4 @@
-/* css/main.css – Minor hero adjustment for perfect spacing */
+/* css/main.css – Adjusted hero padding for zero overlap */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
     --bg-primary: #f8f8f8;
@@ -57,7 +57,7 @@ h2 { font-size: clamp(2.8rem, 6vw, 4.5rem); }
     overflow: hidden;
     background: #000;
     color: var(--text-light);
-    padding-top: 120px; /* Increased slightly – guarantees no overlap even on small screens */
+    padding-top: 140px; /* Further increased – absolutely no overlap even on small screens */
 }
 .hero-overlay {
     background: radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, transparent 70%);
