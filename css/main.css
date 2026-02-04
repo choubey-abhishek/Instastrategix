@@ -1,4 +1,4 @@
-/* css/main.css – unchanged core, only hero/footer wave colors adjusted */
+/* css/main.css – Upgraded for premium feel */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
     --bg-primary: #f8f8f8;
@@ -35,7 +35,6 @@ body {
 h1, h2, h3, h4 { font-family: var(--font-secondary); font-weight: 800; line-height: 1.2; }
 h1 { font-size: clamp(3.8rem, 9vw, 7rem); }
 h2 { font-size: clamp(2.8rem, 6vw, 4.5rem); }
-
 .section-title {
     background: var(--gold-gradient);
     -webkit-background-clip: text;
@@ -52,7 +51,6 @@ h2 { font-size: clamp(2.8rem, 6vw, 4.5rem); }
     margin: 1.8rem auto 0;
     border-radius: 10px;
 }
-
 .hero {
     position: relative;
     min-height: 100vh;
@@ -81,6 +79,7 @@ h2 { font-size: clamp(2.8rem, 6vw, 4.5rem); }
     position: relative;
     z-index: 2;
     padding: var(--space-xxl) 0;
+    max-width: 1000px; /* Upgraded spacing */
 }
 .hero-title {
     background: linear-gradient(135deg, #806e4d, #e0e0e0);
@@ -88,11 +87,13 @@ h2 { font-size: clamp(2.8rem, 6vw, 4.5rem); }
     background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: var(--space-sm);
+    letter-spacing: -0.02em; /* Premium kerning */
 }
 .hero-subtitle {
     font-size: 2.2rem;
     color: var(--silver);
     margin-bottom: var(--space-md);
+    font-weight: 500;
 }
 .hero-description {
     max-width: 860px;
@@ -100,4 +101,63 @@ h2 { font-size: clamp(2.8rem, 6vw, 4.5rem); }
     font-size: 1.3rem;
     color: var(--silver-light);
     opacity: 0.95;
+    line-height: 1.7; /* Better readability */
+}
+.section-padding {
+    padding: var(--space-xxl) 0; /* More breathing room */
+}
+.container {
+    max-width: 1200px; /* Wider for luxury */
+}
+.intro-text {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto var(--space-lg);
+}
+.cards-grid, .services-grid, .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg); /* Better card spacing */
+}
+.stat-item {
+    text-align: center;
+    padding: var(--space-md);
+}
+.stat-number {
+    display: block;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+}
+.stat-label {
+    font-size: 1rem;
+    color: var(--silver);
+    margin-top: var(--space-sm);
+}
+.blog-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+.cta-wrapper {
+    margin-top: var(--space-xxl);
+    padding: var(--space-lg) 0;
+}
+.cta-wrapper h3 {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-md);
+}
+.section-cta {
+    margin-top: var(--space-xl);
+}
+.btn-text {
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+.btn-text:hover {
+    color: var(--gold-light);
+    text-shadow: 0 0 10px var(--gold-glow);
 }
