@@ -1,4 +1,4 @@
-/* css/main.css – Upgraded for premium feel */
+/* css/main.css – Repaired: Fixed minor overlap + better highlighting */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
     --bg-primary: #f8f8f8;
@@ -80,7 +80,7 @@ h2 { font-size: clamp(2.8rem, 6vw, 4.5rem); }
     z-index: 2;
     padding: var(--space-xxl) 0;
     max-width: 1000px;
-    margin: 0 auto; /* ADDED: centers hero content */
+    margin: 0 auto;
 }
 .hero-title {
     background: linear-gradient(135deg, #806e4d, #e0e0e0);
@@ -108,15 +108,15 @@ h2 { font-size: clamp(2.8rem, 6vw, 4.5rem); }
     display: flex;
     justify-content: center;
     gap: var(--space-lg);
-    flex-wrap: wrap; /* ADDED: proper button layout on desktop */
+    flex-wrap: wrap;
 }
 .section-padding {
     padding: var(--space-xxl) 0;
 }
 .container {
     max-width: 1200px;
-    margin: 0 auto;     /* ADDED: centers all containers */
-    padding: 0 1.5rem;  /* ADDED: consistent side gutters */
+    margin: 0 auto;
+    padding: 0 1.5rem;
 }
 .intro-text {
     font-size: 1.2rem;
@@ -169,4 +169,22 @@ h2 { font-size: clamp(2.8rem, 6vw, 4.5rem); }
 .btn-text:hover {
     color: var(--gold-light);
     text-shadow: 0 0 10px var(--gold-glow);
+}
+
+/* NEW: Highlight section subtitles (What We Do / Why Choose / etc.) */
+.section-subtitle {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    margin-bottom: var(--space-lg);
+}
+
+/* NEW: Highlight card headings for better emphasis on important points */
+.info-card h4,
+.service-card h3 {
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.5rem; /* slight increase for prominence */
 }
