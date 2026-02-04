@@ -7,6 +7,15 @@
     width: 100%;
     z-index: 1000;
 }
+.nav-link { color: var(--text-secondary); }
+.nav-link:hover, .nav-link.active { color: var(--gold); }
+.nav-link::after { background: var(--gold); height: 2px; }
+.nav-cta {
+    background: var(--gold-gradient);
+    color: #fff;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--radius-lg);
+}
 
 /* Buttons */
 .btn-primary {
