@@ -1,55 +1,52 @@
 // ============================================================================
-// Main JavaScript – Instastrategix (FINAL COMPLETE VERSION)
+// Main JavaScript – Instastrategix (FINAL - Small particles moving together in clusters)
 // ============================================================================
 document.addEventListener('DOMContentLoaded', () => {
 
     /* ==========================================================================
-       SAND DISPERSING ANIMATION (Tiny particles, black/silver/#786e57 gold)
+       SAND BURST ANIMATION (Tiny particles moving together in waves/clusters)
        ========================================================================== */
     const canvas = document.getElementById('particles-canvas');
     if (canvas) {
         const ctx = canvas.getContext('2d');
         const dpr = window.devicePixelRatio || 1;
         let width, height;
-        const particleCount = 1200; // dense sand
-        let particles = [];
+        const particles = [];
+        const burstSize = 80; // particles per burst
+        const burstInterval = 40; // frames between bursts
+        let frameCount = 0;
 
         class Particle {
-            constructor() {
-                this.reset();
-            }
-            reset() {
-                // Spawn from left for dispersing effect
-                this.x = Math.random() * width * 0.4 - width * 0.2;
-                this.y = Math.random() * height;
-                this.vx = Math.random() * 3 + 2; // strong rightward wind
-                this.vy = Math.random() * 2 - 1;
+            constructor(x, y, vx, vy) {
+                this.x = x;
+                this.y = y;
+                this.vx = vx;
+                this.vy = vy;
                 this.life = 1;
-                this.decay = Math.random() * 0.01 + 0.005;
-                this.size = Math.random() * 1.5 + 0.5; // tiny grains
+                this.decay = Math.random() * 0.008 + 0.006;
+                this.size = Math.random() * 0.7 + 0.3; // very tiny grains
 
-                // Sand colors: silver, dark gray, gold #786e57
+                // Sand colors
                 const rand = Math.random();
                 if (rand < 0.4) {
                     const shade = 180 + Math.random() * 75;
-                    this.color = `rgba(${shade}, ${shade}, ${shade}, 0.8)`;
+                    this.color = `rgba(${shade}, ${shade}, ${shade}, 0.9)`;
                 } else if (rand < 0.7) {
-                    const shade = 50 + Math.random() * 80;
-                    this.color = `rgba(${shade}, ${shade}, ${shade}, 0.7)`;
+                    const shade = 40 + Math.random() * 70;
+                    this.color = `rgba(${shade}, ${shade}, ${shade}, 0.8)`;
                 } else {
-                    const base = 80 + Math.random() * 60;
-                    this.color = `rgba(${base + 80}, ${base + 50}, ${base}, 0.8)`;
+                    const base = 80 + Math.random() * 50;
+                    this.color = `rgba(${base + 80}, ${base + 50}, ${base}, 0.9)`;
                 }
             }
             update() {
                 this.x += this.vx;
                 this.y += this.vy;
-                this.vy += 0.05; // gentle fall
+                this.vy += 0.03; // gentle gravity
                 this.life -= this.decay;
 
-                if (this.life <= 0 || this.x > width + 50) {
-                    this.reset();
-                }
+                // Curve the flow slightly for crescent shape
+                this.vx += Math.sin(this.y * 0.01) * 0.05;
             }
             draw() {
                 ctx.globalAlpha = this.life;
@@ -57,6 +54,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
+            }
+        }
+
+        function createBurst() {
+            const centerX = width * 0.15; // dense burst on left
+            const centerY = height * 0.5 + (Math.random() - 0.5) * height * 0.4;
+            for (let i = 0; i < burstSize; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 3 + 2;
+                const vx = Math.cos(angle) * speed + 3; // strong right + slight spread
+                const vy = Math.sin(angle) * speed * 0.5;
+                particles.push(new Particle(centerX, centerY, vx, vy));
             }
         }
 
@@ -68,31 +77,34 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.scale(dpr, dpr);
         };
 
-        const init = () => {
-            particles = [];
-            for (let i = 0; i < particleCount; i++) {
-                particles.push(new Particle());
-            }
-        };
-
         const animate = () => {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
             ctx.fillRect(0, 0, width, height);
-            particles.forEach(p => {
+
+            frameCount++;
+            if (frameCount % burstInterval === 0) {
+                createBurst();
+            }
+
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const p = particles[i];
                 p.update();
                 p.draw();
-            });
+                if (p.life <= 0 || p.x > width + 50) {
+                    particles.splice(i, 1);
+                }
+            }
+
             requestAnimationFrame(animate);
         };
 
         resize();
         window.addEventListener('resize', resize);
-        init();
         animate();
     }
 
     /* ==========================================================================
-       SCROLL ENTRANCE ANIMATIONS (Original feature - preserved)
+       SCROLL ENTRANCE ANIMATIONS (Original - preserved)
        ========================================================================== */
     const animateElements = document.querySelectorAll('.animate-on-scroll');
     const observer = new IntersectionObserver((entries) => {
@@ -101,14 +113,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 entry.target.classList.add('in-view');
             }
         });
-    }, {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
-    });
+    }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
     animateElements.forEach(el => observer.observe(el));
 
     /* ==========================================================================
-       MOBILE MENU TOGGLE (Original standard feature - preserved)
+       MOBILE MENU TOGGLE (Original - preserved)
        ========================================================================== */
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
@@ -123,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ==========================================================================
-       STICKY HEADER & ACTIVE LINK (Original standard features - preserved)
+       STICKY HEADER & ACTIVE LINK (Original - preserved)
        ========================================================================== */
     const header = document.querySelector('.site-header');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -135,23 +144,23 @@ document.addEventListener('DOMContentLoaded', () => {
             header.classList.remove('scrolled');
         }
 
-        // Active link highlight
+        // Active link
         let current = '';
         document.querySelectorAll('section').forEach(section => {
             if (window.scrollY >= section.offsetTop - 200) {
-                current = section.getAttribute('id');
+                current = section.getAttribute('id') || '';
             }
         });
         navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href').slice(1) === current) {
+            if (link.getAttribute('href').replace('.html', '') === current || link.getAttribute('href') === current) {
                 link.classList.add('active');
             }
         });
     }, 100));
 
     /* ==========================================================================
-       CURRENT YEAR IN FOOTER (Original feature - preserved)
+       CURRENT YEAR IN FOOTER (Original - preserved)
        ========================================================================== */
     const currentYear = document.getElementById('current-year');
     if (currentYear) {
@@ -159,29 +168,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ==========================================================================
-       SMOOTH SCROLL & SCROLL TO TOP (Original standard features - preserved)
+       SMOOTH SCROLL & SCROLL TO TOP (Original - preserved)
        ========================================================================== */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            document.querySelector(this.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
         });
     });
 
     const scrollTopBtn = document.querySelector('.scroll-to-top');
     if (scrollTopBtn) {
         window.addEventListener('scroll', throttle(() => {
-            if (window.scrollY > 500) {
-                scrollTopBtn.classList.add('visible');
-            } else {
-                scrollTopBtn.classList.remove('visible');
-            }
+            scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
         }, 100));
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     }
 });
 
