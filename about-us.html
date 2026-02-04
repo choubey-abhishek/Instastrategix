@@ -3,235 +3,351 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn about InstaStrategix, a results-driven digital marketing agency founded by Abhishek Choubey. We specialize in social media, SEO, content marketing, and Google Ads.">
-    <meta name="keywords" content="about Instastrategix, digital marketing agency, SEO, Google Ads, social media, content marketing">
-    <title>About Us | InstaStrategix</title>
-
+ 
+    <!-- Primary Meta Tags -->
+    <title>About | Instastrategix | Global Digital Marketing Agency</title>
+    <meta name="description" content="Instastrategix is a strategy-driven digital marketing agency helping businesses build visibility, credibility, and sustainable growth across the UK, USA, Canada, Dubai, and India.">
+    <meta name="keywords" content="about Instastrategix, digital marketing agency, global digital marketing, SEO agency, performance marketing">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Abhishek Choubey">
+    <link rel="canonical" href="https://choubey-abhishek.github.io/Instastrategix/about-us.html">
+    <!-- Open Graph / Social Meta -->
+    <meta property="og:title" content="About Instastrategix | Global Digital Marketing Agency">
+    <meta property="og:description" content="Strategy-driven digital marketing agency delivering search-led growth, performance marketing, and brand authority for businesses worldwide.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://choubey-abhishek.github.io/Instastrategix/about-us.html">
+    <meta property="og:image" content="https://choubey-abhishek.github.io/Instastrategix/images/og-image.jpg">
+    <meta property="og:site_name" content="Instastrategix">
+    <meta property="og:locale" content="en_IN">
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About Instastrategix | Global Digital Marketing Agency">
+    <meta name="twitter:description" content="We help ambitious brands achieve long-term visibility, sustainable leads, and strong digital authority.">
+    <meta name="twitter:image" content="https://choubey-abhishek.github.io/Instastrategix/images/og-image.jpg">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+ 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+ 
     <!-- Styles -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/responsive.css">
-
+ 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js" defer></script>
+  
+    <!-- Vanilla Tilt for 3D card effects -->
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js" defer></script>
 </head>
 <body>
-
 <!-- ================= Header / Navigation ================= -->
 <header class="site-header navbar">
     <div class="nav-container container">
-        <!-- Logo -->
         <div class="logo">
             <a href="index.html">
-                <img src="images/instastrategix-logo.png" alt="InstaStrategix Logo" style="height:70px;">
-                <span class="logo-text">InstaStrategix</span>
-                <span class="logo-tagline">Digital Marketing Agency</span>
+                <img src="images/instastrategix-logo.png" alt="Instastrategix Logo" loading="lazy">
+                <div class="logo-text-wrapper">
+                    <span class="logo-text">Instastrategix</span>
+                    <span class="logo-tagline">Global Digital Marketing Agency</span>
+                </div>
             </a>
         </div>
-
-        <!-- Mobile Menu Toggle -->
         <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
-            <i class="fas fa-bars"></i>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
         </button>
-
-        <!-- Navigation Links -->
         <nav class="nav-menu">
             <a href="index.html" class="nav-link">Home</a>
-            <a href="about-us.html" class="nav-link active">About Us</a>
             <a href="services.html" class="nav-link">Services</a>
-            <a href="founder.html" class="nav-link">Founder</a>
-            <a href="contact-us.html" class="nav-link">Contact Us</a>
-            <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+            <a href="about-us.html" class="nav-link active">About</a>
+            <a href="https://instastrategix0.blogspot.com/" class="nav-link" target="_blank">Blog</a>
+            <a href="contact-us.html" class="nav-link">Contact</a>
         </nav>
-
-        <!-- Optional CTA Button -->
-        <a href="contact-us.html" class="nav-cta btn-primary">Get in Touch</a>
+        <a href="contact-us.html" class="nav-cta btn-primary">Get a Free Strategy Call</a>
     </div>
+    <div class="header-border"></div>
 </header>
-
-<!-- ================= Main Content ================= -->
 <main>
-
-<!-- Hero Section -->
-<section class="about-hero">
-    <div class="container hero-container">
-        <div class="hero-content">
-            <h1 class="hero-title">About InstaStrategix</h1>
-            <p class="hero-subtitle">Empowering brands with creativity, strategy, and measurable results</p>
-            <a href="contact-us.html" class="btn btn-primary">Partner With Us</a>
+<!-- Hero Section - Matched to index.html style -->
+<section class="hero">
+    <div class="particles-container">
+        <canvas id="particles-canvas"></canvas>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content container text-center">
+        <h1 class="hero-title">About Instastrategix</h1>
+        <p class="hero-subtitle">Instastrategix</p>
+        <div class="hero-description-wrapper">
+            <p class="hero-description">
+                Instastrategix is a strategy-driven digital marketing agency helping businesses build visibility, credibility, and sustainable growth in competitive online markets.
+            </p>
+            <p class="hero-description">
+                Based in India and serving clients across the UK, USA, Canada, Dubai, and other global regions, we work with businesses that understand digital marketing is not just promotion — it is a core growth function.
+            </p>
+            <p class="hero-description highlight-text">
+                Our focus is on search-led growth, performance marketing, and brand authority, ensuring every digital initiative contributes to measurable business outcomes.
+            </p>
         </div>
-        <div class="hero-image">
-            <img src="images/about-us.logo.png" alt="About Us Illustration" style="width:100%; max-width:500px;">
+        <div class="hero-buttons">
+            <a href="contact-us.html" class="btn btn-primary">Start Your Growth Strategy</a>
+            <a href="services.html" class="btn btn-secondary">Explore Our Services</a>
         </div>
     </div>
 </section>
 
-<!-- ================= About Content ================= -->
-<section class="section-padding about-content">
+<!-- Who We Are Section -->
+<section class="section-padding welcome-section">
     <div class="container">
-
-        <!-- Section Header -->
         <div class="section-header text-center">
             <h2 class="section-title">Who We Are</h2>
-            <p class="section-subtitle">Your story, our strategy</p>
         </div>
-
-        <!-- Intro Text -->
         <p class="intro-text text-center">
-            At <strong>InstaStrategix</strong>, we believe that every brand has a story worth telling—and the right strategy can turn that story into measurable success. We are a results-driven digital marketing agency dedicated to helping businesses grow, connect, and thrive in the digital world.
+            Instastrategix was built with a clear philosophy:<br><br>
+            Digital marketing should be purposeful, measurable, and aligned with business goals.
         </p>
-
-        <p class="text-center">
-            Our expertise spans social media management, SEO, Google Ads, content marketing, and campaign optimization, enabling us to create holistic strategies that deliver real impact. We combine creativity, data-driven insights, and the latest digital trends to ensure your brand stands out in a crowded online space.
+        <p class="intro-text text-center">
+            We combine market research, data analysis, creative execution, and continuous optimization to help brands compete in fast-moving digital environments.<br><br>
+            We do not believe in shortcuts, inflated metrics, or one-size-fits-all solutions. Every strategy we design is customized to the client’s industry, audience, geography, and growth stage.
         </p>
-
-        <p class="text-center">
-            Founded by Abhishek Choubey, InstaStrategix was born from a vision to empower businesses with cutting-edge marketing solutions that are both effective and sustainable. Our approach is simple: understand your goals, craft tailored strategies, and execute campaigns that drive engagement, growth, and ROI.
-        </p>
-
-        <!-- Why Choose Us (Cards) -->
-        <h3 class="text-center section-subtitle">Why Choose InstaStrategix?</h3>
-        <div class="cards-grid">
-            <div class="info-card">
-                <i class="fas fa-chart-pie card-icon"></i>
-                <h4>Strategic Approach</h4>
-                <p>Every campaign is backed by research, analytics, and actionable insights.</p>
-            </div>
-            <div class="info-card">
-                <i class="fas fa-lightbulb card-icon"></i>
-                <h4>Creative Excellence</h4>
-                <p>We blend creativity with strategy to craft content that resonates with your audience.</p>
-            </div>
-            <div class="info-card">
-                <i class="fas fa-trophy card-icon"></i>
-                <h4>Proven Results</h4>
-                <p>Our solutions focus on measurable outcomes to help your business grow.</p>
-            </div>
-            <div class="info-card">
-                <i class="fas fa-handshake card-icon"></i>
-                <h4>Personalized Service</h4>
-                <p>We treat your brand as our own, tailoring strategies to fit your unique needs.</p>
-            </div>
-        </div>
-
-        <!-- Call to Action -->
-        <div class="cta-wrapper text-center">
-            <h3>Let’s Grow Together</h3>
-            <p>Whether you’re a startup looking to build a strong digital presence or an established brand seeking growth, InstaStrategix is your partner in achieving marketing success.</p>
-            <a href="contact-us.html" class="btn btn-primary">Get Started</a>
-        </div>
-
     </div>
 </section>
 
-<!-- Team Section -->
-<section class="section-padding team-section">
+<!-- Our Values Section -->
+<section class="section-padding" style="background: #f8f9fa;">
     <div class="container">
-
         <div class="section-header text-center">
-            <h2 class="section-title">Meet the Founder</h2>
-            <p class="section-subtitle">The visionary behind InstaStrategix</p>
+            <h2 class="section-title">Our Values</h2>
         </div>
-
         <div class="cards-grid">
-            <div class="info-card">
-                <img src="images/founder.jpg" alt="Abhishek Choubey" style="border-radius:10px; width:100%; max-width:300px; margin-bottom:15px;">
-                <h4>Abhishek Choubey</h4>
-                <p>Founder & CEO</p>
-                <p>Passionate about empowering businesses with cutting-edge marketing solutions that drive real growth.</p>
+            <div class="info-card" data-tilt>
+                <i class="fas fa-brain card-icon"></i>
+                <h4>Strategy First</h4>
+                <p>We prioritize planning and insight before execution.</p>
+            </div>
+            <div class="info-card" data-tilt>
+                <i class="fas fa-eye card-icon"></i>
+                <h4>Transparency</h4>
+                <p>Clear communication, honest reporting, and realistic expectations.</p>
+            </div>
+            <div class="info-card" data-tilt>
+                <i class="fas fa-shield-alt card-icon"></i>
+                <h4>Ethical Marketing</h4>
+                <p>White-hat SEO, compliant advertising, and long-term brand building.</p>
+            </div>
+            <div class="info-card" data-tilt>
+                <i class="fas fa-sync-alt card-icon"></i>
+                <h4>Continuous Improvement</h4>
+                <p>Digital markets evolve — so do our strategies.</p>
             </div>
         </div>
-
     </div>
 </section>
 
+<!-- Our Vision Section -->
+<section class="section-padding">
+    <div class="container text-center">
+        <div class="section-header">
+            <h2 class="section-title">Our Vision</h2>
+        </div>
+        <p class="intro-text">
+            To become a trusted global digital marketing partner for businesses seeking long-term growth, search authority, and sustainable online performance.
+        </p>
+        <div class="cta-wrapper text-center" style="margin-top: var(--space-xxl);">
+            <h3>Ready to Build Your Digital Growth Engine?</h3>
+            <p>Let’s create a strategy that drives real business impact.</p>
+            <a href="contact-us.html" class="btn btn-primary">Book a Strategy Call</a>
+        </div>
+    </div>
+</section>
 </main>
 
-<!-- ================= Footer ================= -->
-<footer class="footer" style="background: linear-gradient(135deg, #4f46e5, #6366f1); color: #f3f4f6; padding: 60px 0; position: relative; overflow: hidden;">
-    <!-- Decorative Wave Shape at Top -->
-    <svg viewBox="0 0 1200 100" preserveAspectRatio="none" style="display:block; width:100%; height:50px; position:absolute; top:0; left:0; z-index:1;">
-        <path d="M0,0 C600,100 600,0 1200,100 L1200,0 L0,0 Z" style="fill: #fff; opacity: 0.05;"></path>
+<a href="#" class="scroll-to-top" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+</a>
+
+<!-- Footer - Exact same as index.html -->
+<footer class="footer">
+    <svg class="footer-wave" viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,0 C480,100 960,20 1440,80 L1440,120 L0,120 Z" fill="rgba(128,110,77,0.08)"></path>
     </svg>
-
-    <div class="footer-grid container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; position: relative; z-index:2;">
-        <!-- Founder Info -->
+    <div class="footer-grid container">
         <div class="footer-col">
-            <h4 style="color: #fff; font-size: 1.25rem; margin-bottom: 15px;">Founder</h4>
-            <p style="margin-bottom: 10px;">Abhishek Choubey</p>
-            <ul style="list-style:none; padding:0; margin:0;">
-                <li style="margin-bottom:8px;">
-                    <i class="fas fa-envelope" style="margin-right:8px;"></i>
-                    <a href="mailto:instastrategixdigitalcreator@gmail.com" style="color:#f3f4f6; text-decoration: underline;">instastrategixdigitalcreator@gmail.com</a>
-                </li>
-                <li style="margin-bottom:8px;">
-                    <i class="fab fa-instagram" style="margin-right:8px;"></i>
-                    <a href="https://www.instagram.com/instastrategix/" target="_blank" style="color:#f3f4f6; text-decoration: underline;">@instastrategix</a>
-                </li>
-                <li>
-                    <i class="fas fa-blog" style="margin-right:8px;"></i>
-                    <a href="https://instastrategix0.blogspot.com/" target="_blank" style="color:#f3f4f6; text-decoration: underline;">Digital Marketing Education</a>
-                </li>
+            <h4 class="footer-heading">Instastrategix</h4>
+            <p>Global Digital Marketing Agency<br>Based in India | Serving Worldwide</p>
+            <ul class="footer-list">
+                <li><i class="fas fa-envelope"></i> <a href="mailto:instastrategix@gmail.com">instastrategix@gmail.com</a></li>
+                <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/instastrategix-ix" target="_blank">LinkedIn</a></li>
+                <li><i class="fab fa-facebook"></i> <a href="https://facebook.com/profile.php?id=61553148242829" target="_blank">Facebook</a></li>
+                <li><i class="fas fa-blog"></i> <a href="https://instastrategix0.blogspot.com/" target="_blank">Blog</a></li>
             </ul>
         </div>
-
-        <!-- Quick Links -->
         <div class="footer-col">
-            <h4 style="color: #fff; font-size: 1.25rem; margin-bottom: 15px;">Quick Links</h4>
-            <ul style="list-style:none; padding:0; margin:0;">
-                <li style="margin-bottom:8px;"><a href="index.html" style="color:#f3f4f6; text-decoration:none; transition: color 0.3s;">Home</a></li>
-                <li style="margin-bottom:8px;"><a href="about-us.html" style="color:#f3f4f6; text-decoration:none; transition: color 0.3s;">About Us</a></li>
-                <li style="margin-bottom:8px;"><a href="services.html" style="color:#f3f4f6; text-decoration:none; transition: color 0.3s;">Services</a></li>
-                  <li style="margin-bottom:8px;"><a href="privacy-policy.html" style="color:#f3f4f6; text-decoration:none; transition: color 0.3s;">Privacy Policy</a></li>
-                <li><a href="contact-us.html" style="color:#f3f4f6; text-decoration:none; transition: color 0.3s;">Contact</a></li>
+            <h4 class="footer-heading">Quick Links</h4>
+            <ul class="footer-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about-us.html">About</a></li>
+                <li><a href="https://instastrategix0.blogspot.com/" target="_blank">Blog</a></li>
+                <li><a href="contact-us.html">Contact</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
             </ul>
         </div>
-
-        <!-- Social Media -->
         <div class="footer-col">
-            <h4 style="color:#fff; font-size:1.25rem; margin-bottom:15px;">Connect With Us</h4>
-            <p style="margin-bottom:10px;">Follow us for tips, guides & updates!</p>
-            <div style="display:flex; gap:15px; font-size:1.5rem;">
-                <a href="https://www.instagram.com/instastrategix/" target="_blank" style="color:#f3f4f6; transition: transform 0.3s, color 0.3s;">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://instastrategix0.blogspot.com/" target="_blank" style="color:#f3f4f6; transition: transform 0.3s, color 0.3s;">
-                    <i class="fas fa-blog"></i>
-                </a>
+            <h4 class="footer-heading">Connect With Us</h4>
+            <p>Follow us for tips, guides & updates!</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/instastrategix/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/instastrategix-ix" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://facebook.com/profile.php?id=61553148242829" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://instastrategix0.blogspot.com/" target="_blank" aria-label="Blog"><i class="fas fa-blog"></i></a>
             </div>
         </div>
-
-        <!-- Newsletter Signup -->
         <div class="footer-col">
-            <h4 style="color:#fff; font-size:1.25rem; margin-bottom:15px;">Subscribe</h4>
-            <p style="margin-bottom:10px;">Get our latest marketing tips directly to your inbox:</p>
-            <form style="display:flex; gap:10px;">
-                <input type="email" placeholder="Your email" style="padding:10px; border-radius:5px; border:none; flex:1;">
-                <button type="submit" class="btn-primary" style="padding:10px 15px; border-radius:5px; background: linear-gradient(135deg, #6366f1, #4f46e5); color:#fff; border:none; cursor:pointer; transition: transform 0.3s;">Subscribe</button>
+            <h4 class="footer-heading">Subscribe</h4>
+            <p>Get our latest marketing tips directly to your inbox:</p>
+            <form class="subscribe-form">
+                <input type="email" placeholder="Your email" required aria-label="Email for newsletter">
+                <button type="submit" class="btn-primary">Subscribe</button>
             </form>
         </div>
-
     </div>
-
-    <!-- Footer Bottom -->
-    <div class="footer-bottom" style="text-align:center; margin-top:50px; font-size:0.875rem; color:#e0e7ff;">
-        &copy; <span id="current-year"></span> InstaStrategix. All rights reserved.
+    <div class="footer-bottom">
+        &copy; 2026 Instastrategix. All Rights Reserved.
     </div>
 </footer>
 
-<!-- Footer Hover Effects -->
-<style>
-.footer a:hover { color: #facc15 !important; transform: translateY(-2px); }
-.footer .btn-primary:hover { transform: scale(1.05); box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.4); }
-</style>
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Instastrategix",
+  "url": "https://choubey-abhishek.github.io/Instastrategix/",
+  "logo": "https://choubey-abhishek.github.io/Instastrategix/images/instastrategix-logo.png",
+  "description": "Global digital marketing agency based in India, helping brands scale with SEO, paid advertising, social media, and content strategy across UK, USA, Canada, Dubai, and India.",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "instastrategix@gmail.com",
+    "contactType": "Customer Service"
+  },
+  "sameAs": [
+    "https://www.instagram.com/instastrategix/",
+    "https://www.linkedin.com/in/instastrategix-ix",
+    "https://facebook.com/profile.php?id=61553148242829",
+    "https://instastrategix0.blogspot.com/"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "Chhattisgarh",
+    "addressCountry": "IN"
+  }
+}
+</script>
 
+<!-- Scripts -->
+<script src="js/main.js" defer></script>
+<script src="js/gsap-animations.js" defer></script>
+<script>
+// Particles – same as index.html
+const canvas = document.getElementById('particles-canvas');
+const ctx = canvas.getContext('2d');
+let particlesArray = [];
+const mouse = { x: null, y: null, radius: 150 };
+window.addEventListener('mousemove', (e) => {
+    mouse.x = e.x;
+    mouse.y = e.y;
+});
+class Particle {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 3 + 1;
+        this.speedX = Math.random() * 1 - 0.5;
+        this.speedY = Math.random() * 1 - 0.5;
+    }
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x + this.size > canvas.width || this.x - this.size < 0) this.speedX = -this.speedX;
+        if (this.y + this.size > canvas.height || this.y - this.size < 0) this.speedY = -this.speedY;
+        let dx = mouse.x - this.x;
+        let dy = mouse.y - this.y;
+        let distance = Math.sqrt(dx * dx + dy * dy);
+        if (distance < mouse.radius) {
+            this.size = Math.min(7, this.size + 0.6);
+        } else if (this.size > 2) {
+            this.size -= 0.1;
+        }
+    }
+    draw() {
+        ctx.fillStyle = 'rgba(220, 220, 220, 0.95)';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+function init() {
+    particlesArray = [];
+    const numberOfParticles = (canvas.width * canvas.height) / 8000;
+    for (let i = 0; i < numberOfParticles; i++) {
+        particlesArray.push(new Particle());
+    }
+}
+function connect() {
+    for (let a = 0; a < particlesArray.length; a++) {
+        for (let b = a; b < particlesArray.length; b++) {
+            let dx = particlesArray[a].x - particlesArray[b].x;
+            let dy = particlesArray[a].y - particlesArray[b].y;
+            let distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance < 130) {
+                ctx.strokeStyle = `rgba(200, 200, 200, ${1 - distance / 130})`;
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                ctx.stroke();
+            }
+        }
+    }
+}
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particlesArray.forEach(p => {
+        p.update();
+        p.draw();
+    });
+    connect();
+    requestAnimationFrame(animate);
+}
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = document.querySelector('.hero').offsetHeight;
+    init();
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+animate();
+
+// Text split
+function splitText() {
+    document.querySelectorAll('.hero-title, .section-title').forEach(el => {
+        const text = el.textContent.trim();
+        el.innerHTML = text.split('').map(char =>
+            `<span class="char" style="display:inline-block;">${char === ' ' ? '&nbsp;' : char}</span>`
+        ).join('');
+    });
+}
+splitText();
+</script>
 </body>
 </html>
