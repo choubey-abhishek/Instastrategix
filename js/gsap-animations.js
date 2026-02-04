@@ -1,41 +1,46 @@
-// js/gsap-animations.js – Removed pinning/scrub (causing performance issues), improved smoothness, added stat counter
-gsap.registerPlugin(ScrollTrigger, TextPlugin);
+// js/gsap-animations.js – Character reveal + Tilt init + Stat counter
+gsap.registerPlugin(ScrollTrigger);
 
-gsap.defaults({ ease: "power3.out" });
-
-// Hero reveal (no pin, plays on entrance)
+// Character reveal animation
 gsap.timeline({
     scrollTrigger: {
         trigger: ".hero",
-        start: "top 80%",
+        start: "top 70%",
         toggleActions: "play none none reverse"
     }
 })
-.from(".hero-title", { y: 120, opacity: 0, duration: 1.4 })
-.from(".hero-subtitle", { y: 80, opacity: 0, duration: 1.2 }, "-=1")
-.from(".hero-description", { y: 60, opacity: 0, duration: 1 }, "-=1")
-.from(".hero-buttons .btn", { y: 60, opacity: 0, stagger: 0.2, duration: 1 }, "-=0.8");
+.from(".hero-title .char", { y: 120, opacity: 0, stagger: 0.06, duration: 1.2, ease: "power4.out" })
+.from(".hero-subtitle", { y: 80, opacity: 0, duration: 1 }, "-=0.8")
+.from(".hero-description", { y: 60, opacity: 0, duration: 1 }, "-=0.8")
+.from(".hero-buttons .btn", { y: 60, opacity: 0, stagger: 0.2, duration: 1 }, "-=0.6");
 
-// Card hover effects (enhanced)
-document.querySelectorAll(".info-card, .service-card").forEach(card => {
-    const cardTL = gsap.timeline({ paused: true });
-    cardTL
-        .to(card, { y: -30, scale: 1.08, duration: 0.6 })
-        .to(card.querySelector(".card-icon, .service-icon i"), { scale: 1.4, rotation: 360, color: "#9b8a6b", duration: 0.8 }, "-=0.6")
-        .to(card, { boxShadow: "0 35px 70px rgba(120,110,87,0.45)", duration: 0.6 }, 0);
-
-    card.addEventListener("mouseenter", () => cardTL.play());
-    card.addEventListener("mouseleave", () => cardTL.reverse());
+// Section title character reveal on scroll
+document.querySelectorAll(".section-title").forEach(title => {
+    gsap.from(title.querySelectorAll(".char"), {
+        y: 80,
+        opacity: 0,
+        stagger: 0.05,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: title,
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+        }
+    });
 });
 
-// Card entrance on scroll
-ScrollTrigger.batch(".info-card, .service-card", {
-    onEnter: batch => gsap.to(batch, { y: 0, opacity: 1, stagger: 0.15, duration: 1 }),
-    start: "top 85%",
-    once: true
+// 3D Tilt Cards
+VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+    max: 18,
+    speed: 500,
+    glare: true,
+    "max-glare": 0.4,
+    scale: 1.08,
+    perspective: 1000
 });
 
-// Stat counter animation
+// Stat counter
 gsap.utils.toArray(".stat-number").forEach(stat => {
     const hasPlus = stat.textContent.includes('+');
     const hasPercent = stat.textContent.includes('%');
@@ -45,12 +50,11 @@ gsap.utils.toArray(".stat-number").forEach(stat => {
         { innerText: 0 },
         {
             innerText: target,
-            duration: 2.5,
+            duration: 3,
             ease: "power2.out",
             scrollTrigger: {
                 trigger: ".social-proof",
-                start: "top 80%",
-                toggleActions: "play none none none"
+                start: "top 80%"
             },
             onUpdate: function() {
                 const value = Math.ceil(this.targets()[0].innerText);
