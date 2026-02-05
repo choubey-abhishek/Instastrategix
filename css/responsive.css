@@ -1,13 +1,12 @@
-/* css/responsive.css – Upgraded Mobile */
 @media (max-width: 768px) {
     .nav-container {
         position: relative;
-        flex-wrap: wrap; /* ADDED: allows CTA to go below */
+        flex-wrap: wrap;
         justify-content: space-between;
     }
     .menu-toggle {
         display: flex;
-        margin-left: auto; /* ADDED: pushes hamburger to right */
+        margin-left: auto;
     }
     .nav-menu {
         position: absolute;
@@ -28,10 +27,16 @@
         opacity: 1;
         visibility: visible;
     }
+    .nav-link {
+        font-size: 1.25rem;
+        padding: 1rem 1.6rem;
+    }
     .nav-cta {
         width: 100%;
         margin-top: 1rem;
         text-align: center;
+        padding: 1.4rem 3.5rem;
+        font-size: 1.1rem;
     }
     .hero-content {
         padding: var(--space-xl) var(--space-md);
@@ -45,6 +50,11 @@
     .cards-grid, .services-grid {
         grid-template-columns: 1fr;
         gap: var(--space-md);
+    }
+    .hero-buttons .btn {
+        width: 90%;
+        padding: 1.4rem 2rem;
+        font-size: 1.15rem;
     }
     .footer-grid {
         grid-template-columns: 1fr;
