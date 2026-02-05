@@ -4,10 +4,10 @@
     --bg-card: #ffffff;
     --text-primary: #121212;
     --text-light: #f0f0f0;
-    --silver: #d0d0d0;
+    --silver: #e9f1f2;
     --silver-light: #e8e8e8;
-    --gold: #1290a3;
-    --gold-light: #d4af7b;
+    --gold: #d4af7b;
+    --gold-light: #1290a3;
     --gold-gradient: linear-gradient(135deg, #a67c52, #d8d8d8);
     --gold-glow: rgba(166,124,82,0.3);
     --font-primary: 'Inter', sans-serif;
