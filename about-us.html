@@ -48,6 +48,28 @@
     <!-- Vanilla Tilt for 3D card effects -->
     <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js" defer></script>
 </head>
+
+<!-- Enhanced Chatbot -->
+<div class="chatbot-container">
+    <button class="chatbot-toggle" aria-label="Open chat">
+        <i class="fas fa-comment-dots"></i>
+    </button>
+    <div class="chatbot-window">
+        <div class="chat-header">
+            Instastrategix Assistant
+            <button class="close-chat" aria-label="Close chat">×</button>
+        </div>
+        <div class="chat-messages"></div>
+        <div class="quick-replies"></div>
+        <div class="chat-input">
+            <input type="text" placeholder="Type your message..." aria-label="Message input">
+            <button aria-label="Send message"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+</div>
+
+<script src="js/chatbot.js" defer></script>
+    
 <body>
 <!-- ================= Header / Navigation ================= -->
 <header class="site-header navbar">
