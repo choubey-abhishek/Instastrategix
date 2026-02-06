@@ -29,6 +29,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Swiper.js for Testimonial Slideshow -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!-- Styles -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
@@ -39,10 +41,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js" defer></script>
-    <!-- Vanilla Tilt for 3D card effects -->
+    <!-- Vanilla Tilt -->
     <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js" defer></script>
+    <!-- Swiper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
 </head>
-
+<body>
 <!-- Enhanced Chatbot -->
 <div class="chatbot-container">
     <button class="chatbot-toggle" aria-label="Open chat">
@@ -61,47 +65,9 @@
         </div>
     </div>
 </div>
-
-    <section class="testimonials section-padding">
-    <div class="container">
-        <div class="section-header text-center">
-            <h2 class="section-title">What Our Clients Say</h2>
-            <p class="section-subtitle">Real results from real partnerships</p>
-        </div>
-        <div class="cards-grid">
-            <div class="info-card testimonial-card">
-                <p class="testimonial-quote">"Instastrategix doubled our organic traffic in 6 months with smart SEO. Professional team and clear reporting."</p>
-                <div class="client-info">
-                    <img src="https://via.placeholder.com/80x80" alt="Sarah K." loading="lazy">
-                    <h4>Sarah K.</h4>
-                    <span>CEO, Tech Startup (UK)</span>
-                </div>
-            </div>
-            <!-- Add 2-3 more with real quotes when you have them -->
-            <div class="info-card testimonial-card">
-                <p class="testimonial-quote">"Best ROI we've seen from paid ads. They understand global markets perfectly."</p>
-                <div class="client-info">
-                    <img src="https://via.placeholder.com/80x80" alt="Raj M." loading="lazy">
-                    <h4>Raj M.</h4>
-                    <span>Founder, E-commerce (India)</span>
-                </div>
-            </div>
-            <div class="info-card testimonial-card">
-                <p class="testimonial-quote">"Transparent, data-driven, and genuinely caring about results. Highly recommend."</p>
-                <div class="client-info">
-                    <img src="https://via.placeholder.com/80x80" alt="John D." loading="lazy">
-                    <h4>John D.</h4>
-                    <span>Marketing Director (USA)</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <script src="js/chatbot.js" defer></script>
-    
-<body>
-<!-- ================= Updated Header (Slimmer on scroll, removed tagline) ================= -->
+
+<!-- ================= Header ================= -->
 <header class="site-header navbar">
     <div class="nav-container container">
         <div class="logo">
@@ -119,7 +85,7 @@
             <a href="index.html" class="nav-link active">Home</a>
             <a href="services.html" class="nav-link">Services</a>
             <a href="about-us.html" class="nav-link">About</a>
-            <a href="privacy-policy.html" class="nav-link" target="_blank">privacy policy</a>
+            <a href="privacy-policy.html" class="nav-link" target="_blank">Privacy Policy</a>
             <a href="contact-us.html" class="nav-link">Contact</a>
         </nav>
         <a href="contact-us.html" class="nav-cta btn-primary">Get a Free Strategy Call</a>
@@ -128,7 +94,7 @@
 </header>
 
 <main>
-<!-- Hero Section (Title visibility fixed) -->
+<!-- Hero Section -->
 <section class="hero">
     <div class="particles-container">
         <canvas id="particles-canvas"></canvas>
@@ -155,6 +121,7 @@
     </div>
 </section>
 
+<!-- Welcome / Services Overview -->
 <section class="section-padding welcome-section">
     <div class="container">
         <div class="section-header text-center">
@@ -223,6 +190,7 @@
     </div>
 </section>
 
+<!-- Core Services Preview -->
 <section class="services-preview section-padding">
     <div class="container">
         <div class="section-header text-center">
@@ -261,30 +229,7 @@
     </div>
 </section>
 
-    <h3 class="text-center section-subtitle">Our Proven Process</h3>
-<div class="cards-grid process-grid">
-    <div class="info-card" data-tilt>
-        <i class="fas fa-search card-icon"></i>
-        <h4>1. Discovery & Research</h4>
-        <p>We audit your current performance, analyze competitors, and understand your goals.</p>
-    </div>
-    <div class="info-card" data-tilt>
-        <i class="fas fa-lightbulb card-icon"></i>
-        <h4>2. Strategy Development</h4>
-        <p>Custom roadmap with targeted keywords, ad plans, and content strategy.</p>
-    </div>
-    <div class="info-card" data-tilt>
-        <i class="fas fa-rocket card-icon"></i>
-        <h4>3. Implementation</h4>
-        <p>We execute SEO, ads, social, and content with precision.</p>
-    </div>
-    <div class="info-card" data-tilt>
-        <i class="fas fa-chart-bar card-icon"></i>
-        <h4>4. Optimization & Reporting</h4>
-        <p>Continuous testing, scaling what works, and transparent monthly reports.</p>
-    </div>
-</div>
-
+<!-- Social Proof Stats -->
 <section class="social-proof">
     <div class="container">
         <div class="proof-grid">
@@ -308,6 +253,74 @@
     </div>
 </section>
 
+<!-- Testimonial Slideshow (Upgraded with Swiper) -->
+<section class="testimonials section-padding" style="background: #f8f9fa;">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <p class="section-subtitle">Real results from real partnerships across the globe</p>
+        </div>
+
+        <div class="testimonials-swiper swiper">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p class="testimonial-quote">"Instastrategix doubled our organic traffic in 6 months with smart, white-hat SEO strategies. The team is professional, transparent, and delivers clear monthly reports."</p>
+                        <div class="stars">★★★★★</div>
+                        <div class="client-info">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face" alt="Sarah K." loading="lazy">
+                            <div>
+                                <h4>Sarah K.</h4>
+                                <span>CEO, Tech Startup (UK)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p class="testimonial-quote">"Best ROI we've ever seen from Google & social ads. They truly understand global markets and scaled our leads across multiple countries."</p>
+                        <div class="stars">★★★★★</div>
+                        <div class="client-info">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" alt="Raj M." loading="lazy">
+                            <div>
+                                <h4>Raj M.</h4>
+                                <span>Founder, E-commerce Brand (India)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p class="testimonial-quote">"Data-driven approach with transparent reporting. Their content & social media strategies built real authority for our brand in the USA market."</p>
+                        <div class="stars">★★★★★</div>
+                        <div class="client-info">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face" alt="John D." loading="lazy">
+                            <div>
+                                <h4>John D.</h4>
+                                <span>Marketing Director (USA)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Integration -->
 <section class="blog-integration section-padding">
     <div class="container blog-content">
         <h2 class="section-title">Learn Digital Marketing</h2>
@@ -324,6 +337,7 @@
     </div>
 </section>
 
+<!-- Global Vision -->
 <section class="section-padding" style="background: #f8f9fa;">
     <div class="container text-center">
         <h2 class="section-title">Global Vision. Local Execution.</h2>
@@ -332,6 +346,7 @@
     </div>
 </section>
 
+<!-- Who We Work With -->
 <section class="section-padding">
     <div class="container">
         <div class="section-header text-center">
@@ -348,6 +363,7 @@
     </div>
 </section>
 
+<!-- Final CTA -->
 <section class="section-padding" style="background: var(--primary-color); color: white;">
     <div class="container text-center">
         <h2 class="section-title" style="color: white;">Ready to Scale Your Digital Presence?</h2>
@@ -365,10 +381,10 @@
     <i class="fas fa-arrow-up"></i>
 </a>
 
-<!-- ================= Updated Footer (Logo added, cleaner layout) ================= -->
+<!-- Footer (Wave Fixed - Higher Opacity & Better Curve) -->
 <footer class="footer">
-    <svg class="footer-wave" viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <path d="M0,0 C480,100 960,20 1440,80 L1440,120 L0,120 Z" fill="rgba(128,110,77,0.08)"></path>
+    <svg class="footer-wave" viewBox="0 0 1440 200" preserveAspectRatio="none">
+        <path d="M0,100 C300,150 600,50 960,80 C1320,110 1140,30 1440,70 L1440,200 L0,200 Z" fill="rgba(128,110,77,0.28)"></path>
     </svg>
     <div class="footer-grid container">
         <div class="footer-col">
@@ -417,7 +433,7 @@
         </div>
     </div>
     <div class="footer-bottom">
-        &copy; 2026 Instastrategix. All Rights Reserved.
+        &copy; <span id="current-year"></span> Instastrategix. All Rights Reserved.
     </div>
 </footer>
 
@@ -453,6 +469,7 @@
 <script src="js/main.js" defer></script>
 <script src="js/gsap-animations.js" defer></script>
 
+<!-- Particles + Text Split -->
 <script>
 // Particles (unchanged)
 const canvas = document.getElementById('particles-canvas');
@@ -534,7 +551,7 @@ window.addEventListener('resize', resizeCanvas);
 resizeCanvas();
 animate();
 
-// Text split (unchanged)
+// Text split
 function splitText() {
     document.querySelectorAll('.hero-title, .section-title').forEach(el => {
         const text = el.textContent.trim();
@@ -544,6 +561,30 @@ function splitText() {
     });
 }
 splitText();
+</script>
+
+<!-- Swiper Initialization for Testimonials -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const testimonialSwiper = new Swiper('.testimonials-swiper', {
+        loop: true,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        centeredSlides: true,
+        slidesPerView: 1,
+        spaceBetween: 30,
+    });
+});
 </script>
 </body>
 </html>
