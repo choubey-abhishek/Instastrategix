@@ -93,11 +93,6 @@ h1, h2, h3, h4 {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.hero-description-wrapper {
-    max-width: 900px;
-    margin: 0 auto var(--space-xl);
-}
-
 .hero-description {
     font-size: clamp(1rem, 3vw, 1.3rem);
     margin-bottom: 1.8rem;
