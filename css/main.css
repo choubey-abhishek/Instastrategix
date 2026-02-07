@@ -11,9 +11,9 @@
     --text-light: #f0f0f0;
     --silver: #d0d0d0;
     --silver-light: #e8e8e8;
-    --gold: #8a6f47; /* Updated for better contrast */
-    --gold-light: #d4b57f; /* Updated for better contrast */
-    --gold-gradient: linear-gradient(135deg, #8a6f47, #d4b57f); /* Updated for sharper gradient */
+    --gold: #806e4d;
+    --gold-light: #b39b7a;
+    --gold-gradient: linear-gradient(135deg, #706040, #b39b7a); /* darker start for better contrast */
     --gold-glow: rgba(128, 110, 77, 0.3);
     --font-primary: 'Inter', sans-serif;
     --font-secondary: 'Poppins', sans-serif;
@@ -48,7 +48,7 @@ h1, h2, h3, h4 {
     line-height: 1.2; 
 }
 
-/* Upgraded hero title – maximum visibility (fixes applied: softer shadow, translateZ for sharpness) */
+/* Hero headline – sharper but still dramatic */
 .hero-title {
     font-size: clamp(3rem, 8vw, 6rem);
     line-height: 1.1;
@@ -59,8 +59,7 @@ h1, h2, h3, h4 {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: var(--space-lg);
-    text-shadow: 0 3px 12px rgba(0,0,0,0.55); /* Softer shadow to reduce blur */
-    transform: translateZ(0); /* Forces GPU rendering for sharpness */
+    text-shadow: 0 4px 8px rgba(0,0,0,0.6); /* reduced blur from 30px */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -73,8 +72,7 @@ h1, h2, h3, h4 {
     -webkit-text-fill-color: transparent;
     margin-bottom: var(--space-lg);
     font-weight: 600;
-    text-shadow: 0 3px 12px rgba(0,0,0,0.55); /* Softer shadow to reduce blur */
-    transform: translateZ(0); /* Forces GPU rendering for sharpness */
+    text-shadow: 0 3px 6px rgba(0,0,0,0.5); /* reduced blur from 15px */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -93,14 +91,15 @@ h1, h2, h3, h4 {
     color: var(--silver-light);
     opacity: 0.95;
     line-height: 1.7;
-    text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4); /* reduced blur */
 }
 
 .highlight-text {
     font-size: clamp(1.2rem, 3.5vw, 1.6rem) !important;
     font-weight: 800;
     color: var(--gold-light);
-    text-shadow: 0 0 20px var(--gold-glow), 0 3px 12px rgba(0,0,0,0.8);
+    text-shadow: 0 0 10px var(--gold-glow), 0 3px 6px rgba(0,0,0,0.6); /* reduced glow blur */
+    -webkit-font-smoothing: antialiased;
 }
 
 .hero {
@@ -199,22 +198,16 @@ h1, h2, h3, h4 {
     padding: 0 1.5rem;
 }
 
-/* Section title fixes: softer shadow, smaller font for less blur, translateZ */
 .section-title {
     background: var(--gold-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: clamp(2.4rem, 5.5vw, 3.8rem); /* Slightly smaller to reduce blur */
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    text-shadow: 0 4px 18px rgba(0,0,0,0.45); /* Strong but softer for sharpness */
-    padding: 0.2em 0; /* Breathing room */
     margin-bottom: var(--space-md);
-    transform: translateZ(0); /* GPU rendering boost */
-    will-change: transform;
+    font-size: 2.8rem;
+    font-weight: 800;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* lighter shadow for sections */
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 .section-title::after {
@@ -237,25 +230,10 @@ h1, h2, h3, h4 {
     margin: var(--space-xl) auto var(--space-lg);
     max-width: 900px;
     text-align: center;
-    text-shadow: 0 3px 12px rgba(0,0,0,0.55); /* Softer shadow */
-    transform: translateZ(0); /* Sharpness boost */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Define the missing text-center utility */
 .text-center {
     text-align: center;
-}
-
-/* Optional crisp class for extra sharpness – add to HTML if needed */
-.section-title.crisp,
-.hero-title.crisp {
-    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-    filter: none !important;
-    -webkit-filter: none !important;
-    letter-spacing: -0.015em;
-    background: linear-gradient(135deg, #8a6f47, #d4b57f); /* Higher contrast */
 }
 
 .intro-text {
@@ -324,7 +302,6 @@ h1, h2, h3, h4 {
     text-shadow: 0 0 10px var(--gold-glow);
 }
 
-/* Card titles – softer shadows for consistency */
 .info-card h4,
 .service-card h3 {
     background: var(--gold-gradient);
@@ -333,8 +310,5 @@ h1, h2, h3, h4 {
     -webkit-text-fill-color: transparent;
     font-size: 1.5rem;
     margin-bottom: var(--space-sm);
-    text-shadow: 0 3px 12px rgba(0,0,0,0.55); /* Softer for sharpness */
-    transform: translateZ(0);
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
