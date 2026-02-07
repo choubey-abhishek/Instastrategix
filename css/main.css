@@ -34,17 +34,30 @@ body {
 h1, h2, h3, h4 { font-family: var(--font-secondary); font-weight: 800; line-height: 1.2; }
 
 /* Upgraded hero title – maximum visibility */
+/* Upgraded hero title – sharp, high-contrast, maximum visibility */
 .hero-title {
     font-size: clamp(3rem, 8vw, 6rem);
     line-height: 1.1;
     letter-spacing: -0.03em;
     word-break: break-word;
-    background: linear-gradient(135deg, #ffffff, #b39b7a);
+    font-weight: 900; /* Bolder for crisper edges */
+    background: linear-gradient(135deg, #ffffff, #ffd700); /* Brighter white-to-gold for stronger pop */
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: var(--space-lg);
-    text-shadow: 0 4px 30px rgba(0,0,0,0.8);
+    
+    /* Sharper, layered shadow – outline effect + subtle glow without heavy blur */
+    text-shadow:
+        -1px -1px 0 rgba(0,0,0,0.6),
+         1px -1px 0 rgba(0,0,0,0.6),
+        -1px  1px 0 rgba(0,0,0,0.6),
+         1px  1px 0 rgba(0,0,0,0.6),
+         0 3px 10px rgba(0,0,0,0.7),
+         0 6px 20px rgba(0,0,0,0.5);
+    
+    /* Optional extra crispness on all browsers */
+    -webkit-text-stroke: 0.5px rgba(0,0,0,0.4);
 }
 
 .hero-subtitle {
