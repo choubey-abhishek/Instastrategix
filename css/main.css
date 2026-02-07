@@ -33,66 +33,51 @@ body {
 }
 h1, h2, h3, h4 { font-family: var(--font-secondary); font-weight: 800; line-height: 1.2; }
 
-/* Hero Section – Full height with particles background */
+/* Hero Section – Final fixed version */
 .hero {
     position: relative;
-    min-height: 100vh;                    /* Full screen height */
+    min-height: 100vh;
     overflow: hidden;
+    background: #000;
+    color: var(--text-light);
     display: flex;
-    align-items: flex-start;              /* Align content to top */
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;      /* Content starts from top */
+    align-items: center;
+    padding-top: 160px;               /* Space below fixed header */
+    padding-bottom: var(--space-xl);
 }
 
-/* Particles canvas – absolute background */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.78);   /* Strong dark tint – kills bright particles */
+    pointer-events: none;
+    z-index: 1;
+}
+
 .particles-container {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;                           /* Bottom layer */
+    inset: 0;
+    z-index: 0;
 }
 
 #particles-canvas {
-    width: 100%;
-    height: 100%;
     display: block;
-}
-
-/* Dark overlay – over particles */
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.55);      /* Slightly darker for better text contrast */
-    z-index: 2;
 }
 
-/* Hero content – on top, aligned to top */
 .hero-content {
     position: relative;
-    z-index: 3;                           /* Top layer – text always visible */
-    width: 100%;
-    max-width: 1200px;
-    padding: 160px 20px 100px;            /* Lots of top padding (below fixed header) + side/bottom */
+    z-index: 3;                        /* Always on top */
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: var(--space-xl) 20px var(--space-xxl);
     text-align: center;
-    color: #fff;
+    color: #ffffff;
 }
 
-/* Push content down a bit more on mobile (below header) */
-@media (max-width: 768px) {
-    .hero-content {
-        padding: 140px 20px 80px;
-    }
-    
-    .hero-title {
-        font-size: clamp(2.5rem, 7vw, 4.5rem);
-    }
-}
-
-/* Keep your sharp hero title (from last fix) */
 .hero-title {
     font-size: clamp(3rem, 8vw, 6rem);
     line-height: 1.1;
@@ -104,14 +89,14 @@ h1, h2, h3, h4 { font-family: var(--font-secondary); font-weight: 800; line-heig
     background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: var(--space-lg);
-    text-shadow:
-        -1px -1px 0 rgba(0,0,0,0.6),
-         1px -1px 0 rgba(0,0,0,0.6),
-        -1px  1px 0 rgba(0,0,0,0.6),
-         1px  1px 0 rgba(0,0,0,0.6),
-         0 3px 10px rgba(0,0,0,0.7),
-         0 6px 20px rgba(0,0,0,0.5);
-    -webkit-text-stroke: 0.5px rgba(0,0,0,0.4);
+    -webkit-text-stroke: 2px #000;
+    text-shadow: 
+        -2px -2px 0 #000,
+         2px -2px 0 #000,
+        -2px  2px 0 #000,
+         2px  2px 0 #000,
+         0 5px 15px rgba(0,0,0,0.9),
+         0 10px 30px rgba(0,0,0,0.7);
 }
 
 .hero-subtitle {
@@ -122,13 +107,14 @@ h1, h2, h3, h4 { font-family: var(--font-secondary); font-weight: 800; line-heig
     -webkit-text-fill-color: transparent;
     margin-bottom: var(--space-lg);
     font-weight: 600;
-    text-shadow: 0 3px 15px rgba(0,0,0,0.7);
+    text-shadow: 0 4px 20px rgba(0,0,0,0.9);
 }
 
 .hero-description-wrapper {
     max-width: 900px;
     margin: 0 auto var(--space-xl);
 }
+
 .hero-description {
     font-size: clamp(1rem, 3vw, 1.3rem);
     margin-bottom: 1.8rem;
@@ -136,53 +122,18 @@ h1, h2, h3, h4 { font-family: var(--font-secondary); font-weight: 800; line-heig
     margin-left: auto;
     margin-right: auto;
     color: var(--silver-light);
-    opacity: 0.95;
+    opacity: 1;
     line-height: 1.7;
-    text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+    text-shadow: 0 2px 12px rgba(0,0,0,0.9);
 }
+
 .highlight-text {
     font-size: clamp(1.2rem, 3.5vw, 1.6rem) !important;
     font-weight: 800;
-    color: var(--gold-light);
-    text-shadow: 0 0 20px var(--gold-glow), 0 3px 12px rgba(0,0,0,0.8);
+    color: #ffd700;
+    text-shadow: 0 0 25px rgba(255,215,0,0.8), 0 4px 15px rgba(0,0,0,0.9);
 }
 
-.hero {
-    position: relative;
-    min-height: 100vh;
-    overflow: hidden;
-    background: #000;
-    color: var(--text-light);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-top: 100px;
-    padding-bottom: var(--space-xl);
-}
-.hero-overlay {
-    background: radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, transparent 70%);
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-}
-.particles-container {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-}
-#particles-canvas {
-    display: block;
-    width: 100%;
-    height: 100%;
-}
-.hero-content {
-    position: relative;
-    z-index: 2;
-    padding: var(--space-xl) 0 var(--space-xxl);
-    max-width: 1000px;
-    margin: 0 auto;
-}
 .hero-buttons {
     display: flex;
     justify-content: center;
@@ -190,34 +141,23 @@ h1, h2, h3, h4 { font-family: var(--font-secondary); font-weight: 800; line-heig
     flex-wrap: wrap;
 }
 
+/* Mobile adjustments */
 @media (max-width: 768px) {
     .hero {
-        padding-top: 80px;
-        justify-content: flex-start;
+        padding-top: 140px;
         min-height: 90vh;
     }
     .hero-content {
-        padding: var(--space-xl) 0 var(--space-xxl);
-    }
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: var(--space-md);
-        width: 100%;
-    }
-    .hero-buttons .btn {
-        width: 85%;
-        max-width: 400px;
-        padding: 1.2rem 2rem;
-        font-size: 1.1rem;
+        padding: var(--space-xl) 20px var(--space-xxl);
     }
     .hero-title {
-        padding: 0 var(--space-sm);
+        font-size: clamp(2.5rem, 7vw, 4.5rem);
     }
 }
+
 @media (max-width: 480px) {
     .hero {
-        padding-top: 70px;
+        padding-top: 120px;
     }
     .hero-title {
         font-size: clamp(2.2rem, 10vw, 4rem);
@@ -227,6 +167,7 @@ h1, h2, h3, h4 { font-family: var(--font-secondary); font-weight: 800; line-heig
     }
 }
 
+/* All other sections – unchanged */
 .section-padding {
     padding: var(--space-xxl) 0;
 }
@@ -241,6 +182,8 @@ h1, h2, h3, h4 { font-family: var(--font-secondary); font-weight: 800; line-heig
     background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: var(--space-md);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+    -webkit-text-stroke: 0.5px rgba(0,0,0,0.4);
 }
 .section-title::after {
     content: "";
@@ -261,14 +204,16 @@ h1, h2, h3, h4 { font-family: var(--font-secondary); font-weight: 800; line-heig
     margin: var(--space-xl) auto var(--space-lg);
     max-width: 900px;
     text-align: center;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.6);
 }
 .intro-text {
     font-size: 1.35rem;
     max-width: 900px;
     margin: 0 auto var(--space-xl);
-    color: var(--gold-light);
+    color: #806e4d;
     font-weight: 500;
     line-height: 1.9;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 .cards-grid, .services-grid, .proof-grid {
     display: grid;
@@ -283,12 +228,13 @@ h1, h2, h3, h4 { font-family: var(--font-secondary); font-weight: 800; line-heig
     display: block;
     font-size: 3.5rem;
     font-weight: 900;
-    color: var(--gold);
+    color: #806e4d;
     line-height: 1;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 .stat-label {
     font-size: 1rem;
-    color: var(--silver);
+    color: #806e4d;
     margin-top: var(--space-sm);
 }
 .blog-content {
@@ -325,39 +271,5 @@ h1, h2, h3, h4 { font-family: var(--font-secondary); font-weight: 800; line-heig
     -webkit-text-fill-color: transparent;
     font-size: 1.5rem;
     margin-bottom: var(--space-sm);
-}
-
-/* Minimal visibility fixes – add only these lines */
-.hero-overlay {
-    background: rgba(0, 0, 0, 0.68) !important; /* Slightly darker uniform overlay – dims particles more */
-}
-
-.hero-content,
-.hero-content * {
-    color: #fff !important; /* Force bright white base */
-}
-
-.hero-description {
-    opacity: 1 !important;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.9) !important; /* Strong readable shadow */
-}
-
-.highlight-text {
-    color: #ffd700 !important;
-    text-shadow: 0 0 25px rgba(255,215,0,0.8), 0 4px 15px rgba(0,0,0,0.9) !important;
-}
-
-.hero-title {
-    -webkit-text-stroke: 1.5px rgba(0,0,0,0.9) !important; /* Thicker dark outline for sharp edges */
-    text-shadow: 
-        -2px -2px 0 #000,
-         2px -2px 0 #000,
-        -2px  2px 0 #000,
-         2px  2px 0 #000,
-         0 5px 15px rgba(0,0,0,0.9),
-         0 10px 30px rgba(0,0,0,0.7) !important;
-}
-
-.hero-subtitle {
-    text-shadow: 0 4px 20px rgba(0,0,0,0.9) !important;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
