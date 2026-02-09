@@ -78,3 +78,47 @@
         padding: var(--space-xl) 0;
     }
 }
+
+@media (max-width: 768px) {
+    /* Make menu visible when active */
+    .nav-menu {
+        z-index: 9999; /* Ensure it appears above everything */
+    }
+
+    .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Dark overlay when menu is open (same as your components.css version) */
+    body.menu-open::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 9998;
+        pointer-events: auto; /* Allows clicking overlay to close */
+    }
+
+    /* Prevent page scrolling when menu is open */
+    body.menu-open {
+        overflow: hidden;
+    }
+
+    /* Make text readable on dark background */
+    .nav-menu .nav-link {
+        color: #fff !important;
+        text-shadow: none;
+    }
+
+    .nav-menu .nav-link:hover,
+    .nav-menu .nav-link.active {
+        color: var(--gold-light) !important;
+        background: rgba(128, 110, 77, 0.3);
+    }
+
+    .nav-cta {
+        color: #fff !important;
+    }
+}
