@@ -10,12 +10,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 1.5s ease-in-out;
+  transition: opacity 1.5s ease-in-out 0.5s;
   pointer-events: none;
 }
 
 #preloader.hidden {
   opacity: 0;
+  visibility: hidden;
 }
 
 .ix-preloader {
@@ -27,13 +28,19 @@
   background: var(--gold-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 50px var(--gold-glow);
+  text-shadow: 0 0 60px var(--gold-glow);
   animation: ixPulse 4s ease-in-out infinite;
 }
 
 @keyframes ixPulse {
-  0%, 100% { transform: scale(1); text-shadow: 0 0 50px var(--gold-glow); }
-  50% { transform: scale(1.1); text-shadow: 0 0 100px var(--gold-glow); }
+  0%, 100% { 
+    transform: scale(1); 
+    text-shadow: 0 0 60px var(--gold-glow); 
+  }
+  50% { 
+    transform: scale(1.15); 
+    text-shadow: 0 0 120px var(--gold-glow); 
+  }
 }
 
 .stars.layer {
@@ -42,13 +49,12 @@
   left: 0;
   width: 100%;
   height: 100%;
+  opacity: 0.9;
 }
 
-/* Slow distant stars */
+/* Slow distant stars (small, faint) */
 .layer.slow {
-  width: 1px;
-  height: 1px;
-  animation: moveStarsSlow 150s linear infinite;
+  background: transparent;
   box-shadow:
     100px 300px 1px #fff,
     300px 800px 1px #fff,
@@ -69,14 +75,22 @@
     1800px 2300px 1px #fff,
     250px 700px 1px rgba(255,255,255,0.6),
     450px 1300px 1px rgba(255,255,255,0.6),
-    650px 1700px 1px rgba(255,255,255,0.6);
+    650px 1700px 1px rgba(255,255,255,0.6),
+    850px 2100px 1px rgba(255,255,255,0.6),
+    1050px 2500px 1px rgba(255,255,255,0.6),
+    1250px 400px 1px rgba(255,255,255,0.6),
+    1450px 1000px 1px rgba(255,255,255,0.6),
+    1650px 1400px 1px rgba(255,255,255,0.6),
+    1850px 1800px 1px rgba(255,255,255,0.6),
+    50px 2200px 1px rgba(255,255,255,0.5),
+    350px 2600px 1px rgba(255,255,255,0.5),
+    550px 3000px 1px rgba(255,255,255,0.5);
+  animation: moveStarsSlow 180s linear infinite;
 }
 
 /* Medium stars */
 .layer.medium {
-  width: 2px;
-  height: 2px;
-  animation: moveStarsMedium 100s linear infinite;
+  background: transparent;
   box-shadow:
     150px 400px 2px #fff,
     350px 900px 2px #fff,
@@ -92,14 +106,18 @@
     850px 400px 2px #fff,
     1050px 1100px 2px #fff,
     1250px 1600px 2px #fff,
-    1450px 2000px 2px #fff;
+    1450px 2000px 2px #fff,
+    1650px 2400px 2px #fff,
+    200px 800px 2px #fff,
+    400px 1200px 2px #fff,
+    600px 1600px 2px #fff,
+    800px 2000px 2px #fff;
+  animation: moveStarsMedium 120s linear infinite;
 }
 
-/* Fast close stars */
+/* Fast close stars (brighter, larger) */
 .layer.fast {
-  width: 3px;
-  height: 3px;
-  animation: moveStarsFast 60s linear infinite;
+  background: transparent;
   box-shadow:
     200px 500px 3px #fff,
     400px 1000px 3px #fff,
@@ -111,9 +129,23 @@
     1600px 1100px 3px #fff,
     300px 1800px 3px #fff,
     500px 2200px 3px #fff,
-    700px 2600px 3px #fff;
+    700px 2600px 3px #fff,
+    900px 900px 3px #fff,
+    1100px 1300px 3px #fff,
+    1300px 1700px 3px #fff,
+    1500px 2100px 3px #fff;
+  animation: moveStarsFast 80s linear infinite;
 }
 
-@keyframes moveStarsSlow { from { transform: translateY(0); } to { transform: translateY(-3000px); } }
-@keyframes moveStarsMedium { from { transform: translateY(0); } to { transform: translateY(-3000px); } }
-@keyframes moveStarsFast { from { transform: translateY(0); } to { transform: translateY(-3000px); } }
+@keyframes moveStarsSlow { 
+  from { transform: translateY(0); } 
+  to { transform: translateY(-3000px); } 
+}
+@keyframes moveStarsMedium { 
+  from { transform: translateY(0); } 
+  to { transform: translateY(-3000px); } 
+}
+@keyframes moveStarsFast { 
+  from { transform: translateY(0); } 
+  to { transform: translateY(-3000px); } 
+}
