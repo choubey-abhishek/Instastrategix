@@ -1,11 +1,14 @@
-// IX Preloader - shows for at least ~3.5 seconds on page open
-const preloader = document.getElementById('preloader');
-if (preloader) {
+document.addEventListener('DOMContentLoaded', () => {
+  const preloader = document.getElementById('preloader');
+  if (!preloader) return;
+
   const startTime = performance.now();
-  const minDuration = 3500; // minimum show time in ms
+  const minDuration = 3500; // show for at least 3.5 seconds
 
   const hidePreloader = () => {
     preloader.classList.add('hidden');
+    // Optional: remove from DOM after fade
+    setTimeout(() => preloader.remove(), 2000);
   };
 
   window.addEventListener('load', () => {
@@ -14,6 +17,6 @@ if (preloader) {
     setTimeout(hidePreloader, delay);
   });
 
-  // Safety fallback in case load takes too long
+  // Safety fallback
   setTimeout(hidePreloader, 12000);
-}
+});
