@@ -51,19 +51,39 @@
 <body>
     
 <div id="preloader">
-  <div class="silver-loader">
-    <!-- Rotating silver rings -->
-    <div class="ring ring-1"></div>
-    <div class="ring ring-2"></div>
-    <div class="ring ring-3"></div>
-    <div class="ring ring-4"></div>
-    
-    <!-- Central pulsing glow -->
-    <div class="center-glow"></div>
-    
-    <!-- Chrome IX text with moving shine -->
-    <div class="ix-chrome">IX</div>
-  </div>
+  <svg class="ix-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <!-- Silver metallic gradient -->
+      <linearGradient id="silverGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#f8f8f8"/>
+        <stop offset="40%" stop-color="#e0e0e0"/>
+        <stop offset="60%" stop-color="#aaaaaa"/>
+        <stop offset="100%" stop-color="#d0d0d0"/>
+      </linearGradient>
+
+      <!-- Glow filter -->
+      <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="6" result="blur"/>
+        <feFlood flood-color="#ffffff" flood-opacity="0.7"/>
+        <feComposite in2="blur" operator="in"/>
+        <feMerge>
+          <feMergeNode/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+
+    <g class="logo-lines" filter="url(#glow)">
+      <!-- Vertical I -->
+      <path class="line i" d="M200 70 L200 330" stroke="url(#silverGradient)" stroke-width="44" stroke-linecap="round" fill="none"/>
+
+      <!-- X diagonal 1 -->
+      <path class="line x1" d="M90 70 L310 330" stroke="url(#silverGradient)" stroke-width="44" stroke-linecap="round" fill="none"/>
+
+      <!-- X diagonal 2 -->
+      <path class="line x2" d="M310 70 L90 330" stroke="url(#silverGradient)" stroke-width="44" stroke-linecap="round" fill="none"/>
+    </g>
+  </svg>
 </div>
     
 <!-- Enhanced Chatbot -->
