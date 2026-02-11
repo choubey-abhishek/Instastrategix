@@ -35,7 +35,7 @@
 /* i stem - grows from bottom */
 .i-stem {
   position: absolute;
-  left: 130px;
+  left: 150px; /* moved slightly right to center stem better */
   top: 50px;
   width: 20px;
   height: 100px;
@@ -45,22 +45,22 @@
   animation: growStem 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
+/* i dot - centered on top of stem */
+.i-dot {
+  position: absolute;
+  left: 158px; /* centered over stem */
+  top: 30px;   /* space above stem */
+  width: 24px; /* slightly smaller */
+  height: 24px;
+  border-radius: 50%;
+  opacity: 0;
+  animation: dropDot 0.7s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards 1.1s;
+}
+
 @keyframes growStem {
   to {
     transform: scaleY(1);
   }
-}
-
-/* i dot - drops in with spacing and bounce */
-.i-dot {
-  position: absolute;
-  left: 135px; /* centered above stem */
-  top: 15px;   /* higher for spacing */
-  width: 30px; /* smaller dot */
-  height: 30px;
-  border-radius: 50%;
-  opacity: 0;
-  animation: dropDot 0.7s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards 1.1s;
 }
 
 @keyframes dropDot {
@@ -78,31 +78,33 @@
   }
 }
 
-/* X bars - smaller and properly spaced */
+/* x bars - properly rotated around center with spacing */
 .x-bar {
   position: absolute;
-  left: 230px;
+  left: 250px;  /* shifted right to avoid overlapping stem */
   top: 50px;
-  width: 15px;   /* narrower */
-  height: 100px; /* shorter */
+  width: 15px;   /* slightly narrower */
+  height: 100px; /* slightly shorter */
   border-radius: 10px;
-  transform-origin: center;
+  transform-origin: center center; /* fix rotation center */
   opacity: 0;
 }
 
 .bar1 {
   transform: rotate(45deg) scale(0);
   animation: scaleCross 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 0.6s;
+  --rot: 45deg; /* ensure correct rotation in keyframes */
 }
 
 .bar2 {
   transform: rotate(-45deg) scale(0);
   animation: scaleCross 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 0.75s;
+  --rot: -45deg; /* correct rotation */
 }
 
 @keyframes scaleCross {
   to {
-    transform: rotate(var(--rot, 45deg)) scale(1);
+    transform: rotate(var(--rot)) scale(1);
     opacity: 1;
   }
 }
