@@ -2,21 +2,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const preloader = document.getElementById('preloader');
   if (!preloader) return;
 
-  const startTime = performance.now();
-  const minDuration = 3500; // show for at least 3.5 seconds
+  // Minimum time for IX animation (1s)
+  const minDuration = 1000;
 
   const hidePreloader = () => {
     preloader.classList.add('hidden');
-    // Optional: remove from DOM after fade
-    setTimeout(() => preloader.remove(), 2000);
+    setTimeout(() => preloader.remove(), 2000); // fade-out complete
   };
 
   window.addEventListener('load', () => {
-    const elapsed = performance.now() - startTime;
-    const delay = Math.max(0, minDuration - elapsed);
-    setTimeout(hidePreloader, delay);
+    // Show for at least IX animation duration
+    setTimeout(hidePreloader, minDuration);
   });
 
-  // Safety fallback
+  // Safety fallback in case load takes too long
   setTimeout(hidePreloader, 12000);
 });
