@@ -32,11 +32,12 @@
   box-shadow: 0 0 25px rgba(192, 192, 192, 0.5);
 }
 
-/* i stem - grows from bottom */
+/* ================= I STEM ================= */
+
 .i-stem {
   position: absolute;
-  left: 160px;  /* center stem horizontally */
-  top: 60px;
+  left: 130px;
+  top: 50px;
   width: 20px;
   height: 100px;
   border-radius: 10px;
@@ -45,70 +46,77 @@
   animation: growStem 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
-/* i dot - perfectly on top of stem */
-.i-dot {
-  position: absolute;
-  left: 167px;  /* horizontally center on stem */
-  top: 30px;    /* enough gap above stem */
-  width: 16px;  /* proportional size */
-  height: 16px;
-  border-radius: 50%;
-  opacity: 0;
-  animation: dropDot 0.7s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards 0.9s;
+@keyframes growStem {
+  to {
+    transform: scaleY(1);
+  }
 }
 
-@keyframes growStem {
-  to { transform: scaleY(1); }
+/* ================= I DOT (FIXED) ================= */
+
+.i-dot {
+  position: absolute;
+  /* Centered exactly on stem */
+  left: calc(130px + 10px - 10px);
+  top: 20px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  opacity: 0;
+  animation: dropDot 0.7s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards 1.1s;
 }
 
 @keyframes dropDot {
-  0% { opacity: 0; transform: translateY(-150px) scale(0.6); }
-  65% { opacity: 1; transform: translateY(15px) scale(1.2); }
-  100% { opacity: 1; transform: translateY(0) scale(1); }
+  0% {
+    opacity: 0;
+    transform: translateY(-150px) scale(0.6);
+  }
+  65% {
+    opacity: 1;
+    transform: translateY(15px) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
-/* x bars - rolling rotation animation */
+/* ================= X BARS (FIXED ROTATION) ================= */
+
 .x-bar {
   position: absolute;
-  left: 250px;   /* shift to right of stem */
-  top: 60px;     /* align vertically */
-  width: 15px;
-  height: 100px;
+  left: 230px;
+  top: 40px;
+  width: 20px;
+  height: 120px;
   border-radius: 10px;
-  transform-origin: center center;
+  transform-origin: center;
   opacity: 0;
 }
 
-/* Bar1 - rotate 45deg with rolling effect */
+/* First line of X */
 .bar1 {
-  transform: rotate(0deg) scale(0);
-  animation: rotateXBar 0.8s ease-out forwards 1.1s;
-  --final-rot: 45deg;
+  --rot: 45deg;
+  transform: rotate(45deg) scale(0);
+  animation: scaleCross 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 0.6s;
 }
 
-/* Bar2 - rotate -45deg with rolling effect */
+/* Second line of X */
 .bar2 {
-  transform: rotate(0deg) scale(0);
-  animation: rotateXBar 0.8s ease-out forwards 1.25s;
-  --final-rot: -45deg;
+  --rot: -45deg;
+  transform: rotate(-45deg) scale(0);
+  animation: scaleCross 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 0.75s;
 }
 
-@keyframes rotateXBar {
-  0% {
-    transform: rotate(0deg) scale(0);
-    opacity: 0;
-  }
-  50% {
-    transform: rotate(calc(var(--final-rot) * 1.2)) scale(1.1); /* overshoot for roll effect */
-    opacity: 1;
-  }
-  100% {
-    transform: rotate(var(--final-rot)) scale(1);  /* final rotation */
+@keyframes scaleCross {
+  to {
+    transform: rotate(var(--rot)) scale(1);
     opacity: 1;
   }
 }
 
-/* Ripple effect */
+/* ================= RIPPLE EFFECT ================= */
+
 .ripple {
   position: absolute;
   top: 50%;
@@ -123,8 +131,14 @@
 }
 
 @keyframes rippleExpand {
-  0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
-  100% { transform: translate(-50%, -50%) scale(8); opacity: 0; }
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(8);
+    opacity: 0;
+  }
 }
 
 .delay-1 { animation-delay: 1.8s; }
