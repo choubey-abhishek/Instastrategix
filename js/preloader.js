@@ -1,20 +1,12 @@
-document.addEventListener('DOMContentLoaded', function () {
-  // Set dasharray/offset for smooth drawing
-  const paths = document.querySelectorAll('.draw-path');
-  paths.forEach(path => {
-    const length = Math.ceil(path.getTotalLength());
-    path.style.strokeDasharray = length;
-    path.style.strokeDashoffset = length;
-  });
-
-  // Hide preloader after animation completes (4s total buffer)
-  setTimeout(function () {
+document.addEventListener('DOMContentLoaded', () => {
+  // Ensure full animation plays before fade-out
+  setTimeout(() => {
     const preloader = document.getElementById('preloader');
     if (preloader) {
       preloader.classList.add('fade-out');
-      setTimeout(function () {
-        preloader.style.display = 'none';
-      }, 1000);
+      setTimeout(() => {
+        preloader.remove(); // Fully remove from DOM for cleaner load
+      }, 1200);
     }
-  }, 4000);
+  }, 4400); // Slightly longer buffer for smooth finish
 });
