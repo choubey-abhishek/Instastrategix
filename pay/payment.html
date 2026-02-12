@@ -3,239 +3,367 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Payment | Instastrategix</title>
-    <meta name="description" content="Secure payment for Instastrategix digital marketing services via UPI (India) or PayPal/Credit Card (Worldwide).">
-    
+    <!-- Primary Meta Tags -->
+    <title>Payment Gateway | Instastrategix</title>
+    <meta name="description" content="Secure payment gateway for Instastrategix digital marketing services. Pay instantly via Razorpay (UPI, Cards, Netbanking – recommended for India), direct UPI QR, or PayPal/Credit Card (worldwide).">
+    <meta name="keywords" content="payment gateway, UPI payment, Razorpay, PayPal, digital marketing payment">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Abhishek Choubey">
+    <link rel="canonical" href="https://choubey-abhishek.github.io/Instastrategix/payment.html">
+
+    <!-- Open Graph / Social Meta -->
+    <meta property="og:title" content="Payment Gateway | Instastrategix">
+    <meta property="og:description" content="Secure, instant payments via Razorpay (India), UPI, or PayPal (global).">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://choubey-abhishek.github.io/Instastrategix/payment.html">
+    <meta property="og:image" content="https://choubey-abhishek.github.io/Instastrategix/images/og-image.jpg">
+    <meta property="og:site_name" content="Instastrategix">
+
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/payment.css">
 
-    <!-- QR Code Library -->
+    <!-- QR Code & Razorpay -->
     <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
-    <style>
-        .payment-section { padding: 80px 0; background: #f8f9fa; }
-        .payment-container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
-        .payment-header { text-align: center; margin-bottom: 50px; }
-        .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 50px; }
-        .package-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); text-align: center; transition: transform 0.3s; cursor: pointer; }
-        .package-card:hover { transform: translateY(-10px); }
-        .package-price { font-size: 2.5rem; font-weight: 800; color: var(--primary-color, #806e4d); margin: 15px 0; }
-        .generate-form { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; }
-        .form-group input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; }
-        #payment-output { margin-top: 40px; padding: 30px; background: #f0f8f0; border-radius: 12px; display: none; text-align: center; }
-        #qrcode { margin: 30px auto; }
-        .upi-btn { display: inline-block; background: var(--primary-color, #806e4d); color: white; padding: 14px 30px; border-radius: 8px; font-weight: 600; text-decoration: none; margin: 15px; transition: background 0.3s; }
-        .upi-btn:hover { background: #6b5b3d; }
-        .paypal-section { margin-top: 40px; padding: 20px; background: #e3f2fd; border-radius: 12px; }
-        .post-payment-info { margin-top: 40px; padding: 20px; background: #fff3e0; border-radius: 8px; text-align: left; }
-    </style>
+    <!-- Favicon & Animations -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js" defer></script>
 </head>
 <body>
-
-<!-- Your existing header -->
-<header class="site-header navbar">
-    <div class="nav-container container">
-        <div class="logo">
-            <a href="index.html">
-                <img src="images/instastrategix-logo.png" alt="Instastrategix Logo">
-                <span class="logo-text">Instastrategix</span>
-            </a>
+    <!-- Preloader (same as index.html) -->
+    <div id="preloader" class="preloader">
+        <div class="animation-container">
+            <div class="i-stem"></div>
+            <div class="i-dot"></div>
+            <div class="x-bar bar1"></div>
+            <div class="x-bar bar2"></div>
+            <div class="ripple"></div>
+            <div class="ripple delay-1"></div>
+            <div class="ripple delay-2"></div>
         </div>
-        <button class="menu-toggle" aria-label="Toggle Menu">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
+    </div>
+
+    <!-- Chatbot (same as index.html) -->
+    <div class="chatbot-container">
+        <button class="chatbot-toggle" aria-label="Open chat">
+            <i class="fas fa-comment-dots"></i>
         </button>
-        <nav class="nav-menu">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="about-us.html" class="nav-link">About</a>
-            <a href="services.html" class="nav-link">Services</a>
-            <a href="payment.html" class="nav-link active">Pricing & Payment</a> <!-- active class added -->
-            <a href="contact-us.html" class="nav-link">Contact</a>
-            <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
-            <a href="https://instastrategix0.blogspot.com/" class="nav-link" target="_blank">Blog</a>
-        </nav>
-        <a href="payment.html" class="nav-cta btn-primary">Pay Now</a>
-    </div>
-    <div class="header-border"></div>
-</header>
-
-<main>
-<section class="payment-section">
-    <div class="container">
-        <div class="payment-container">
-            <div class="payment-header">
-                <h1 class="section-title">Secure Payment</h1>
-                <p class="section-subtitle">Pay via UPI (India) or PayPal/Credit Card (Worldwide)</p>
+        <div class="chatbot-window">
+            <div class="chat-header">
+                Instastrategix Assistant
+                <button class="close-chat" aria-label="Close chat">×</button>
             </div>
-
-            <!-- Package Selection -->
-            <h2 style="text-align:center; margin-bottom:30px;">Choose a Package</h2>
-            <div class="packages-grid">
-                <div class="package-card" onclick="setPackage('4999', 'Paid Strategy Consultation')">
-                    <h3>Paid Strategy Consultation</h3>
-                    <div class="package-price">₹4,999</div>
-                    <p>1-hour deep-dive call + custom growth roadmap</p>
-                </div>
-                <div class="package-card" onclick="setPackage('29999', 'Starter SEO Package (Monthly)')">
-                    <h3>Starter SEO Package</h3>
-                    <div class="package-price">₹29,999</div>
-                    <p>Technical SEO + content strategy + monthly reporting</p>
-                </div>
-                <div class="package-card" onclick="setPackage('59999', 'Growth Ads Management (Monthly)')">
-                    <h3>Growth Ads Management</h3>
-                    <div class="package-price">₹59,999</div>
-                    <p>Google & Meta ads management + ROI tracking</p>
-                </div>
-            </div>
-
-            <!-- Custom Amount Form -->
-            <div class="generate-form">
-                <h2 style="text-align:center; margin-bottom:30px;">Or Pay Custom Amount</h2>
-                <div class="form-group">
-                    <label for="customer-name">Your Full Name *</label>
-                    <input type="text" id="customer-name" placeholder="Enter your name" required>
-                </div>
-                <div class="form-group">
-                    <label for="customer-email">Email Address *</label>
-                    <input type="email" id="customer-email" placeholder="your@email.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="customer-phone">Phone Number <span style="font-weight:400; color:#666;">(optional)</span></label>
-                    <input type="tel" id="customer-phone" placeholder="e.g. 9876543210">
-                </div>
-                <div class="form-group">
-                    <label for="amount">Payment Amount (₹) *</label>
-                    <input type="number" id="amount" placeholder="Enter amount (e.g., 14999)" required min="1">
-                </div>
-                <div class="form-group">
-                    <label for="description">Service / Package Description <span style="font-weight:400; color:#666;">(optional)</span></label>
-                    <input type="text" id="description" placeholder="e.g., Paid Strategy Consultation + SEO Package">
-                </div>
-                <button class="btn-primary" style="width:100%; padding:16px; font-size:1.1rem; margin-top:10px;" onclick="generatePayment()">
-                    Generate Payment Options
-                </button>
-                <p style="text-align:center; margin-top:20px; font-size:0.95rem; color:#555;">
-                    Secure payment • No extra fees • Instant processing
-                </p>
-            </div>
-
-            <!-- Payment Output -->
-            <div id="payment-output">
-                <h3>Ready to Pay</h3>
-                <p>Amount: <strong>₹<span id="display-amount"></span></strong></p>
-                <p>Payment for: <strong id="display-note"></strong></p>
-
-                <!-- UPI (India) -->
-                <div style="margin-bottom: 40px;">
-                    <h4>Pay with UPI (India)</h4>
-                    <a id="upi-link" class="upi-btn" target="_blank">Open UPI App</a>
-                    <div id="qrcode"></div>
-                    <p>Scan with Google Pay, PhonePe, BHIM, Paytm, or any UPI app</p>
-                </div>
-
-                <!-- PayPal (International) -->
-                <div class="paypal-section">
-                    <h4>Pay Internationally</h4>
-                    <p>Using PayPal or any Credit/Debit Card (accepted worldwide)</p>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="paypal-form">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="YOUR_PAYPAL_BUSINESS_EMAIL"> <!-- REPLACE -->
-                        <input type="hidden" name="item_name" id="paypal-item-name">
-                        <input type="hidden" name="amount" id="paypal-amount">
-                        <input type="hidden" name="currency_code" value="INR">
-                        <input type="hidden" name="no_shipping" value="1">
-                        <input type="hidden" name="no_note" value="1">
-                        <input type="hidden" name="return" value="https://yourdomain.com/thank-you.html">
-                        <input type="hidden" name="cancel_return" value="https://yourdomain.com/payment.html">
-                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="Pay with PayPal">
-                    </form>
-                </div>
-
-                <!-- Post-payment instructions (dynamic) -->
-                <div class="post-payment-info" id="post-payment-info"></div>
+            <div class="chat-messages"></div>
+            <div class="quick-replies"></div>
+            <div class="chat-input">
+                <input type="text" placeholder="Type your message..." aria-label="Message input">
+                <button aria-label="Send message"><i class="fas fa-paper-plane"></i></button>
             </div>
         </div>
     </div>
-</section>
-</main>
+    <script src="js/chatbot.js" defer></script>
 
-<!-- Add your footer here -->
+    <!-- Header (exactly matching index.html, with active class on Payment Gateway) -->
+    <header class="site-header navbar">
+        <div class="nav-container container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/instastrategix-logo.png" alt="Instastrategix Logo" loading="lazy">
+                    <span class="logo-text">Instastrategix</span>
+                </a>
+            </div>
+            <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about-us.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="contact-us.html" class="nav-link">Contact</a>
+                <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+                <a href="payment.html" class="nav-link active">Payment Gateway</a> <!-- Active -->
+                <a href="https://instastrategix0.blogspot.com/" class="nav-link" target="_blank">Blog</a>
+            </nav>
+            <a href="contact-us.html" class="nav-cta btn-primary">Get a Free Strategy Call</a>
+        </div>
+        <div class="header-border"></div>
+    </header>
 
-<script>
-function setPackage(amount, desc) {
-    document.getElementById('amount').value = amount;
-    document.getElementById('description').value = desc;
-}
+    <main>
+        <section class="section-padding" style="background: #f8f9fa;">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h1 class="section-title">Secure Payment Gateway</h1>
+                    <p class="section-subtitle">Choose a package or enter a custom amount. Pay instantly from anywhere in the world.</p>
+                    <p style="max-width: 800px; margin: 20px auto; color: #555;">
+                        <strong>India:</strong> Razorpay (recommended – UPI, Cards, Netbanking, Wallets) or direct UPI QR.<br>
+                        <strong>International:</strong> PayPal or Credit/Debit Card (accepts all major cards globally).
+                    </p>
+                </div>
 
-function generatePayment() {
-    const amount = document.getElementById('amount').value;
-    const description = document.getElementById('description').value || 'Instastrategix Service';
-    const customerName = document.getElementById('customer-name').value.trim() || 'Customer';
-    const customerEmail = document.getElementById('customer-email').value.trim() || 'No email provided';
-    const customerPhone = document.getElementById('customer-phone').value.trim() || 'Not provided';
+                <!-- Package Selection (styled like homepage info-cards with tilt) -->
+                <h2 class="text-center section-subtitle" style="margin-bottom: 40px;">Choose a Package</h2>
+                <div class="cards-grid">
+                    <div class="info-card" data-tilt onclick="setPackage('4999', 'Paid Strategy Consultation')">
+                        <i class="fas fa-lightbulb card-icon"></i>
+                        <h4>Paid Strategy Consultation</h4>
+                        <div class="package-price" style="font-size: 2rem; color: var(--primary-color); margin: 15px 0;">₹4,999</div>
+                        <p>1-hour deep-dive call + custom growth roadmap</p>
+                    </div>
+                    <div class="info-card" data-tilt onclick="setPackage('29999', 'Starter SEO Package (Monthly)')">
+                        <i class="fas fa-search card-icon"></i>
+                        <h4>Starter SEO Package</h4>
+                        <div class="package-price" style="font-size: 2rem; color: var(--primary-color); margin: 15px 0;">₹29,999</div>
+                        <p>Technical SEO + content strategy + monthly reporting</p>
+                    </div>
+                    <div class="info-card" data-tilt onclick="setPackage('59999', 'Growth Ads Management (Monthly)')">
+                        <i class="fas fa-bullseye card-icon"></i>
+                        <h4>Growth Ads Management</h4>
+                        <div class="package-price" style="font-size: 2rem; color: var(--primary-color); margin: 15px 0;">₹59,999</div>
+                        <p>Google & Meta ads management + ROI tracking</p>
+                    </div>
+                </div>
 
-    if (!amount || amount <= 0) {
-        alert('Please enter a valid amount');
-        return;
-    }
-    if (!customerName || !customerEmail) {
-        alert('Please provide your name and email');
-        return;
-    }
+                <!-- Custom Amount Form -->
+                <div class="generate-form" style="max-width: 700px; margin: 50px auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
+                    <h2 class="text-center" style="margin-bottom: 30px;">Or Pay Custom Amount</h2>
+                    <div class="form-group">
+                        <label for="customer-name">Full Name *</label>
+                        <input type="text" id="customer-name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-email">Email Address *</label>
+                        <input type="email" id="customer-email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-phone">Phone Number <span style="font-weight:400; color:#666;">(optional)</span></label>
+                        <input type="tel" id="customer-phone" placeholder="e.g. 9876543210">
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Amount (₹) *</label>
+                        <input type="number" id="amount" placeholder="Enter amount (e.g. 14999)" required min="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Service/Package Description <span style="font-weight:400; color:#666;">(optional)</span></label>
+                        <input type="text" id="description" placeholder="e.g. Paid Strategy Consultation">
+                    </div>
+                    <button class="btn-primary" style="width:100%; padding:16px; font-size:1.1rem;" onclick="generatePayment()">
+                        Generate Payment Options
+                    </button>
+                    <p style="text-align:center; margin-top:20px; color:#555; font-size:0.95rem;">
+                        Secure • No extra fees • Instant processing
+                    </p>
+                </div>
 
-    // UPI Generation
-    const pa = 'YOUR_UPI_ID_HERE'; // ← Replace with real UPI ID
-    const pn = 'Instastrategix';
-    const cu = 'INR';
-    const tn = encodeURIComponent(`${customerName} - ${description} - ${customerEmail}`);
-    const upiUrl = `upi://pay?pa=${pa}&pn=${pn}&am=${amount}&cu=${cu}&tn=${tn}`;
+                <!-- Payment Output -->
+                <div id="payment-output" style="display:none; max-width: 800px; margin: 50px auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); text-align:center;">
+                    <h3>Ready to Pay – ₹<span id="display-amount"></span></h3>
+                    <p>For: <strong id="display-note"></strong></p>
 
-    document.getElementById('display-amount').textContent = amount;
-    document.getElementById('display-note').textContent = `${customerName} - ${description}`;
-    document.getElementById('upi-link').href = upiUrl;
+                    <!-- Razorpay (Recommended for India) -->
+                    <div style="margin: 30px 0;">
+                        <button class="btn-primary" style="padding: 16px 32px; font-size: 1.2rem;" onclick="openRazorpay()">
+                            <i class="fas fa-credit-card"></i> Pay with Razorpay (UPI, Cards, Netbanking)
+                        </button>
+                        <p style="margin-top: 10px; color:#333;">Fastest & most popular in India • Includes all UPI apps</p>
+                    </div>
 
-    const qrDiv = document.getElementById('qrcode');
-    qrDiv.innerHTML = '';
-    new QRCode(qrDiv, {
-        text: upiUrl,
-        width: 280,
-        height: 280,
-        colorDark: "#000000",
-        colorLight: "#ffffff",
-        correctLevel: QRCode.CorrectLevel.H
-    });
+                    <!-- UPI QR -->
+                    <div style="margin: 30px 0;">
+                        <h4>Or Scan UPI QR</h4>
+                        <a id="upi-link" class="btn-primary" target="_blank" style="display:inline-block; margin:15px; padding:14px 30px;">Open UPI App</a>
+                        <div id="qrcode" style="margin: 30px auto;"></div>
+                        <p>Works with Google Pay, PhonePe, BHIM, Paytm, etc.</p>
+                    </div>
 
-    // PayPal fields
-    document.getElementById('paypal-amount').value = amount;
-    document.getElementById('paypal-item-name').value = `${description} - ${customerName}`;
+                    <!-- PayPal (International) -->
+                    <div style="margin: 40px 0; padding: 30px; background: #f0f8ff; border-radius: 12px;">
+                        <h4>Pay Internationally (PayPal / Card)</h4>
+                        <p>Accepts all major credit/debit cards worldwide</p>
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                            <input type="hidden" name="cmd" value="_xclick">
+                            <input type="hidden" name="business" value="YOUR_PAYPAL_BUSINESS_EMAIL"> <!-- REPLACE -->
+                            <input type="hidden" name="item_name" id="paypal-item-name">
+                            <input type="hidden" name="amount" id="paypal-amount">
+                            <input type="hidden" name="currency_code" value="INR">
+                            <input type="hidden" name="no_shipping" value="1">
+                            <input type="hidden" name="return" value="https://choubey-abhishek.github.io/Instastrategix/thank-you.html">
+                            <input type="hidden" name="cancel_return" value="https://choubey-abhishek.github.io/Instastrategix/payment.html">
+                            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="Pay with PayPal">
+                        </form>
+                    </div>
 
-    // Dynamic post-payment instructions
-    document.getElementById('post-payment-info').innerHTML = `
-        <p><strong>After successful payment:</strong></p>
-        <ul>
-            <li><strong>UPI (India):</strong> Note the 12-digit transaction ID and send it to <strong>instastrategix@gmail.com</strong> along with your details.</li>
-            <li><strong>PayPal/Card (International):</strong> We receive instant notification from PayPal and will confirm via email within minutes.</li>
-        </ul>
-        <p><strong>Your details (for our reference):</strong><br>
-        Name: ${customerName}<br>
-        Email: ${customerEmail}<br>
-        Phone: ${customerPhone}<br>
-        Service: ${description}</p>
-        <p>We will verify and start your service immediately. Thank you!</p>
-    `;
+                    <!-- Post-payment instructions -->
+                    <div class="post-payment-info" id="post-payment-info" style="margin-top: 40px; padding: 20px; background: #fff3e0; border-radius: 8px; text-align:left;"></div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    document.getElementById('payment-output').style.display = 'block';
-    document.getElementById('payment-output').scrollIntoView({ behavior: 'smooth' });
-}
-</script>
+    <!-- Footer (exact copy from index.html) -->
+    <a href="#" class="scroll-to-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    <footer class="footer">
+        <svg class="footer-wave" viewBox="0 0 1440 200" preserveAspectRatio="none">
+            <path d="M0,100 C300,150 600,50 960,80 C1320,110 1140,30 1440,70 L1440,200 L0,200 Z" fill="rgba(128,110,77,0.28)"></path>
+        </svg>
+        <div class="footer-grid container">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <a href="index.html">
+                        <img src="images/instastrategix-logo.png" alt="Instastrategix Logo" loading="lazy">
+                    </a>
+                </div>
+                <h4 class="footer-heading">Instastrategix</h4>
+                <p>Global Digital Marketing Agency<br>Based in India | Serving Worldwide</p>
+                <ul class="footer-list">
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:instastrategix@gmail.com">instastrategix@gmail.com</a></li>
+                    <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/instastrategix-ix" target="_blank">LinkedIn</a></li>
+                    <li><i class="fab fa-facebook"></i> <a href="https://facebook.com/profile.php?id=61553148242829" target="_blank">Facebook</a></li>
+                    <li><i class="fas fa-blog"></i> <a href="https://instastrategix0.blogspot.com/" target="_blank">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about-us.html">About</a></li>
+                    <li><a href="https://instastrategix0.blogspot.com/" target="_blank">Blog</a></li>
+                    <li><a href="contact-us.html">Contact</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Connect With Us</h4>
+                <p>Follow us for tips, guides & updates!</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/instastrategix/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/instastrategix-ix" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://facebook.com/profile.php?id=61553148242829" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://instastrategix0.blogspot.com/" target="_blank" aria-label="Blog"><i class="fas fa-blog"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Subscribe</h4>
+                <p>Get our latest marketing tips directly to your inbox:</p>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Your email" required aria-label="Email for newsletter">
+                    <button type="submit" class="btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; <span id="current-year"></span> Instastrategix. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="js/preloader.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/gsap-animations.js" defer></script>
+
+    <script>
+        // Package selection
+        function setPackage(amount, desc) {
+            document.getElementById('amount').value = amount;
+            document.getElementById('description').value = desc;
+        }
+
+        // Main payment generation
+        function generatePayment() {
+            const amount = document.getElementById('amount').value;
+            const description = document.getElementById('description').value || 'Instastrategix Service';
+            const customerName = document.getElementById('customer-name').value.trim() || 'Customer';
+            const customerEmail = document.getElementById('customer-email').value.trim() || 'No email';
+            const customerPhone = document.getElementById('customer-phone').value.trim() || 'Not provided';
+
+            if (!amount || amount <= 0) return alert('Please enter a valid amount');
+            if (!customerName || !customerEmail) return alert('Please provide name and email');
+
+            // Display basics
+            document.getElementById('display-amount').textContent = amount;
+            document.getElementById('display-note').textContent = `${customerName} - ${description}`;
+
+            // UPI QR & Link
+            const pa = 'YOUR_UPI_ID_HERE'; // Replace with your UPI ID
+            const pn = 'Instastrategix';
+            const tn = encodeURIComponent(`${customerName} - ${description} - ${customerEmail}`);
+            const upiUrl = `upi://pay?pa=${pa}&pn=${pn}&am=${amount}&cu=INR&tn=${tn}`;
+            document.getElementById('upi-link').href = upiUrl;
+            const qrDiv = document.getElementById('qrcode');
+            qrDiv.innerHTML = '';
+            new QRCode(qrDiv, { text: upiUrl, width: 250, height: 250, colorDark: "#000", colorLight: "#fff", correctLevel: QRCode.CorrectLevel.H });
+
+            // PayPal fields
+            document.getElementById('paypal-amount').value = amount;
+            document.getElementById('paypal-item-name').value = `${description} - ${customerName}`;
+
+            // Store data for Razorpay
+            window.paymentData = { amount, description, customerName, customerEmail, customerPhone };
+
+            // Post-payment instructions
+            document.getElementById('post-payment-info').innerHTML = `
+                <p><strong>After payment:</strong></p>
+                <ul>
+                    <li><strong>Razorpay:</strong> We receive instant notification. You'll also get a success alert.</li>
+                    <li><strong>UPI QR:</strong> Note the 12-digit transaction ID and email it to <strong>instastrategix@gmail.com</strong> with your details.</li>
+                    <li><strong>PayPal:</strong> We receive instant notification from PayPal.</li>
+                </ul>
+                <p><strong>Your details:</strong><br>
+                    Name: ${customerName}<br>Email: ${customerEmail}<br>Phone: ${customerPhone}<br>Service: ${description}
+                </p>
+                <p>We will confirm within minutes and start your service. Thank you!</p>
+            `;
+
+            document.getElementById('payment-output').style.display = 'block';
+            document.getElementById('payment-output').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Razorpay Checkout
+        function openRazorpay() {
+            if (!window.paymentData) return alert('Generate payment options first');
+            const { amount, description, customerName, customerEmail, customerPhone } = window.paymentData;
+
+            var options = {
+                "key": "YOUR_RAZORPAY_KEY_ID", // ← REPLACE with your Razorpay Key ID
+                "amount": amount * 100, // paise
+                "currency": "INR",
+                "name": "Instastrategix",
+                "description": description,
+                "image": "https://choubey-abhishek.github.io/Instastrategix/images/instastrategix-logo.png",
+                "handler": function (response) {
+                    alert(`Payment successful! Payment ID: ${response.razorpay_payment_id}`);
+                    document.getElementById('post-payment-info').innerHTML += `<p style="color:green;"><strong>Success!</strong> Razorpay Payment ID: ${response.razorpay_payment_id}</p>`;
+                },
+                "prefill": {
+                    "name": customerName,
+                    "email": customerEmail,
+                    "contact": customerPhone
+                },
+                "notes": { "service": description },
+                "theme": { "color": "#806e4d" }
+            };
+            var rzp = new Razorpay(options);
+            rzp.open();
+            rzp.on('payment.failed', function (response) {
+                alert(`Payment failed: ${response.error.description}`);
+            });
+        }
+    </script>
 </body>
 </html>
