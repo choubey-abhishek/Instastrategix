@@ -4,11 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Create Account | Instastrategix</title>
-<link rel="stylesheet" href="style.css">
 <style>
 body {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #0f172a, #1e293b);
     display: flex;
     justify-content: center;
@@ -16,83 +15,67 @@ body {
     height: 100vh;
     color: white;
 }
-
-.auth-container {
+.auth-box {
     background: #111827;
     padding: 40px;
-    border-radius: 16px;
-    width: 420px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border-radius: 15px;
+    width: 400px;
 }
-
-.auth-container h2 {
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.auth-container p {
-    text-align: center;
-    font-size: 14px;
-    color: #9ca3af;
-    margin-bottom: 30px;
-}
-
-.auth-container input {
+input {
     width: 100%;
     padding: 12px;
     margin-bottom: 15px;
     border-radius: 8px;
     border: none;
-    outline: none;
 }
-
-.auth-container button {
+button {
     width: 100%;
     padding: 12px;
     border-radius: 8px;
     border: none;
     background: #6366f1;
     color: white;
-    font-weight: 600;
+    font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
 }
-
-.auth-container button:hover {
-    background: #4f46e5;
-}
-
-.switch-link {
-    text-align: center;
-    margin-top: 15px;
-    font-size: 14px;
-}
-
-.auth-container a {
-    color: #6366f1;
-    text-decoration: none;
-}
+a { color: #6366f1; text-decoration: none; }
 </style>
 </head>
 <body>
 
-<div class="auth-container">
+<div class="auth-box">
     <h2>Create Account</h2>
-    <p>Register to manage your brand & payments</p>
-
-    <form>
-        <input type="text" placeholder="Full Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <input type="password" placeholder="Create Password" required>
-        <input type="password" placeholder="Confirm Password" required>
+    <form id="registerForm">
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
         <button type="submit">Create Account</button>
     </form>
-
-    <div class="switch-link">
-        Already have an account?
-        <a href="login.html">Login</a>
-    </div>
+    <p>Already have account? <a href="login.html">Login</a></p>
 </div>
+
+<script>
+document.getElementById("registerForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    if(password !== confirmPassword){
+        alert("Passwords do not match");
+        return;
+    }
+
+    const user = { name, email, password };
+    localStorage.setItem("instaUser", JSON.stringify(user));
+
+    alert("Account Created Successfully!");
+    window.location.href = "login.html";
+});
+</script>
 
 </body>
 </html>
