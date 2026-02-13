@@ -3,67 +3,97 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Choose Your Plan | Instastrategix</title>
-<link rel="stylesheet" href="css/payment.css">
+<title>Select Plan | Instastrategix</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
+}
+
+.container {
+    padding: 50px;
+    text-align: center;
+}
+
+.plans {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #1e293b;
+    padding: 30px;
+    width: 280px;
+    border-radius: 15px;
+}
+
+.price {
+    font-size: 24px;
+    margin: 15px 0;
+    color: #6366f1;
+}
+
+button {
+    background: #6366f1;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+button:hover {
+    background: #4f46e5;
+}
+</style>
 </head>
 <body>
 
-<header class="navbar">
-    <h2 class="logo">Instastrategix</h2>
-    <div class="dynamic-nav"></div>
-</header>
+<div class="container">
+    <h1>Choose Your Plan</h1>
 
-<section class="hero">
-    <h1>Scale Your Brand With The Right Plan</h1>
-    <p>Select a service package tailored for your growth.</p>
-</section>
+    <div class="plans">
 
-<section class="pricing">
+        <div class="card">
+            <h2>Basic Plan</h2>
+            <div class="price">₹12,999 / Month</div>
+            <button onclick="selectPlan('Basic Plan', 12999)">Select Plan</button>
+        </div>
 
-    <div class="card" data-name="Basic Social Media Plan" data-price="12999">
-        <h3>Basic Plan</h3>
-        <p class="price">₹12,999 <span>/ month</span></p>
-        <ul>
-            <li>Instagram & Facebook</li>
-            <li>12 Posts / Month</li>
-            <li>Profile Optimization</li>
-            <li>Basic Hashtag Strategy</li>
-            <li>Monthly Report</li>
-        </ul>
-        <button>Select Plan</button>
+        <div class="card">
+            <h2>Advanced Plan</h2>
+            <div class="price">₹24,999 / Month</div>
+            <button onclick="selectPlan('Advanced Plan', 24999)">Select Plan</button>
+        </div>
+
+        <div class="card">
+            <h2>Premium Plan</h2>
+            <div class="price">₹44,999 / Month</div>
+            <button onclick="selectPlan('Premium Plan', 44999)">Select Plan</button>
+        </div>
+
     </div>
+</div>
 
-    <div class="card featured" data-name="Advanced Social Media Plan" data-price="24999">
-        <span class="badge">Most Popular</span>
-        <h3>Advanced Plan</h3>
-        <p class="price">₹24,999 <span>/ month</span></p>
-        <ul>
-            <li>3 Platforms</li>
-            <li>20 Posts + Reels</li>
-            <li>Paid Ads Setup</li>
-            <li>Lead Generation</li>
-            <li>Monthly Analytics</li>
-        </ul>
-        <button>Select Plan</button>
-    </div>
+<script>
+function selectPlan(planName, price) {
 
-    <div class="card" data-name="Premium Social Media Plan" data-price="44999">
-        <h3>Premium Plan</h3>
-        <p class="price">₹44,999 <span>/ month</span></p>
-        <ul>
-            <li>Full Social Media Management</li>
-            <li>Advanced Paid Ads</li>
-            <li>SEO & Funnel Strategy</li>
-            <li>AI Content Optimization</li>
-            <li>Dedicated Manager</li>
-        </ul>
-        <button>Select Plan</button>
-    </div>
+    const selectedPlan = {
+        name: planName,
+        amount: price
+    };
 
-</section>
+    localStorage.setItem("selectedPlan", JSON.stringify(selectedPlan));
 
-<script src="js/navbar.js"></script>
-<script src="js/payment.js"></script>
+    window.location.href = "checkout.html";
+}
+</script>
 
 </body>
 </html>
