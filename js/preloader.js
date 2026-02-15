@@ -1,22 +1,28 @@
+// js/preloader.js - Guarantees full animation plays (4.5+ seconds)
 document.addEventListener('DOMContentLoaded', () => {
   const preloader = document.getElementById('preloader');
 
-  // Minimum display time to ensure full animation plays (~3 seconds total)
-  const minTime = 3000;
+  if (!preloader) return;
 
+  const minTime = 4500; // Covers full animation + ripples
   let timePassed = false;
-  setTimeout(() => { timePassed = true; checkHide(); }, minTime);
+
+  setTimeout(() => {
+    timePassed = true;
+    checkHide();
+  }, minTime);
 
   window.addEventListener('load', () => {
     checkHide();
   });
 
   function checkHide() {
-    if (timePassed) {
+    if (timePassed && preloader) {
       preloader.classList.add('hidden');
-      // Remove from DOM after fade
       setTimeout(() => {
-        if (preloader) preloader.remove();
+        if (preloader && preloader.parentNode) {
+          preloader.parentNode.removeChild(preloader);
+        }
       }, 1000);
     }
   }
