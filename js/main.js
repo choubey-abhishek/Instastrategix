@@ -1,48 +1,34 @@
 // js/main.js – Fully upgraded mobile menu with overlay, outside close, Esc close + safe init
-
-document.addEventListener('DOMContentLoaded', function () {
-
-    /* =========================
-       MOBILE MENU
-    ========================= */
-
+document.addEventListener('DOMContentLoaded', () => {
+    // Mobile Menu
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-
     if (menuToggle && navMenu) {
-
-        // Toggle Menu
-        menuToggle.addEventListener('click', function () {
+        menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('active');
             navMenu.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
+            document.body.classList.toggle('menu-open'); // For dark overlay
         });
-
-        // Auto-close when clicking nav link
-        navLinks.forEach(function (link) {
-            link.addEventListener('click', function () {
+        // Auto-close on nav link click
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
                 menuToggle.classList.remove('active');
                 navMenu.classList.remove('active');
                 document.body.classList.remove('menu-open');
             });
         });
-
-        // Close when clicking outside
-        document.addEventListener('click', function (e) {
-            if (
-                navMenu.classList.contains('active') &&
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (navMenu.classList.contains('active') &&
                 !navMenu.contains(e.target) &&
-                !menuToggle.contains(e.target)
-            ) {
+                !menuToggle.contains(e.target)) {
                 menuToggle.classList.remove('active');
                 navMenu.classList.remove('active');
                 document.body.classList.remove('menu-open');
             }
         });
-
-        // Close with Escape key
-        document.addEventListener('keydown', function (e) {
+        // Close menu with Escape key
+        document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && navMenu.classList.contains('active')) {
                 menuToggle.classList.remove('active');
                 navMenu.classList.remove('active');
@@ -50,119 +36,70 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
-
-    /* =========================
-       CURRENT YEAR
-    ========================= */
-
+    // Current Year
     const currentYear = document.getElementById('current-year');
-    if (currentYear) {
-        currentYear.textContent = new Date().getFullYear();
-    }
-
-    /* =========================
-       HEADER SCROLL EFFECT
-    ========================= */
-
+    if (currentYear) currentYear.textContent = new Date().getFullYear();
+    // Header scroll effect
     const header = document.querySelector('.site-header');
     if (header) {
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 50);
         });
     }
-
-    /* =========================
-       SCROLL TO TOP
-    ========================= */
-
+    // Scroll to Top
     const scrollTopBtn = document.querySelector('.scroll-to-top');
-
     if (scrollTopBtn) {
-
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > 500) {
-                scrollTopBtn.classList.add('visible');
-            } else {
-                scrollTopBtn.classList.remove('visible');
-            }
+        window.addEventListener('scroll', () => {
+            scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
         });
-
-        scrollTopBtn.addEventListener('click', function (e) {
+        scrollTopBtn.addEventListener('click', (e) => {
             e.preventDefault();
-
-            if (typeof gsap !== "undefined") {
-                gsap.to(window, { duration: 1, scrollTo: 0 });
-            } else {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
+            gsap.to(window, { duration: 1, scrollTo: 0 });
         });
     }
-
-    /* =========================
-       SWIPER TESTIMONIALS
-    ========================= */
-
-    if (typeof Swiper !== "undefined") {
-        new Swiper('.testimonials-swiper', {
-            loop: true,
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            centeredSlides: true,
-            slidesPerView: 1,
-            spaceBetween: 30,
-        });
-    }
-
-    /* =========================
-       SIMPLE MARKETING SLIDER
-    ========================= */
-
+    // Swiper for testimonials
+    const testimonialSwiper = new Swiper('.testimonials-swiper', {
+        loop: true,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        centeredSlides: true,
+        slidesPerView: 1,
+        spaceBetween: 30,
+    });
+    // Simple 3-image marketing slider
     let currentSlide = 0;
     const slides = document.querySelectorAll('.simple-marketing-slider .slide');
     const dots = document.querySelectorAll('.slider-dots .dot');
-
     function showSlide(index) {
-        slides.forEach(function (slide) {
-            slide.classList.remove('active');
-        });
-
-        dots.forEach(function (dot) {
-            dot.classList.remove('active');
-        });
-
-        if (slides[index]) slides[index].classList.add('active');
-        if (dots[index]) dots[index].classList.add('active');
+        slides.forEach(s => s.classList.remove('active'));
+        dots.forEach(d => d.classList.remove('active'));
+       
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
     }
-
     function changeSlide(index) {
         currentSlide = index;
         showSlide(currentSlide);
     }
-
+    // Auto slide every 5 seconds
     if (slides.length > 0) {
-
-        setInterval(function () {
+        setInterval(() => {
             currentSlide = (currentSlide + 1) % slides.length;
             showSlide(currentSlide);
         }, 5000);
-
+        // Show first slide initially
         showSlide(0);
     }
-
+    // Make changeSlide available globally for onclick in HTML
     window.changeSlide = changeSlide;
-
 });
