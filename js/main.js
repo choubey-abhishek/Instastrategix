@@ -1,15 +1,24 @@
-// js/main.js – Fully upgraded mobile menu with overlay, outside close, Esc close + safe init
+// js/main.js – Fully repaired mobile menu: reliable on mobile/desktop, clickable links, tap outside/overlay to close, Esc close, no bubbling issues
 document.addEventListener('DOMContentLoaded', () => {
     // Mobile Menu
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
+
     if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', () => {
+        // Prevent click on hamburger from bubbling to document (prevents instant re-close on open)
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
             menuToggle.classList.toggle('active');
             navMenu.classList.toggle('active');
-            document.body.classList.toggle('menu-open'); // For dark overlay
+            document.body.classList.toggle('menu-open'); // For dark overlay + body lock
         });
-        // Auto-close on nav link click
+
+        // Prevent any clicks inside the menu from bubbling to document (ensures links are fully clickable, no accidental close)
+        navMenu.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        // Auto-close menu when clicking a nav link (mobile UX standard)
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 menuToggle.classList.remove('active');
@@ -17,7 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.body.classList.remove('menu-open');
             });
         });
-        // Close menu when clicking outside
+
+        // Close menu when clicking/tapping outside (on the dark overlay or anywhere not in menu/toggle)
         document.addEventListener('click', (e) => {
             if (navMenu.classList.contains('active') &&
                 !navMenu.contains(e.target) &&
@@ -27,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.body.classList.remove('menu-open');
             }
         });
+
         // Close menu with Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && navMenu.classList.contains('active')) {
@@ -36,9 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
     // Current Year
     const currentYear = document.getElementById('current-year');
     if (currentYear) currentYear.textContent = new Date().getFullYear();
+
     // Header scroll effect
     const header = document.querySelector('.site-header');
     if (header) {
@@ -46,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             header.classList.toggle('scrolled', window.scrollY > 50);
         });
     }
+
     // Scroll to Top
     const scrollTopBtn = document.querySelector('.scroll-to-top');
     if (scrollTopBtn) {
@@ -57,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
             gsap.to(window, { duration: 1, scrollTo: 0 });
         });
     }
+
     // Swiper for testimonials
     const testimonialSwiper = new Swiper('.testimonials-swiper', {
         loop: true,
@@ -76,21 +91,25 @@ document.addEventListener('DOMContentLoaded', () => {
         slidesPerView: 1,
         spaceBetween: 30,
     });
+
     // Simple 3-image marketing slider
     let currentSlide = 0;
     const slides = document.querySelectorAll('.simple-marketing-slider .slide');
     const dots = document.querySelectorAll('.slider-dots .dot');
+
     function showSlide(index) {
         slides.forEach(s => s.classList.remove('active'));
         dots.forEach(d => d.classList.remove('active'));
-       
+      
         slides[index].classList.add('active');
         dots[index].classList.add('active');
     }
+
     function changeSlide(index) {
         currentSlide = index;
         showSlide(currentSlide);
     }
+
     // Auto slide every 5 seconds
     if (slides.length > 0) {
         setInterval(() => {
@@ -100,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Show first slide initially
         showSlide(0);
     }
+
     // Make changeSlide available globally for onclick in HTML
     window.changeSlide = changeSlide;
 });
