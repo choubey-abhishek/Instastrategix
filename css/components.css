@@ -12,177 +12,184 @@ img {
     max-width: 100%;
 }
 /* Header & Navigation */
+/* =========================
+   HEADER & NAVIGATION
+========================= */
+
 .nav-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
 }
+
+/* =========================
+   HEADER BASE
+========================= */
+
 .site-header {
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(35px);
-    -webkit-backdrop-filter: blur(35px);
-    transition: padding 0.6s var(--transition), background 0.6s var(--transition);
-    padding: 1.5rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.15);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+    background: rgba(15, 15, 15, 0.85);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    padding: 1.1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    transition: all 0.4s ease;
 }
+
 .site-header.scrolled {
-    padding: 0.5rem 0;
-    background: rgba(255, 255, 255, 0.99);
-    box-shadow: 0 12px 50px rgba(0,0,0,0.18);
+    background: #ffffff;
+    padding: 0.7rem 0;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
 }
-.header-border {
-    height: 4px;
-    background: var(--gold-gradient);
-    width: 0;
-    transition: width 1s ease;
-    box-shadow: 0 0 15px var(--gold-glow);
-}
-.site-header.scrolled .header-border {
-    width: 100%;
-}
+
+/* =========================
+   LOGO
+========================= */
+
 .logo {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
 }
+
 .logo img {
-    height: 60px;
-    transition: var(--transition);
-    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+    height: 48px;
+    transition: 0.3s ease;
 }
+
 .site-header.scrolled .logo img {
-    height: 40px;
+    height: 38px;
 }
+
 .logo-text {
-    font-size: 2.2rem;
-    font-weight: 900;
-    background: linear-gradient(135deg, #fff, #f0f0f0);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: var(--transition);
-    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
-}
-.site-header.scrolled .logo-text {
     font-size: 1.8rem;
-    background: var(--gold-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 15px var(--gold-glow);
+    font-weight: 800;
+    color: #ffffff;
+    transition: 0.3s ease;
 }
+
+.site-header.scrolled .logo-text {
+    color: #111;
+}
+
+/* =========================
+   NAVIGATION MENU
+========================= */
+
 .nav-menu {
     display: flex;
-    gap: 3.5rem;
     align-items: center;
+    gap: 2rem;
+    margin-left: auto;
 }
+
 .nav-link {
-    color: #fff;
-    font-weight: 700;
-    font-size: 1.12rem;
-    position: relative;
-    transition: var(--transition);
-    padding: 0.8rem 1.6rem;
-    border-radius: var(--radius-md);
-    text-shadow: 0 1px 6px rgba(0,0,0,0.6);
-}
-.site-header.scrolled .nav-link {
-    color: var(--text-primary);
     font-size: 1rem;
-    padding: 0.6rem 1.2rem;
-    text-shadow: none;
+    font-weight: 600;
+    color: #ffffff;
+    padding: 0.5rem 0;
+    background: none;
+    border-radius: 0;
+    transition: color 0.3s ease;
+    position: relative;
 }
+
+.site-header.scrolled .nav-link {
+    color: #222;
+}
+
 .nav-link:hover {
-    color: var(--gold-light);
-    background: rgba(128,110,77,0.25);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px var(--gold-glow);
+    color: var(--gold);
 }
-.nav-link.active {
-    color: var(--gold-light);
-    background: rgba(128,110,77,0.3);
-    font-weight: 800;
-    box-shadow: 0 8px 20px var(--gold-glow);
-}
+
+/* Smooth Underline Animation */
 .nav-link::after {
     content: '';
     position: absolute;
-    bottom: -16px;
-    left: 50%;
+    left: 0;
+    bottom: -6px;
     width: 0;
-    height: 5px;
+    height: 2px;
     background: var(--gold-gradient);
-    transition: all 0.7s ease;
-    transform: translateX(-50%);
-    border-radius: 3px;
-    box-shadow: 0 0 15px var(--gold-glow);
+    transition: width 0.3s ease;
 }
-.nav-link:hover::after, .nav-link.active::after {
+
+.nav-link:hover::after,
+.nav-link.active::after {
     width: 100%;
 }
+
+/* =========================
+   CTA BUTTON
+========================= */
+
+.nav-cta {
+    padding: 0.7rem 1.8rem;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    background: var(--gold-gradient);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: 0.3s ease;
+    margin-left: 1.5rem;
+}
+
+.nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   HAMBURGER (MOBILE)
+========================= */
+
 .menu-toggle {
     display: none;
     flex-direction: column;
-    gap: 7px;
+    gap: 6px;
     cursor: pointer;
     background: none;
     border: none;
 }
+
 .hamburger-line {
-    width: 36px;
-    height: 4px;
-    background: #fff;
-    transition: var(--transition);
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    width: 30px;
+    height: 3px;
+    background: #ffffff;
+    transition: 0.3s ease;
+    border-radius: 3px;
 }
+
 .site-header.scrolled .hamburger-line {
-    background: var(--text-primary);
+    background: #111;
 }
-.menu-toggle:hover .hamburger-line {
-    background: var(--gold);
-}
+
 .menu-toggle.active .hamburger-line:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
+    transform: rotate(45deg) translate(6px, 6px);
 }
+
 .menu-toggle.active .hamburger-line:nth-child(2) {
     opacity: 0;
 }
+
 .menu-toggle.active .hamburger-line:nth-child(3) {
-    transform: rotate(-45deg) translate(8px, -8px);
+    transform: rotate(-45deg) translate(6px, -6px);
 }
-.nav-cta {
-    font-weight: 800;
-    padding: 1.1rem 3.5rem;
-    border-radius: var(--radius-lg);
-    transition: var(--transition);
-    background: var(--gold-gradient);
-    box-shadow: 0 10px 30px var(--gold-glow);
-}
-.site-header.scrolled .nav-cta {
-    padding: 0.9rem 2.8rem;
-}
-.nav-cta:hover {
-    transform: translateY(-5px) scale(1.08);
-    box-shadow: 0 20px 50px var(--gold-glow);
-}
-/* Desktop-specific reinforcement */
+
+/* =========================
+   DESKTOP REINFORCEMENT
+========================= */
+
 @media (min-width: 769px) {
-    .nav-menu {
-        margin-left: auto;
-    }
-    .nav-cta {
-        margin-left: var(--space-lg);
-    }
+
     .menu-toggle {
         display: none;
     }
+
     .nav-menu {
         position: static;
         width: auto;
@@ -190,7 +197,6 @@ img {
         background: none;
         box-shadow: none;
         padding: 0;
-        display: flex;
         flex-direction: row;
     }
 }
