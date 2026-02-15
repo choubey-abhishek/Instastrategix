@@ -318,7 +318,7 @@ img {
         box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
-    /* Dark Overlay */
+    /* Dark Overlay + Background Lock */
     body.menu-open::before {
         content: '';
         position: fixed;
@@ -328,7 +328,11 @@ img {
         height: 100%;
         background: rgba(0,0,0,0.5);
         z-index: 9999;
-        pointer-events: none; /* prevents blocking clicks */
+        pointer-events: auto; /* Blocks interaction with background */
+    }
+
+    body.menu-open {
+        overflow: hidden; /* Prevents scrolling behind the menu */
     }
 }
 /* Marketing Slider */
@@ -742,10 +746,10 @@ img {
     background: var(--gold-gradient);
     color: white;
     border: none;
-    width: 55px;       /* reduced from 65px */
-    height: 55px;      /* reduced from 65px */
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
-    font-size: 24px;   /* reduced from 28px */
+    font-size: 24px;
     cursor: pointer;
     box-shadow: 0 15px 40px var(--gold-glow);
     transition: var(--transition);
@@ -756,8 +760,8 @@ img {
 .chatbot-window {
     display: none;
     flex-direction: column;
-    width: 320px;      /* reduced from 380px */
-    height: 480px;     /* reduced from 560px */
+    width: 320px;
+    height: 480px;
     background: white;
     border-radius: 18px;
     box-shadow: 0 25px 60px rgba(0,0,0,0.3);
@@ -907,9 +911,9 @@ img {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 200%;         /* make it wider to allow smooth movement */
-    height: 100px;       /* adjust height as needed */
-    z-index: 0;          /* behind footer content */
+    width: 200%;
+    height: 100px;
+    z-index: 0;
     animation: wave-move 8s linear infinite;
 }
 
