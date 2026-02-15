@@ -237,18 +237,19 @@ img {
         margin-top: 2rem;
         align-self: flex-start;
     }
-    body.menu-open::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.6);
-        z-index: 9998;
-        display: block;
-        pointer-events: none; /* <-- FIX: allow menu links to be clickable */
-    }
+body.menu-open::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 9998;
+    display: block;
+    pointer-events: none;
+}
+
     .site-header {
         padding: 10px 0;
     }
