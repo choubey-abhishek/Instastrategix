@@ -1,34 +1,48 @@
 // js/main.js – Fully upgraded mobile menu with overlay, outside close, Esc close + safe init
-document.addEventListener('DOMContentLoaded', () => {
-    // Mobile Menu
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+
     if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', () => {
+
+        // Toggle Menu
+        menuToggle.addEventListener('click', function () {
             menuToggle.classList.toggle('active');
             navMenu.classList.toggle('active');
-            document.body.classList.toggle('menu-open'); // For dark overlay
+            document.body.classList.toggle('menu-open');
         });
-        // Auto-close on nav link click
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
+
+        // Auto-close when clicking nav link
+        navLinks.forEach(function (link) {
+            link.addEventListener('click', function () {
                 menuToggle.classList.remove('active');
                 navMenu.classList.remove('active');
                 document.body.classList.remove('menu-open');
             });
         });
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (navMenu.classList.contains('active') &&
+
+        // Close when clicking outside
+        document.addEventListener('click', function (e) {
+            if (
+                navMenu.classList.contains('active') &&
                 !navMenu.contains(e.target) &&
-                !menuToggle.contains(e.target)) {
+                !menuToggle.contains(e.target)
+            ) {
                 menuToggle.classList.remove('active');
                 navMenu.classList.remove('active');
                 document.body.classList.remove('menu-open');
             }
         });
-        // Close menu with Escape key
-        document.addEventListener('keydown', (e) => {
+
+        // Close with Escape key
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape' && navMenu.classList.contains('active')) {
                 menuToggle.classList.remove('active');
                 navMenu.classList.remove('active');
