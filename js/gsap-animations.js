@@ -1,5 +1,7 @@
-// js/gsap-animations.js – Upgraded card stagger + tilt
+// js/gsap-animations.js – Upgraded card stagger + tilt (VanillaTilt safe initialization)
 gsap.registerPlugin(ScrollTrigger);
+
+// Hero animation
 gsap.timeline({
     scrollTrigger: {
         trigger: ".hero",
@@ -43,15 +45,35 @@ gsap.utils.toArray(".info-card, .service-card").forEach((card, i) => {
     });
 });
 
-VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
-    max: 15, /* Slightly more tilt */
-    speed: 500,
-    glare: true,
-    "max-glare": 0.3, /* Subtle glow */
-    scale: 1.06,
-    perspective: 1000
-});
+// Initialize VanillaTilt with safety check (ensures library is loaded)
+if (typeof VanillaTilt !== 'undefined') {
+    VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+        max: 15,
+        speed: 500,
+        glare: true,
+        "max-glare": 0.3,
+        scale: 1.06,
+        perspective: 1000
+    });
+} else {
+    // Retry after a short delay (in case library loads later)
+    setTimeout(() => {
+        if (typeof VanillaTilt !== 'undefined') {
+            VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+                max: 15,
+                speed: 500,
+                glare: true,
+                "max-glare": 0.3,
+                scale: 1.06,
+                perspective: 1000
+            });
+        } else {
+            console.warn("VanillaTilt not loaded – tilt effects disabled");
+        }
+    }, 300);
+}
 
+// Stats counter animation
 gsap.utils.toArray(".stat-number").forEach(stat => {
     const hasPlus = stat.textContent.includes('+');
     const hasPercent = stat.textContent.includes('%');
