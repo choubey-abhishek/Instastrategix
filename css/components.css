@@ -871,6 +871,14 @@ img {
         padding: 12px; 
     }
 }
+.quick-reply:last-child {
+    background: var(--gold-light);
+    color: white;
+    border-color: var(--gold);
+}
+.quick-reply:last-child:hover {
+    background: var(--gold);
+}
 
 .footer-wave {
     position: absolute;
