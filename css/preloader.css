@@ -1,4 +1,4 @@
-/* css/preloader.css - Fixed iX preloader: gold theme, perfect alignment, full animation guaranteed */
+/* css/preloader.css - Silver iX preloader: silver theme, perfect alignment, full animation guaranteed */
 .preloader {
   position: fixed;
   top: 0;
@@ -25,12 +25,12 @@
   height: 200px;
 }
 
-/* Gold theme with strong glow */
+/* Silver theme with strong glow */
 .i-stem,
 .i-dot,
 .x-bar {
-  background: #d4af37;
-  box-shadow: 0 0 35px rgba(212, 175, 55, 0.8);
+  background: #c0c0c0;              /* changed from gold to silver */
+  box-shadow: 0 0 35px rgba(192, 192, 192, 0.8); /* silver glow */
 }
 
 /* I STEM */
@@ -52,11 +52,11 @@
   }
 }
 
-/* I DOT - drops exactly onto stem top (no gap) */
+/* I DOT - adjusted to leave a small gap above stem (like a proper lowercase i) */
 .i-dot {
   position: absolute;
   left: 130px;
-  top: 20px;
+  top: 15px;                         /* final top position (stem top is 40px → gap of 5px) */
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -71,15 +71,15 @@
   }
   70% {
     opacity: 1;
-    transform: translateY(22px) scale(1.15);
+    transform: translateY(5px) scale(1.15);   /* slight overshoot */
   }
   100% {
     opacity: 1;
-    transform: translateY(20px) scale(1);
+    transform: translateY(0) scale(1);        /* lands exactly at top:15px */
   }
 }
 
-/* X BARS - appear after "i" is complete */
+/* X BARS - same size as I stem, appear after "i" is complete */
 .x-bar {
   position: absolute;
   left: 230px;
@@ -110,14 +110,14 @@
   }
 }
 
-/* RIPPLE EFFECT - gold, delayed properly */
+/* RIPPLE EFFECT - silver, delayed properly */
 .ripple {
   position: absolute;
   top: 50%;
   left: 50%;
   width: 40px;
   height: 40px;
-  border: 4px solid rgba(212, 175, 55, 0.9);
+  border: 4px solid rgba(192, 192, 192, 0.9);
   border-radius: 50%;
   transform: translate(-50%, -50%) scale(0);
   opacity: 0;
