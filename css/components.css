@@ -318,7 +318,7 @@ img {
         box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
-    /* Dark Overlay + Background Lock */
+    /* Dark Overlay + Background Lock - FIXED */
     body.menu-open::before {
         content: '';
         position: fixed;
@@ -328,7 +328,11 @@ img {
         height: 100%;
         background: rgba(0,0,0,0.5);
         z-index: 9999;
-        pointer-events: auto; /* Blocks interaction with background */
+        pointer-events: none; /* Allows clicks to pass through to menu */
+    }
+
+    body.menu-open .nav-menu {
+        z-index: 10001; /* Ensures menu is above overlay */
     }
 
     body.menu-open {
