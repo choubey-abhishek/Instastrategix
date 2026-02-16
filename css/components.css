@@ -202,7 +202,6 @@ img {
 }
 /* Mobile-only menu styles */
 @media (max-width: 768px) {
-
     /* Header */
     .site-header {
         padding: 0.9rem 0;
@@ -238,7 +237,7 @@ img {
         background: none;
         border: none;
         cursor: pointer;
-        z-index: 10001; /* Higher than overlay */
+        z-index: 10002; /* Sabse upar */
     }
 
     .hamburger-line {
@@ -253,15 +252,12 @@ img {
         background: #111;
     }
 
-    /* Hamburger Animation */
     .menu-toggle.active .hamburger-line:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
     }
-
     .menu-toggle.active .hamburger-line:nth-child(2) {
         opacity: 0;
     }
-
     .menu-toggle.active .hamburger-line:nth-child(3) {
         transform: rotate(-45deg) translate(5px, -5px);
     }
@@ -281,9 +277,9 @@ img {
         gap: 1.2rem;
         transition: right 0.35s ease;
         box-shadow: -10px 0 40px rgba(0,0,0,0.15);
-        z-index: 10001; /* Above overlay */
+        z-index: 10001; /* Overlay ke upar */
         overflow-y: auto;
-        pointer-events: auto; /* Ensure clicks are captured */
+        pointer-events: auto;
     }
 
     .nav-menu.active {
@@ -299,8 +295,10 @@ img {
         border-bottom: 1px solid rgba(0,0,0,0.05);
         position: relative;
         transition: 0.3s ease;
-        display: block; /* Make entire area clickable */
+        display: block;
         width: 100%;
+        background: transparent;
+        pointer-events: auto;
     }
 
     .nav-link:hover,
@@ -321,31 +319,31 @@ img {
         box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         display: inline-block;
         width: 100%;
+        pointer-events: auto;
     }
 
-    /* Dark Overlay - FIXED */
-    body.menu-open::before {
-        content: '';
+    /* Dark Overlay - Ab ek naye DIV ke roop mein (pseudo-element nahi) */
+    body.menu-open .menu-overlay {
+        display: block;
+    }
+
+    .menu-overlay {
+        display: none;
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         background: rgba(0,0,0,0.5);
-        z-index: 10000; /* Below menu */
-        pointer-events: none; /* Crucial: lets clicks pass through to menu */
+        z-index: 10000;
+        pointer-events: none; /* Clicks pass through to menu */
     }
 
     body.menu-open {
-        overflow: hidden; /* Prevents scrolling behind the menu */
+        overflow: hidden;
     }
 }
-    
-    /* Ensure menu is above overlay */
-    body.menu-open .nav-menu {
-        z-index: 10001;
-    }
-}
+
 /* Marketing Slider */
 .marketing-showcase {
     padding: 2rem 0;
