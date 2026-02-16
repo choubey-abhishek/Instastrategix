@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a Custom Proposal | Instastrategix</title>
+    <meta name="description" content="Tell us about your project and receive a tailored digital marketing proposal with detailed strategy, timeline, and investment options.">
+    
+    <!-- Your existing CSS files -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Page-specific styles */
+        .proposal-page {
+            padding-top: 120px;
+            padding-bottom: var(--space-xxl);
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        }
+        
+        .proposal-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto var(--space-xl);
+            padding: 0 1.5rem;
+        }
+        
+        .proposal-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: var(--space-md);
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .proposal-header p {
+            font-size: 1.2rem;
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .proposal-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: var(--space-xl);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .process-info {
+            background: white;
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(128, 110, 77, 0.2);
+            height: fit-content;
+        }
+        
+        .process-info h2 {
+            margin-bottom: var(--space-lg);
+            font-size: 1.8rem;
+            color: var(--text-primary);
+        }
+        
+        .process-steps {
+            list-style: none;
+        }
+        
+        .process-steps li {
+            display: flex;
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .process-steps li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--gold-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .step-content h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .step-content p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .trust-badges {
+            display: flex;
+            gap: 1rem;
+            margin-top: var(--space-lg);
+            padding-top: var(--space-lg);
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .trust-badge {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .trust-badge i {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+        
+        .trust-badge span {
+            font-size: 0.85rem;
+            color: #666;
+            display: block;
+        }
+        
+        .proposal-form {
+            background: white;
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .proposal-form h2 {
+            margin-bottom: var(--space-lg);
+            font-size: 1.8rem;
+            color: var(--text-primary);
+        }
+        
+        .form-section {
+            margin-bottom: var(--space-xl);
+            padding-bottom: var(--space-lg);
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .form-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .form-section h3 {
+            margin-bottom: var(--space-md);
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: var(--radius-md);
+            font-family: var(--font-primary);
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(128, 110, 77, 0.2);
+        }
+        
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin-right: 0.5rem;
+        }
+        
+        .budget-range {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .budget-range select {
+            flex: 1;
+        }
+        
+        .file-upload {
+            border: 2px dashed #e0e0e0;
+            padding: 2rem;
+            text-align: center;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .file-upload:hover {
+            border-color: var(--gold);
+            background: rgba(128, 110, 77, 0.05);
+        }
+        
+        .file-upload i {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        
+        .file-upload p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .file-upload input {
+            display: none;
+        }
+        
+        .proposal-form button[type="submit"] {
+            width: 100%;
+            padding: 1.2rem;
+            font-size: 1.1rem;
+            margin-top: var(--space-md);
+        }
+        
+        .nda-option {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: var(--space-md) 0;
+            padding: 1rem;
+            background: rgba(128, 110, 77, 0.05);
+            border-radius: var(--radius-md);
+        }
+        
+        .nda-option input {
+            width: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .proposal-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+            
+            .budget-range {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .trust-badges {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Include your existing header -->
+    <header class="site-header">
+        <!-- Copy your header code from index.html -->
+    </header>
+
+    <main class="proposal-page">
+        <div class="proposal-header">
+            <h1>Request a Custom Proposal</h1>
+            <p>Tell us about your project and receive a tailored digital marketing strategy with detailed timeline, deliverables, and investment options.</p>
+        </div>
+        
+        <div class="proposal-container">
+            <!-- Left Column - Process Information -->
+            <div class="process-info">
+                <h2>How It Works</h2>
+                
+                <ul class="process-steps">
+                    <li>
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Tell Us About Your Project</h3>
+                            <p>Fill out the form with your goals, requirements, and any relevant details about your business and target audience.</p>
+                        </div>
+                    </li>
+                    
+                    <li>
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>We Analyze & Research</h3>
+                            <p>Our team reviews your information, researches your market, and develops a customized strategy tailored to your needs.</p>
+                        </div>
+                    </li>
+                    
+                    <li>
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Receive Your Proposal</h3>
+                            <p>Within 3-5 business days, you'll receive a detailed proposal including strategy, timeline, deliverables, and investment options.</p>
+                        </div>
+                    </li>
+                    
+                    <li>
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Review & Discuss</h3>
+                            <p>We'll schedule a call to walk through the proposal, answer your questions, and discuss next steps.</p>
+                        </div>
+                    </li>
+                </ul>
+                
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Confidential</span>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-clock"></i>
+                        <span>3-5 Day Turnaround</span>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-file-signature"></i>
+                        <span>No Obligation</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Column - Proposal Form -->
+            <div class="proposal-form">
+                <h2>Project Details</h2>
+                
+                <form id="proposalForm" action="https://formspree.io/f/your-form-id" method="POST" enctype="multipart/form-data">
+                    <!-- Section 1: Contact Information -->
+                    <div class="form-section">
+                        <h3>Contact Information</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Company Name *</label>
+                            <input type="text" id="company" name="company" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="website">Current Website</label>
+                            <input type="url" id="website" name="website" placeholder="https://">
+                        </div>
+                    </div>
+                    
+                    <!-- Section 2: Project Scope -->
+                    <div class="form-section">
+                        <h3>Project Scope</h3>
+                        
+                        <div class="form-group">
+                            <label>Services You're Interested In *</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="services[]" value="seo" id="serviceSEO">
+                                    <label for="serviceSEO">SEO</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="services[]" value="paid_ads" id="serviceAds">
+                                    <label for="serviceAds">Paid Advertising</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="services[]" value="social" id="serviceSocial">
+                                    <label for="serviceSocial">Social Media Marketing</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="services[]" value="content" id="serviceContent">
+                                    <label for="serviceContent">Content Strategy</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="services[]" value="email" id="serviceEmail">
+                                    <label for="serviceEmail">Email Marketing</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="services[]" value="web_design" id="serviceWeb">
+                                    <label for="serviceWeb">Web Design/Development</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="timeline">Desired Timeline</label>
+                            <select id="timeline" name="timeline">
+                                <option value="">Select timeline</option>
+                                <option value="asap">ASAP (within 1-2 weeks)</option>
+                                <option value="1_month">Within 1 month</option>
+                                <option value="1-3_months">1-3 months</option>
+                                <option value="3-6_months">3-6 months</option>
+                                <option value="6+_months">6+ months</option>
+                                <option value="just_exploring">Just exploring options</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="budget">Estimated Budget Range</label>
+                            <div class="budget-range">
+                                <select id="budget" name="budget">
+                                    <option value="">Select range</option>
+                                    <option value="under_2k">Under $2,000/month</option>
+                                    <option value="2k-5k">$2,000 - $5,000/month</option>
+                                    <option value="5k-10k">$5,000 - $10,000/month</option>
+                                    <option value="10k-20k">$10,000 - $20,000/month</option>
+                                    <option value="20k+">$20,000+/month</option>
+                                    <option value="project_based">Project-based (one-time)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Section 3: Project Details -->
+                    <div class="form-section">
+                        <h3>Project Details</h3>
+                        
+                        <div class="form-group">
+                            <label for="goals">What are your primary goals? *</label>
+                            <textarea id="goals" name="goals" rows="4" placeholder="e.g., increase organic traffic, generate leads, improve brand awareness, etc." required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="targetAudience">Target Audience</label>
+                            <textarea id="targetAudience" name="targetAudience" rows="3" placeholder="Describe your ideal customers..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="competitors">Main Competitors (if known)</label>
+                            <textarea id="competitors" name="competitors" rows="3" placeholder="List competitor websites or names..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="challenges">Current Challenges</label>
+                            <textarea id="challenges" name="challenges" rows="3" placeholder="What marketing challenges are you facing?"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="files">Supporting Documents (optional)</label>
+                            <div class="file-upload" id="fileUpload">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Click to upload or drag and drop</p>
+                                <p style="font-size: 0.8rem;">PDF, DOC, XLS, images (max 10MB)</p>
+                                <input type="file" id="files" name="files" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.png">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- NDA Option -->
+                    <div class="nda-option">
+                        <input type="checkbox" name="nda_requested" id="nda" value="yes">
+                        <label for="nda">I would like to sign an NDA before receiving the detailed proposal</label>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary">Request Proposal</button>
+                    
+                    <div class="privacy-note" style="margin-top: 1.5rem; text-align: center; font-size: 0.9rem; color: #666;">
+                        <p>✓ Your information is secure and confidential [citation:4]</p>
+                        <p>By submitting, you agree to our <a href="privacy-policy.html">Privacy Policy</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Include your existing footer -->
+    <footer class="footer">
+        <!-- Copy your footer code from index.html -->
+    </footer>
+
+    <script>
+        // File upload click handler
+        const fileUpload = document.getElementById('fileUpload');
+        const fileInput = document.getElementById('files');
+        
+        fileUpload.addEventListener('click', function() {
+            fileInput.click();
+        });
+        
+        fileUpload.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            this.style.borderColor = 'var(--gold)';
+            this.style.background = 'rgba(128, 110, 77, 0.05)';
+        });
+        
+        fileUpload.addEventListener('dragleave', function(e) {
+            e.preventDefault();
+            this.style.borderColor = '#e0e0e0';
+            this.style.background = 'none';
+        });
+        
+        fileUpload.addEventListener('drop', function(e) {
+            e.preventDefault();
+            this.style.borderColor = '#e0e0e0';
+            this.style.background = 'none';
+            
+            const files = e.dataTransfer.files;
+            fileInput.files = files;
+            
+            // Show file names
+            if (files.length > 0) {
+                const fileNames = Array.from(files).map(f => f.name).join(', ');
+                this.querySelector('p').innerHTML = `<strong>Selected:</strong> ${fileNames}`;
+            }
+        });
+        
+        fileInput.addEventListener('change', function() {
+            if (this.files.length > 0) {
+                const fileNames = Array.from(this.files).map(f => f.name).join(', ');
+                fileUpload.querySelector('p').innerHTML = `<strong>Selected:</strong> ${fileNames}`;
+            } else {
+                fileUpload.querySelector('p').innerHTML = 'Click to upload or drag and drop';
+            }
+        });
+    </script>
+</body>
+</html>
