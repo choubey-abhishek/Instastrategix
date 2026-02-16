@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Strategy Call | Instastrategix</title>
+    <meta name="description" content="Schedule a free 30-minute strategy call with our digital marketing experts. Get personalized advice for your business growth.">
+    
+    <!-- Your existing CSS files -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Page-specific styles */
+        .booking-page {
+            padding-top: 120px;
+            padding-bottom: var(--space-xxl);
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        }
+        
+        .booking-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .booking-info {
+            padding-right: var(--space-lg);
+        }
+        
+        .booking-info h1 {
+            font-size: 2.8rem;
+            margin-bottom: var(--space-md);
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .booking-info .lead {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: var(--space-lg);
+            line-height: 1.8;
+        }
+        
+        .benefits-list {
+            list-style: none;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .benefits-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .benefits-list i {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-top: 0.2rem;
+        }
+        
+        .benefits-list h3 {
+            margin-bottom: 0.3rem;
+            font-size: 1.2rem;
+        }
+        
+        .benefits-list p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .testimonial-mini {
+            background: rgba(128, 110, 77, 0.1);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            border-left: 4px solid var(--gold);
+            margin-top: var(--space-xl);
+        }
+        
+        .testimonial-mini p {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+        
+        .testimonial-mini .client {
+            font-weight: 600;
+            color: var(--gold);
+        }
+        
+        .booking-form {
+            background: white;
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(128, 110, 77, 0.2);
+        }
+        
+        .booking-form h2 {
+            margin-bottom: var(--space-lg);
+            font-size: 1.8rem;
+            color: var(--text-primary);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: var(--radius-md);
+            font-family: var(--font-primary);
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(128, 110, 77, 0.2);
+        }
+        
+        .time-slots {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+        }
+        
+        .time-slot {
+            padding: 0.8rem;
+            text-align: center;
+            border: 2px solid #e0e0e0;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+        
+        .time-slot:hover {
+            border-color: var(--gold);
+            background: rgba(128, 110, 77, 0.05);
+        }
+        
+        .time-slot.selected {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: white;
+        }
+        
+        .booking-form button[type="submit"] {
+            width: 100%;
+            padding: 1.2rem;
+            font-size: 1.1rem;
+            margin-top: var(--space-md);
+        }
+        
+        .privacy-note {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .privacy-note a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        .privacy-note a:hover {
+            text-decoration: underline;
+        }
+        
+        .faq-section {
+            max-width: 800px;
+            margin: var(--space-xxl) auto 0;
+            padding: 0 1.5rem;
+        }
+        
+        .faq-section h2 {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+            font-size: 2rem;
+        }
+        
+        .faq-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .faq-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .faq-item h3 {
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+        }
+        
+        @media (max-width: 768px) {
+            .booking-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .booking-info {
+                padding-right: 0;
+            }
+            
+            .booking-form {
+                padding: var(--space-lg);
+            }
+            
+            .time-slots {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Include your existing header -->
+    <header class="site-header">
+        <!-- Copy your header code from index.html -->
+    </header>
+
+    <main class="booking-page">
+        <div class="booking-container">
+            <!-- Left Column - Information -->
+            <div class="booking-info">
+                <h1>Book Your Free Strategy Call</h1>
+                <p class="lead">Let's discuss how we can help your business grow with data-driven digital marketing strategies.</p>
+                
+                <ul class="benefits-list">
+                    <li>
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>30-Minute Focused Session</h3>
+                            <p>We'll analyze your current situation and identify growth opportunities</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-chart-line"></i>
+                        <div>
+                            <h3>Actionable Insights</h3>
+                            <p>Leave with clear next steps and practical recommendations</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-user-tie"></i>
+                        <div>
+                            <h3>Expert Guidance</h3>
+                            <p>Speak directly with experienced digital marketing strategists</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-lock"></i>
+                        <div>
+                            <h3>No Obligation</h3>
+                            <p>Free consultation with zero pressure to commit</p>
+                        </div>
+                    </li>
+                </ul>
+                
+                <div class="testimonial-mini">
+                    <p>"The strategy call with Instastrategix completely transformed our approach to SEO. We saw a 150% increase in organic traffic within 3 months."</p>
+                    <div class="client">— Sarah K., Tech Startup (UK)</div>
+                </div>
+            </div>
+            
+            <!-- Right Column - Booking Form -->
+            <div class="booking-form">
+                <h2>Schedule Your Call</h2>
+                
+                <form id="bookingForm" action="https://formspree.io/f/your-form-id" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Company Name</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="website">Current Website (optional)</label>
+                        <input type="url" id="website" name="website" placeholder="https://">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="goal">What would you like to discuss? *</label>
+                        <select id="goal" name="goal" required>
+                            <option value="">Select a topic</option>
+                            <option value="seo">SEO Strategy</option>
+                            <option value="ads">Paid Advertising</option>
+                            <option value="social">Social Media Marketing</option>
+                            <option value="content">Content Strategy</option>
+                            <option value="overall">Overall Digital Strategy</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Preferred Date *</label>
+                        <input type="date" id="date" name="date" required min="2026-02-17">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Preferred Time *</label>
+                        <div class="time-slots" id="timeSlots">
+                            <div class="time-slot" data-time="09:00">9:00 AM</div>
+                            <div class="time-slot" data-time="11:00">11:00 AM</div>
+                            <div class="time-slot" data-time="14:00">2:00 PM</div>
+                            <div class="time-slot" data-time="16:00">4:00 PM</div>
+                            <div class="time-slot" data-time="18:00">6:00 PM</div>
+                            <div class="time-slot" data-time="20:00">8:00 PM</div>
+                        </div>
+                        <input type="hidden" id="selectedTime" name="time">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Anything specific you'd like to cover? (optional)</label>
+                        <textarea id="message" name="message" rows="4"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Confirm Booking</button>
+                    
+                    <div class="privacy-note">
+                        <p>✓ No spam, ever. Your information is secure and GDPR-compliant [citation:1].</p>
+                        <p>By booking, you agree to our <a href="privacy-policy.html">Privacy Policy</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>How long is the strategy call?</h3>
+                    <p>Our strategy calls are typically 30 minutes – enough time to understand your goals and provide valuable insights without taking too much of your day.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What should I prepare?</h3>
+                    <p>Just bring your questions and a basic understanding of your business goals. If you have existing analytics or marketing data, feel free to share.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Is this really free?</h3>
+                    <p>Absolutely! There's no cost and no obligation. We offer this because we're confident you'll see the value in working with us [citation:1].</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Will this be a sales pitch?</h3>
+                    <p>Not at all. Our focus is on providing value and helping you identify opportunities. If there's a mutual fit, we'll discuss it naturally.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Include your existing footer -->
+    <footer class="footer">
+        <!-- Copy your footer code from index.html -->
+    </footer>
+
+    <script>
+        // Time slot selection
+        const timeSlots = document.querySelectorAll('.time-slot');
+        const selectedTimeInput = document.getElementById('selectedTime');
+        
+        timeSlots.forEach(slot => {
+            slot.addEventListener('click', function() {
+                timeSlots.forEach(s => s.classList.remove('selected'));
+                this.classList.add('selected');
+                selectedTimeInput.value = this.dataset.time;
+            });
+        });
+        
+        // Set minimum date to tomorrow
+        const dateInput = document.getElementById('date');
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        dateInput.min = tomorrow.toISOString().split('T')[0];
+        
+        // Form submission
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            if (!selectedTimeInput.value) {
+                e.preventDefault();
+                alert('Please select a preferred time slot');
+            }
+        });
+    </script>
+</body>
+</html>
