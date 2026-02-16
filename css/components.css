@@ -202,8 +202,6 @@ img {
 }
 /* Mobile-only menu styles */
 @media (max-width: 768px) {
-
-    /* Header */
     .site-header {
         padding: 0.9rem 0;
         background: rgba(15, 15, 15, 0.92);
@@ -211,26 +209,19 @@ img {
         -webkit-backdrop-filter: blur(20px);
         border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-
     .site-header.scrolled {
         background: #ffffff;
     }
-
-    /* Logo */
     .logo img {
         height: 38px;
     }
-
     .logo-text {
         font-size: 1.4rem;
         color: #ffffff;
     }
-
     .site-header.scrolled .logo-text {
         color: #111;
     }
-
-    /* Hamburger */
     .menu-toggle {
         display: flex;
         flex-direction: column;
@@ -238,9 +229,8 @@ img {
         background: none;
         border: none;
         cursor: pointer;
-        z-index: 10002; /* Sabse upar */
+        z-index: 10002;
     }
-
     .hamburger-line {
         width: 26px;
         height: 3px;
@@ -248,11 +238,9 @@ img {
         border-radius: 3px;
         transition: 0.3s ease;
     }
-
     .site-header.scrolled .hamburger-line {
         background: #111;
     }
-
     .menu-toggle.active .hamburger-line:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
     }
@@ -262,8 +250,6 @@ img {
     .menu-toggle.active .hamburger-line:nth-child(3) {
         transform: rotate(-45deg) translate(5px, -5px);
     }
-
-    /* Slide Menu */
     .nav-menu {
         position: fixed;
         top: 0;
@@ -278,37 +264,28 @@ img {
         gap: 1.2rem;
         transition: right 0.35s ease;
         box-shadow: -10px 0 40px rgba(0,0,0,0.15);
-        z-index: 10001; /* Overlay ke upar */
+        z-index: 10001;
         overflow-y: auto;
         pointer-events: auto;
     }
-
     .nav-menu.active {
         right: 0;
     }
-
-    /* Nav Links */
     .nav-link {
         font-size: 1.1rem;
         font-weight: 600;
         color: #222;
         padding: 0.8rem 0;
         border-bottom: 1px solid rgba(0,0,0,0.05);
-        position: relative;
         transition: 0.3s ease;
         display: block;
         width: 100%;
-        background: transparent;
-        pointer-events: auto;
     }
-
     .nav-link:hover,
     .nav-link.active {
         color: var(--gold);
         padding-left: 8px;
     }
-
-    /* CTA Button */
     .nav-cta {
         margin-top: 1.5rem;
         padding: 0.9rem 1.5rem;
@@ -320,24 +297,6 @@ img {
         box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         display: inline-block;
         width: 100%;
-        pointer-events: auto;
-    }
-
-    /* Dark Overlay - using ::after (pseudo-element) with !important */
-    body.menu-open::after {
-        content: '' !important;
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        background: rgba(0,0,0,0.5) !important;
-        z-index: 10000 !important; /* Menu ke neeche */
-        pointer-events: none !important; /* Clicks pass through to menu */
-    }
-
-    body.menu-open {
-        overflow: hidden;
     }
 }
 
