@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Our Services | Instastrategix</title>
+    <meta name="description" content="Discover our comprehensive digital marketing services: SEO, Paid Ads, Social Media, Content Strategy, and more. Tailored solutions for global brands.">
+    
+    <!-- Existing CSS files -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- GSAP for animations (optional, but keeps consistency) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    
+    <style>
+        /* Page‑specific enhancements */
+        .service-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/services-bg.jpg') center/cover;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px; /* adjust if header is fixed */
+        }
+        .service-hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .service-hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        .service-detailed {
+            padding: var(--space-xxl) 0;
+        }
+        .service-detailed:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .service-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+            align-items: center;
+        }
+        .service-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-md);
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .service-content .lead {
+            font-size: 1.2rem;
+            margin-bottom: var(--space-lg);
+            color: #555;
+        }
+        .feature-list {
+            list-style: none;
+            margin-bottom: var(--space-lg);
+        }
+        .feature-list li {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            align-items: flex-start;
+        }
+        .feature-list i {
+            color: var(--gold);
+            font-size: 1.3rem;
+            margin-top: 0.2rem;
+        }
+        .service-stats {
+            display: flex;
+            gap: 2rem;
+            margin: var(--space-lg) 0;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat .number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--gold);
+            line-height: 1;
+        }
+        .stat .label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .service-image img {
+            width: 100%;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+            margin: var(--space-xl) 0;
+        }
+        .step {
+            text-align: center;
+            padding: var(--space-md);
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+        .step .step-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gold-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-md);
+            color: white;
+            font-size: 2rem;
+        }
+        .step h4 {
+            margin-bottom: 0.5rem;
+        }
+        .cta-banner {
+            background: var(--gold-gradient);
+            color: white;
+            text-align: center;
+            padding: var(--space-xxl) var(--space-lg);
+            border-radius: var(--radius-lg);
+            margin: var(--space-xxl) 0;
+        }
+        .cta-banner h2 {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-md);
+            color: white;
+        }
+        .cta-banner .btn {
+            background: white;
+            color: var(--gold);
+            border: none;
+            font-size: 1.2rem;
+            padding: 1.2rem 3rem;
+        }
+        @media (max-width: 768px) {
+            .service-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+            .service-image {
+                order: -1;
+            }
+            .service-hero h1 {
+                font-size: 2.8rem;
+            }
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========== HEADER (copy exactly from index.html) ========== -->
+    <header class="site-header">
+        <div class="nav-container container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/instastrategix-logo.png" alt="Instastrategix Logo" loading="lazy">
+                    <span class="logo-text">Instastrategix</span>
+                </a>
+            </div>
+            <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about-us.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="explore-services.html" class="nav-link active">Explore</a>
+                <a href="contact-us.html" class="nav-link">Contact</a>
+                <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+                <a href="client/payment.html" class="nav-link">Book Services</a>
+                <a href="https://instastrategix0.blogspot.com/" class="nav-link" target="_blank">Blog</a>
+                <a href="contact-us.html" class="nav-cta btn-primary">Get a Free Strategy Call</a>
+            </nav>
+        </div>
+        <div class="header-border"></div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="service-hero">
+            <div class="container">
+                <h1>Explore Our Services</h1>
+                <p>Data‑driven, results‑focused digital marketing solutions tailored to your business goals.</p>
+            </div>
+        </section>
+
+        <!-- Service 1: SEO -->
+        <section class="service-detailed">
+            <div class="container">
+                <div class="service-grid">
+                    <div class="service-content">
+                        <h2>Search Engine Optimization (SEO)</h2>
+                        <p class="lead">Dominate search results and attract high‑intent organic traffic with our proven SEO strategies.</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> <strong>Technical SEO:</strong> Site audits, Core Web Vitals, mobile optimization, and schema markup.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>On‑Page Optimization:</strong> Keyword research, content optimization, internal linking.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Off‑Page & Authority:</strong> White‑hat link building, digital PR, and brand mentions.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Local SEO:</strong> Google My Business optimization, local citations, and review management.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Reporting:</strong> Transparent monthly reports with keyword rankings, traffic growth, and ROI analysis.</li>
+                        </ul>
+                        <div class="service-stats">
+                            <div class="stat">
+                                <span class="number">200%</span>
+                                <span class="label">Avg. Organic Traffic Increase</span>
+                            </div>
+                            <div class="stat">
+                                <span class="number">+150</span>
+                                <span class="label">Keywords in Top 10</span>
+                            </div>
+                        </div>
+                        <a href="book-call.html" class="btn btn-primary">Discuss Your SEO Goals</a>
+                    </div>
+                    <div class="service-image">
+                        <img src="images/seo-service.jpg" alt="SEO Strategy" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service 2: Paid Advertising -->
+        <section class="service-detailed" style="background:#f9f9f9;">
+            <div class="container">
+                <div class="service-grid">
+                    <div class="service-image">
+                        <img src="images/paid-ads.jpg" alt="Paid Advertising" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <h2>Paid Advertising (PPC & Social Ads)</h2>
+                        <p class="lead">Maximize ROI with precision‑targeted campaigns on Google, Meta, LinkedIn, and more.</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> <strong>Google Ads:</strong> Search, Display, Shopping, and Performance Max campaigns.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Social Media Ads:</strong> Facebook, Instagram, LinkedIn, and TikTok ad management.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Audience Targeting:</strong> Custom audiences, lookalikes, and retargeting strategies.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>A/B Testing:</strong> Continuous ad copy and creative optimization.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Conversion Tracking:</strong> Advanced analytics and attribution modeling.</li>
+                        </ul>
+                        <div class="service-stats">
+                            <div class="stat">
+                                <span class="number">4.5x</span>
+                                <span class="label">Avg. ROAS</span>
+                            </div>
+                            <div class="stat">
+                                <span class="number">-30%</span>
+                                <span class="label">CPA Reduction</span>
+                            </div>
+                        </div>
+                        <a href="book-call.html" class="btn btn-primary">Boost Your Ad Performance</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service 3: Social Media Marketing -->
+        <section class="service-detailed">
+            <div class="container">
+                <div class="service-grid">
+                    <div class="service-content">
+                        <h2>Social Media Marketing</h2>
+                        <p class="lead">Build a loyal community and amplify your brand across platforms.</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> <strong>Strategy & Content:</strong> Platform‑specific content calendars and creative direction.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Community Management:</strong> Engagement, comments, and direct messages.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Influencer Partnerships:</strong> Identify and collaborate with relevant influencers.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Analytics & Reporting:</strong> Track growth, engagement, and conversions.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Paid Social:</strong> Integrated ad campaigns (managed within paid ads service).</li>
+                        </ul>
+                        <div class="service-stats">
+                            <div class="stat">
+                                <span class="number">+120%</span>
+                                <span class="label">Engagement Rate</span>
+                            </div>
+                            <div class="stat">
+                                <span class="number">50k+</span>
+                                <span class="label">Followers Grown</span>
+                            </div>
+                        </div>
+                        <a href="book-call.html" class="btn btn-primary">Grow Your Social Presence</a>
+                    </div>
+                    <div class="service-image">
+                        <img src="images/social-media.jpg" alt="Social Media Marketing" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service 4: Content & Brand Strategy -->
+        <section class="service-detailed" style="background:#f9f9f9;">
+            <div class="container">
+                <div class="service-grid">
+                    <div class="service-image">
+                        <img src="images/content-strategy.jpg" alt="Content Strategy" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <h2>Content & Brand Strategy</h2>
+                        <p class="lead">Tell your story and establish authority with high‑impact content.</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> <strong>Content Marketing:</strong> Blog posts, articles, whitepapers, and eBooks.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Brand Messaging:</strong> Brand voice, positioning, and key messaging framework.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Video & Visuals:</strong> Scriptwriting, storyboards, and production oversight.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>SEO Copywriting:</strong> Optimized content that ranks and converts.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Content Audits:</strong> Refresh and repurpose existing content.</li>
+                        </ul>
+                        <div class="service-stats">
+                            <div class="stat">
+                                <span class="number">300%</span>
+                                <span class="label">Content Engagement</span>
+                            </div>
+                            <div class="stat">
+                                <span class="number">1st</span>
+                                <span class="label">Page Rankings</span>
+                            </div>
+                        </div>
+                        <a href="book-call.html" class="btn btn-primary">Define Your Brand Voice</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Process (common to all services) -->
+        <section class="section-padding">
+            <div class="container">
+                <h2 class="section-title text-center">Our 4‑Step Process</h2>
+                <p class="section-subtitle text-center">We follow a proven methodology to deliver consistent results.</p>
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-search"></i></div>
+                        <h4>1. Discovery & Audit</h4>
+                        <p>We analyze your business, competitors, and current performance to identify opportunities.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-drafting-compass"></i></div>
+                        <h4>2. Strategy Development</h4>
+                        <p>We craft a custom roadmap aligned with your goals, budget, and timeline.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-rocket"></i></div>
+                        <h4>3. Execution & Optimization</h4>
+                        <p>We implement campaigns, monitor performance, and continuously refine for maximum ROI.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-chart-bar"></i></div>
+                        <h4>4. Reporting & Iteration</h4>
+                        <p>Transparent monthly reports with insights and recommendations for next steps.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us (trust signals) -->
+        <section class="section-padding" style="background: #f8f9fa;">
+            <div class="container">
+                <h2 class="section-title text-center">Why Global Brands Trust Us</h2>
+                <div class="cards-grid">
+                    <div class="info-card">
+                        <i class="fas fa-globe card-icon"></i>
+                        <h4>International Expertise</h4>
+                        <p>We've helped businesses in UK, USA, Canada, Dubai, and India scale with localized strategies.</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-chart-line card-icon"></i>
+                        <h4>Data‑Driven Decisions</h4>
+                        <p>Every recommendation is backed by analytics, not guesswork.</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-handshake card-icon"></i>
+                        <h4>Long‑Term Partnerships</h4>
+                        <p>We become your extended marketing team, focused on sustainable growth.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Banner -->
+        <section class="container">
+            <div class="cta-banner">
+                <h2>Ready to Accelerate Your Growth?</h2>
+                <p>Let's discuss which service fits your business best.</p>
+                <a href="book-call.html" class="btn">Book a Free Strategy Call</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== FOOTER (copy exactly from index.html) ========== -->
+    <footer class="footer">
+        <svg class="footer-wave" viewBox="0 0 1440 200" preserveAspectRatio="none">
+            <path d="M0,100 C300,150 600,50 960,80 C1320,110 1140,30 1440,70 L1440,200 L0,200 Z" fill="rgba(128,110,77,0.28)"></path>
+        </svg>
+        <div class="footer-grid container">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <a href="index.html">
+                        <img src="images/instastrategix-logo.png" alt="Instastrategix Logo" loading="lazy">
+                    </a>
+                </div>
+                <h4 class="footer-heading">Instastrategix</h4>
+                <p>Global Digital Marketing Agency<br>Based in India | Serving Worldwide</p>
+                <ul class="footer-list">
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:instastrategix@gmail.com">instastrategix@gmail.com</a></li>
+                    <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/instastrategix-ix" target="_blank">LinkedIn</a></li>
+                    <li><i class="fab fa-facebook"></i> <a href="https://facebook.com/profile.php?id=61553148242829" target="_blank">Facebook</a></li>
+                    <li><i class="fas fa-blog"></i> <a href="https://instastrategix0.blogspot.com/" target="_blank">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about-us.html">About</a></li>
+                    <li><a href="explore-services.html">Explore Services</a></li>
+                    <li><a href="contact-us.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Connect With Us</h4>
+                <p>Follow us for tips, guides & updates!</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/instastrategix/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/instastrategix-ix" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://facebook.com/profile.php?id=61553148242829" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://instastrategix0.blogspot.com/" target="_blank" aria-label="Blog"><i class="fas fa-blog"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Subscribe</h4>
+                <p>Get our latest marketing tips directly to your inbox:</p>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Your email" required aria-label="Email for newsletter">
+                    <button type="submit" class="btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; <span id="current-year"></span> Instastrategix. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js" defer></script>
+    <script src="js/gsap-animations.js" defer></script>
+    <script>
+        // GSAP animations for this page (optional – you can rely on your global animations)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simple fade‑up for service sections
+            gsap.utils.toArray('.service-detailed').forEach((section, i) => {
+                gsap.from(section, {
+                    scrollTrigger: {
+                        trigger: section,
+                        start: 'top 80%',
+                        toggleActions: 'play none none reverse'
+                    },
+                    y: 50,
+                    opacity: 0,
+                    duration: 1,
+                    delay: i * 0.2
+                });
+            });
+        });
+    </script>
+</body>
+</html>
