@@ -238,7 +238,7 @@ img {
         background: none;
         border: none;
         cursor: pointer;
-        z-index: 10001;
+        z-index: 10001; /* Higher than overlay */
     }
 
     .hamburger-line {
@@ -281,8 +281,9 @@ img {
         gap: 1.2rem;
         transition: right 0.35s ease;
         box-shadow: -10px 0 40px rgba(0,0,0,0.15);
-        z-index: 10000;
+        z-index: 10001; /* Above overlay */
         overflow-y: auto;
+        pointer-events: auto; /* Ensure clicks are captured */
     }
 
     .nav-menu.active {
@@ -298,6 +299,8 @@ img {
         border-bottom: 1px solid rgba(0,0,0,0.05);
         position: relative;
         transition: 0.3s ease;
+        display: block; /* Make entire area clickable */
+        width: 100%;
     }
 
     .nav-link:hover,
@@ -316,9 +319,11 @@ img {
         text-align: center;
         background: var(--gold-gradient);
         box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        display: inline-block;
+        width: 100%;
     }
 
-    /* Dark Overlay + Background Lock - FIXED */
+    /* Dark Overlay - FIXED */
     body.menu-open::before {
         content: '';
         position: fixed;
@@ -327,16 +332,18 @@ img {
         width: 100%;
         height: 100%;
         background: rgba(0,0,0,0.5);
-        z-index: 9999;
-        pointer-events: none; /* Allows clicks to pass through to menu */
-    }
-
-    body.menu-open .nav-menu {
-        z-index: 10001; /* Ensures menu is above overlay */
+        z-index: 10000; /* Below menu */
+        pointer-events: none; /* Crucial: lets clicks pass through to menu */
     }
 
     body.menu-open {
         overflow: hidden; /* Prevents scrolling behind the menu */
+    }
+}
+    
+    /* Ensure menu is above overlay */
+    body.menu-open .nav-menu {
+        z-index: 10001;
     }
 }
 /* Marketing Slider */
