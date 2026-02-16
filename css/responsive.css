@@ -1,42 +1,19 @@
+/* responsive.css - Fixed version (No conflicting mobile menu styles) */
+
 @media (max-width: 768px) {
+    /* Container adjustments */
     .nav-container {
         position: relative;
         flex-wrap: wrap;
         justify-content: space-between;
     }
+
     .menu-toggle {
         display: flex;
         margin-left: auto;
     }
-    .nav-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: rgba(0,0,0,0.95);
-        flex-direction: column;
-        padding: 2rem;
-        gap: 1rem;
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: var(--transition);
-    }
-    .nav-menu.active {
-    align-items: center;          /* centers links horizontally */
-    text-align: center;
-}
-.nav-menu.active .nav-link {
-    padding: 1.5rem 2rem;         /* larger touch targets */
-    font-size: 1.2rem;
-    width: 100%;
-    border-radius: var(--radius-md);
-}
-.nav-cta {
-    width: 90%;
-    max-width: 400px;
-    margin: 1rem auto 0;
-}
+
+    /* Hero section */
     .hero-content {
         padding: var(--space-xl) var(--space-md);
     }
@@ -46,79 +23,61 @@
     .hero-subtitle {
         font-size: 1.8rem;
     }
+
+    /* Cards and grids */
     .cards-grid, .services-grid {
         grid-template-columns: 1fr;
         gap: var(--space-md);
     }
+
+    /* Buttons */
     .hero-buttons .btn {
         width: 90%;
         padding: 1.4rem 2rem;
         font-size: 1.15rem;
     }
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-md);
-    }
-    .social-icons {
-        justify-content: center;
-    }
+
     .hero-buttons {
         flex-direction: column;
         gap: 1rem;
     }
+
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
     .subscribe-form {
         max-width: 100%;
     }
-}
-@media (max-width: 480px) {
-    .container {
-        padding: 0 var(--space-sm);
-    }
-    .section-padding {
-        padding: var(--space-xl) 0;
-    }
-}
 
-@media (max-width: 768px) {
-    /* Make menu visible when active */
-    .nav-menu {
-        z-index: 9999; /* Ensure it appears above everything */
-    }
-
-    .nav-menu.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-    }
-
-    /* Dark overlay when menu is open (same as your components.css version) */
+    /* Dark overlay – only for background dimming when menu is open */
     body.menu-open::before {
         content: '';
         position: fixed;
         inset: 0;
         background: rgba(0, 0, 0, 0.6);
-        z-index: 9998;
-        pointer-events: auto; /* Allows clicking overlay to close */
+        z-index: 10000;          /* Below the menu (menu has z-index 10001) */
+        pointer-events: none;    /* Allows clicks to pass through to the menu */
     }
 
     /* Prevent page scrolling when menu is open */
     body.menu-open {
         overflow: hidden;
     }
+}
 
-    /* Make text readable on dark background */
-    .nav-menu .nav-link {
-        color: #fff !important;
-        text-shadow: none;
+/* Extra small devices */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 var(--space-sm);
     }
-
-    .nav-menu .nav-link:hover,
-    .nav-menu .nav-link.active {
-        color: var(--gold-light) !important;
-        background: rgba(128, 110, 77, 0.3);
-    }
-
-    .nav-cta {
-        color: #fff !important;
+    .section-padding {
+        padding: var(--space-xl) 0;
     }
 }
