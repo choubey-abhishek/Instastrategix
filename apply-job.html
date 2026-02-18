@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers at Instastrategix | Join Our Team</title>
+    <meta name="description" content="Apply for open positions at Instastrategix – a global digital marketing agency. We're looking for passionate SEO specialists, PPC experts, content writers, and more.">
+    
+    <!-- Existing CSS files (adjust paths if needed) -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Page-specific styles */
+        .careers-hero {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('images/careers-bg.jpg') center/cover;
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+        .careers-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .careers-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        .openings-section {
+            padding: var(--space-xxl) 0;
+            background: #f8f9fa;
+        }
+        .openings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+        .job-card {
+            background: white;
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(128,110,77,0.2);
+            transition: var(--transition);
+        }
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--gold);
+        }
+        .job-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+        }
+        .job-type {
+            display: inline-block;
+            background: var(--gold-gradient);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .job-location {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+        .job-location i {
+            margin-right: 0.3rem;
+            color: var(--gold);
+        }
+        .job-description {
+            margin-bottom: 1.5rem;
+            color: #555;
+            line-height: 1.6;
+        }
+        .apply-btn {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            width: 100%;
+        }
+        .apply-btn:hover {
+            background: var(--gold-gradient);
+            color: white;
+            border-color: transparent;
+        }
+        .application-section {
+            padding: var(--space-xxl) 0;
+            background: white;
+        }
+        .application-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f9f9f9;
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(128,110,77,0.2);
+        }
+        .application-form h2 {
+            text-align: center;
+            margin-bottom: var(--space-lg);
+            font-size: 2rem;
+            color: var(--text-primary);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: var(--radius-md);
+            font-family: var(--font-primary);
+            transition: var(--transition);
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(128,110,77,0.2);
+        }
+        .file-upload {
+            border: 2px dashed #e0e0e0;
+            padding: 2rem;
+            text-align: center;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .file-upload:hover {
+            border-color: var(--gold);
+            background: rgba(128,110,77,0.05);
+        }
+        .file-upload i {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        .file-upload p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .file-upload input {
+            display: none;
+        }
+        .file-name {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--gold);
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            font-size: 1.1rem;
+            margin-top: var(--space-md);
+        }
+        .privacy-note {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .privacy-note a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        .privacy-note a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .careers-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========== HEADER (copy exactly from index.html) ========== -->
+    <header class="site-header">
+        <div class="nav-container container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/instastrategix-logo.png" alt="Instastrategix Logo" loading="lazy">
+                    <span class="logo-text">Instastrategix</span>
+                </a>
+            </div>
+            <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about-us.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="careers.html" class="nav-link active">Careers</a>
+                <a href="contact-us.html" class="nav-link">Contact</a>
+                <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+                <a href="client/payment.html" class="nav-link">Book Services</a>
+                <a href="https://instastrategix0.blogspot.com/" class="nav-link" target="_blank">Blog</a>
+                <a href="contact-us.html" class="nav-cta btn-primary">Get a Free Strategy Call</a>
+            </nav>
+        </div>
+        <div class="header-border"></div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="careers-hero">
+            <div class="container">
+                <h1>Join the Instastrategix Team</h1>
+                <p>We're building the future of digital marketing. If you're passionate, driven, and ready to make an impact, we want to hear from you.</p>
+            </div>
+        </section>
+
+        <!-- Current Openings -->
+        <section class="openings-section">
+            <div class="container">
+                <h2 class="section-title text-center">Current Openings</h2>
+                <p class="section-subtitle text-center">Explore opportunities to grow with us</p>
+                
+                <div class="openings-grid" id="job-listings">
+                    <!-- Job cards will be populated by JavaScript, or you can hardcode them -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Form -->
+        <section class="application-section">
+            <div class="container">
+                <div class="application-form">
+                    <h2>Apply Now</h2>
+                    <form id="jobApplicationForm" action="https://formspree.io/f/your-form-id" method="POST" enctype="multipart/form-data">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="position">Position Applied For *</label>
+                            <select id="position" name="position" required>
+                                <option value="">Select a position</option>
+                                <option value="SEO Specialist">SEO Specialist</option>
+                                <option value="PPC Specialist">PPC Specialist</option>
+                                <option value="Social Media Manager">Social Media Manager</option>
+                                <option value="Content Writer">Content Writer</option>
+                                <option value="Web Developer">Web Developer</option>
+                                <option value="Account Manager">Account Manager</option>
+                                <option value="Other">Other / Speculative</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="coverLetter">Cover Letter / Why You? *</label>
+                            <textarea id="coverLetter" name="coverLetter" rows="6" required placeholder="Tell us about your experience, skills, and why you'd be a great fit..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="resume">Resume / CV * (PDF, DOC, DOCX, max 5MB)</label>
+                            <div class="file-upload" id="resumeUpload">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Click to upload or drag and drop</p>
+                                <p style="font-size: 0.8rem;">Accepted formats: .pdf, .doc, .docx (max 5MB)</p>
+                                <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                            </div>
+                            <div class="file-name" id="file-name"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="portfolio">Portfolio / LinkedIn URL (optional)</label>
+                            <input type="url" id="portfolio" name="portfolio" placeholder="https://linkedin.com/in/... or portfolio link">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>How did you hear about us?</label>
+                            <select name="source">
+                                <option value="">Select</option>
+                                <option value="LinkedIn">LinkedIn</option>
+                                <option value="Indeed">Indeed</option>
+                                <option value="Company Website">Company Website</option>
+                                <option value="Referral">Referral</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary submit-btn">Submit Application</button>
+                        
+                        <div class="privacy-note">
+                            <p>✓ Your information is secure and will only be used for recruitment purposes.</p>
+                            <p>By applying, you agree to our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Why Join Us Section (optional) -->
+        <section class="section-padding" style="background: #f8f9fa;">
+            <div class="container">
+                <h2 class="section-title text-center">Why Work With Us?</h2>
+                <div class="cards-grid">
+                    <div class="info-card">
+                        <i class="fas fa-globe card-icon"></i>
+                        <h4>Global Exposure</h4>
+                        <p>Work with international clients from UK, USA, Canada, Dubai, and India.</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-rocket card-icon"></i>
+                        <h4>Growth Mindset</h4>
+                        <p>We invest in your learning and career development.</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-hand-holding-heart card-icon"></i>
+                        <h4>Great Culture</h4>
+                        <p>Collaborative, flexible, and results‑driven environment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== FOOTER (copy exactly from index.html) ========== -->
+    <footer class="footer">
+        <svg class="footer-wave" viewBox="0 0 1440 200" preserveAspectRatio="none">
+            <path d="M0,100 C300,150 600,50 960,80 C1320,110 1140,30 1440,70 L1440,200 L0,200 Z" fill="rgba(128,110,77,0.28)"></path>
+        </svg>
+        <div class="footer-grid container">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <a href="index.html">
+                        <img src="images/instastrategix-logo.png" alt="Instastrategix Logo" loading="lazy">
+                    </a>
+                </div>
+                <h4 class="footer-heading">Instastrategix</h4>
+                <p>Global Digital Marketing Agency<br>Based in India | Serving Worldwide</p>
+                <ul class="footer-list">
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:instastrategix@gmail.com">instastrategix@gmail.com</a></li>
+                    <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/instastrategix-ix" target="_blank">LinkedIn</a></li>
+                    <li><i class="fab fa-facebook"></i> <a href="https://facebook.com/profile.php?id=61553148242829" target="_blank">Facebook</a></li>
+                    <li><i class="fas fa-blog"></i> <a href="https://instastrategix0.blogspot.com/" target="_blank">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about-us.html">About</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="contact-us.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Connect With Us</h4>
+                <p>Follow us for tips, guides & updates!</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/instastrategix/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/instastrategix-ix" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://facebook.com/profile.php?id=61553148242829" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://instastrategix0.blogspot.com/" target="_blank" aria-label="Blog"><i class="fas fa-blog"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Subscribe</h4>
+                <p>Get our latest marketing tips directly to your inbox:</p>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Your email" required aria-label="Email for newsletter">
+                    <button type="submit" class="btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; <span id="current-year"></span> Instastrategix. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js" defer></script>
+    <script src="js/gsap-animations.js" defer></script>
+    
+    <script>
+        // Dynamic job listings (you can replace with actual data)
+        const jobs = [
+            {
+                title: "SEO Specialist",
+                type: "Full-time",
+                location: "Remote (India)",
+                description: "3+ years experience in technical SEO, on-page optimization, and link building. Experience with tools like Ahrefs, SEMrush, and Google Analytics."
+            },
+            {
+                title: "PPC Specialist",
+                type: "Full-time",
+                location: "Remote (India)",
+                description: "2+ years managing Google Ads & Social Media campaigns. Strong analytical skills and track record of delivering high ROAS."
+            },
+            {
+                title: "Content Writer",
+                type: "Freelance / Contract",
+                location: "Remote",
+                description: "Excellent English writing skills, experience in digital marketing topics, ability to write SEO-optimized blogs and web content."
+            },
+            {
+                title: "Social Media Manager",
+                type: "Full-time",
+                location: "Remote (India)",
+                description: "Create engaging content, manage communities, and develop strategies for Instagram, LinkedIn, and Facebook. Experience with analytics tools."
+            }
+        ];
+
+        const jobListings = document.getElementById('job-listings');
+        if (jobListings) {
+            jobListings.innerHTML = jobs.map(job => `
+                <div class="job-card">
+                    <h3>${job.title}</h3>
+                    <span class="job-type">${job.type}</span>
+                    <div class="job-location"><i class="fas fa-map-marker-alt"></i> ${job.location}</div>
+                    <p class="job-description">${job.description}</p>
+                    <button class="apply-btn" onclick="document.getElementById('position').value='${job.title}'; document.getElementById('application-section').scrollIntoView({behavior:'smooth'});">Apply Now</button>
+                </div>
+            `).join('');
+        }
+
+        // File upload handling
+        const resumeUpload = document.getElementById('resumeUpload');
+        const resumeInput = document.getElementById('resume');
+        const fileNameDisplay = document.getElementById('file-name');
+
+        resumeUpload.addEventListener('click', () => resumeInput.click());
+        resumeUpload.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            resumeUpload.style.borderColor = 'var(--gold)';
+            resumeUpload.style.background = 'rgba(128,110,77,0.05)';
+        });
+        resumeUpload.addEventListener('dragleave', () => {
+            resumeUpload.style.borderColor = '#e0e0e0';
+            resumeUpload.style.background = 'none';
+        });
+        resumeUpload.addEventListener('drop', (e) => {
+            e.preventDefault();
+            resumeUpload.style.borderColor = '#e0e0e0';
+            resumeUpload.style.background = 'none';
+            const files = e.dataTransfer.files;
+            if (files.length) {
+                resumeInput.files = files;
+                fileNameDisplay.textContent = `Selected: ${files[0].name}`;
+            }
+        });
+        resumeInput.addEventListener('change', () => {
+            if (resumeInput.files.length) {
+                fileNameDisplay.textContent = `Selected: ${resumeInput.files[0].name}`;
+            } else {
+                fileNameDisplay.textContent = '';
+            }
+        });
+
+        // Form validation (optional)
+        document.getElementById('jobApplicationForm').addEventListener('submit', (e) => {
+            if (!resumeInput.files.length) {
+                e.preventDefault();
+                alert('Please upload your resume.');
+            }
+        });
+    </script>
+</body>
+</html>
